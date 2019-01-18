@@ -3,6 +3,6 @@ drop table detail_table;
 drop table order_table;
 drop table stock_table;
 drop table favorite_table;
-drop table image_table;
 drop table product_table;
+drop table image_table;
 drop table user_table;
