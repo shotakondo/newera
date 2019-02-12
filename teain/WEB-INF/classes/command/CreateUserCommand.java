@@ -12,8 +12,8 @@ public class CreateUserCommand extends AbstractCommand{
 		
 		OracleConnectionManager.getInstance().beginTransaction();
 		
-		// String[] ids = reqc.getParameter("id");
-		// String id = ids[0];
+		String[] ids = reqc.getParameter("id");
+		String id = ids[0];
 			
 		String[] firstNames = reqc.getParameter("firstname");
 		String firstName = firstNames[0];
@@ -48,8 +48,8 @@ public class CreateUserCommand extends AbstractCommand{
 		
 		User u = new User();
 	
-		// u.setId(id);
-		// System.out.println("setid : " + id);
+		u.setId(id);
+		System.out.println("setid : " + id);
 		
 		
 		

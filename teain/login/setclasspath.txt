@@ -1,1 +1,0 @@
-set classpath=C:\webapp\login\WEB-INF\lib\mailapi.jar;C:\webapp\login\WEB-INF\lib\smtp.jar;C:\tomcat8\lib\servlet-api.jar;.
