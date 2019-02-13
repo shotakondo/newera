@@ -15,6 +15,7 @@ public interface UserDao{
 	public List editUser(User u);
 	
 	public boolean PasswordReplace(User u);
+	public boolean EmailReplace(User u);
 	public boolean checkPassword(User u);
 
 }

@@ -4,7 +4,7 @@
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |会員登録</title>
+	<title>ニューエラ/New Era公式オンラインストア |会員情報変更</title>
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -18,6 +18,7 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script><!--scroll menu-->
+<script language="JavaScript" type="texy/javascript" src="js/check.js"></script> <!--all check-->
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 <!-- etm meta -->
 <meta property="etm:device" content="desktop">
@@ -40,10 +41,9 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-		--><li class="link_silhouette"><a href="">シルエットガイド</a></li><!--
-		--><li class="link_size"><a href="">サイズチャート</a></li><!--
-		--><li class="link_guide"><a href="">ショッピングガイド</a></li><!--
-		--><li class="link_login"><a href="">ログイン／新規会員登録</a></li><!--
+
+			--><li class="link_mypage"><a href="">マイページ</a></li><!--
+			--><li class="link_logout"><a href="logout">ログアウト</a></li><!--
 	--></ul>
 </div></div>
 
@@ -73,7 +73,7 @@
 <div class="customer_ col1_">
 
 <div class="navitopicpath_">
-<a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;<a href="/shop/customer/customer.aspx">会員情報変更</a>
+<a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;<a href="">会員情報変更</a>
 </div>
 
 
@@ -87,7 +87,7 @@
 
 
 
-<form id="frmCustomer" name="" method="post" action="edituser" novalidate="" onsubmit="return (ecUtil.confirmInputCheck() &amp;&amp; removePlaceholder() &amp;&amp; checkAddr2() ) ">
+<form id="frmCustomer" name="" method="post" action="edituser" novalidate="" onsubmit="return check_submit_addnew()">
 
 <p class="message_">会員情報登録・修正を行います。<img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/check.gif" alt="必須">マークの箇所は、必ず入力してください。</p>
 
@@ -98,10 +98,10 @@
 		<th><img class="must_" src="img/check.gif" alt="必須">氏名</th>
 		<td class="valign_m_">
 			<span class="efo checktype_name  is_required">
-				［姓］<input value="<%= u.getFirstName() %>" size="20" type="text" name="firstname" id="name" maxlength="10" onblur="ecUtil.strConvert(this, true); " title="姓	" placeholder="姓	" class="classrequired">
+				［姓］<input value="<%= u.getFirstName() %>" size="20" type="text" name="firstname" id="firstname" maxlength="10" onblur="ecUtil.strConvert(this, true); " title="姓	" placeholder="姓	" class="classrequired">
 			</span>
 			<span class="efo checktype_name is_required">
-				［名］<input value="<%= u.getLastName() %>" size="20" type="text" name="lastname" id="name2" maxlength="10" onblur="ecUtil.strConvert(this, true); " title="名	" placeholder="名	" class="classrequired"> 
+				［名］<input value="<%= u.getLastName() %>" size="20" type="text" name="lastname" id="lastname" maxlength="10" onblur="ecUtil.strConvert(this, true); " title="名	" placeholder="名	" class="classrequired"> 
 			</span>
 			
 			
@@ -137,18 +137,8 @@
 		
 		</td>
 	</tr>
-	
-	<tr>
-		<th>性別</th>
-		<td>
-			<span class="efo ">
-				<select name="sex"><option value="<%= u.getSex() %>" selected=""></option><option value="0">男性</option><option value="1">女性</option></select>
-			</span>
-		
-		</td>
-	</tr>
-  
 
+  
 	<tr>
 		<th><img class="must_" src="img/check.gif" alt="必須">連絡先電話番号</th>
 		<td>

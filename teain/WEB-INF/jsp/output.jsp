@@ -43,10 +43,8 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-		--><li class="link_silhouette"><a href="">シルエットガイド</a></li><!--
-		--><li class="link_size"><a href="">サイズチャート</a></li><!--
-		--><li class="link_guide"><a href="">ショッピングガイド</a></li><!--
-		--><li class="link_login"><a href="">ログイン／新規会員登録</a></li><!--
+
+		--><li class="link_login"><a href="input">ログイン／新規会員登録</a></li><!--
 	--></ul>
 </div></div>
 
@@ -79,7 +77,7 @@
 <p>お客様宛にパスワード再設定ページのURLをメール送信しました。<br>
 メールのURLをクリックして新しいパスワードを設定してください。</p>
 <div class="submit_">
-<a href=""><img src="img/ordered.gif" alt="ホームへ戻る"></a>
+<a href="home"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
 </div>
 </div>
 

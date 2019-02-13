@@ -47,11 +47,6 @@
 				<div id="head_main">
 	<div class="clearfix header_inner_">
 		<p id="logo"><a href="https://store.neweracap.jp/shop/"><img src="img/logo.svg" alt="NEWERA"></a></p>
-		<ul id="gnav" class="clearfix">
-			<li><a href="https://store.neweracap.jp/shop/r/rNI/">新着情報</a></li>
-			<li><a href="https://store.neweracap.jp/shop/customer/menu.aspx#head_item_links">アイテム</a></li>
-			<li><a href="https://store.neweracap.jp/shop/r/rFT/">特集</a></li>
-		</ul>
 		<div class="info">
 			<div class="search"><!--
 				--><form name="frmSearch" method="get" action="https://store.neweracap.jp/shop/goods/search.aspx"><!--

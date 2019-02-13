@@ -1,8 +1,10 @@
+<%@ page import="beans.User" %>
+<%@ page import="context.*" %>
 <%@ page language="java" contentType="text/html;charset=windows-31J"
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |会員登録</title>
+	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
 	
 	
 	
@@ -32,6 +34,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/core.css">
 	<link rel="stylesheet" type="text/css" href="css/skin.css">
+
 
 </head>
 <body cz-shortcut-listen="true" class="" style="padding-top: 0px;">
@@ -69,7 +72,7 @@
 </div>
 
 	</div>
-	
+	<% User u = (User)session.getAttribute("userBean"); %>
 <div id="contents">
 <div class="customer_ col1_">
 <div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;
@@ -80,31 +83,31 @@
 <h1 class="common_headline1_">メールアドレス変更</h1>
 
 <div class="customer_status_">
-<div class="loginname_">Ｔｏｋｙｏ Ａｎｈ 様</div>
+<div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
 
 </div>
 <script> 
 		function validateForm() {
 		var email = document.getElementById('email').value;
 		var pass = document.getElementById('pass').value;
-		var newemail1 = document.getElementById('newemail1').value;
-		var newpass = document.getElementById('newpass').value;
+		var oldemail = document.getElementById('oldemail').value;
+		var newemail = document.getElementById('newemail').value;
 
-		if(email ==''){
-				alert('Emailを入力してください');
+		if(oldemail ==''){
+				alert('イメールを入力してください');
 		}
 		else if(pass == ''){
-			alert('今のパスワードを入力してください')
+			alert('現在のパスワードを入力してください')
 		}
-		else if(newemail1 ==''|| newemail2 ==''){
+		else if(email ==''|| newemail ==''){
 				alert('新しいイメール入力してください');
 		}
-		else if(email != newemail1){
+		else if(email != newemail){
 				alert('確認イメール合ってないよー');
 		}
 
 		else{
-				alert('確認のためもう一度入力してください');
+				alert('確認 OK です。');
 				return true;
 			}
 		 
@@ -114,26 +117,26 @@
 
 
 
-<form method="post" action="passchange" onsubmit="return validateForm()">
+<form method="post" action="emailchange" onsubmit="return validateForm()">
 <table class="formdetail_ mailchange_">
 <tbody><tr>
 <th><img class="must_" src="img/check.gif" alt="必須">メールアドレス</th>
 <td>
-<input type="text" name="email" value="" size="40" maxlength="100" tabindex="1">
+<input type="text" name="oldemail" id="oldemail" value="<%= u.getEmail() %>" size="40" maxlength="100" tabindex="1">
 
 </td>
 </tr>
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">パスワード</th>
 <td>
-<input type="password" name="pass" value="" size="20" maxlength="20" tabindex="1" id="pwd" autocomplete="off">
+<input type="password" name="pass" id="pass" value="" size="20" maxlength="20" tabindex="1" autocomplete="off">
 
 </td>
 </tr>
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">新しいメールアドレス</th>
 <td>
-<input type="text" name="newmail1" value="" size="40" maxlength="100" id="newmail1" tabindex="1">
+<input type="text" name="email" id="email" value="" size="40" maxlength="100" tabindex="1">
 
 <p class="small_">（半角@を含むアドレスを100文字以内で入力してください）</p>
 <p class="small_">※「.@ (@の前にドット)」、「.. (ドット2つ)」を含むメールアドレスはご利用いただけません</p>
@@ -143,7 +146,7 @@
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">新しいメールアドレスを再入力</th>
 <td>
-<input type="text" name="newmail2" value="" size="40" maxlength="100" id="newmail2" tabindex="1" onpaste="alert('確認のためもう一度入力してください');return false">
+<input type="text" name="newemail" id="newemail" value="" size="40" maxlength="100" tabindex="1" onpaste="alert('確認のためもう一度入力してください');return false">
 <p class="small_">（確認のためもう一度入力して下さい）</p>
 
 </td>

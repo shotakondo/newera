@@ -60,11 +60,11 @@ public class PasswordChangeCommand extends AbstractCommand{
 				reqc.setSessionAttribute("userBean",ub);
 				System.out.println("setsessionAttribute");
 				
-				resc.setTarget("home");
+				resc.setTarget("passafter");
 				
 			}else{
 				
-				resc.setTarget("error");
+				resc.setTarget("");
 				System.out.println("update‚Å‚«‚È‚©‚Á‚½");
 				
 			}

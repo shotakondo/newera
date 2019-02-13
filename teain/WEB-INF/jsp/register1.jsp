@@ -169,7 +169,7 @@ function check_submit_addnew()
 <div class="form-group">
       <label class="" for="pwd">パスワード:</label><img src="img/icon_hissu.gif">
       <div class="col-sm-10">          
-        <input type="text" class="form-control" id="pwd" name="pass" placeholder="パスワードを入力">
+        <input type="text" class="form-control" id="pass" name="pass" placeholder="パスワードを入力">
       </div>
      </div><p>（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）
 あと11文字入力可能です。</p>

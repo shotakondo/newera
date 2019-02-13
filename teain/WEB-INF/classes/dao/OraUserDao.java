@@ -3,6 +3,7 @@
 /*CheckLogin 75-119*/
 /*getUser 126-173*/
 /*CheckEmail 235-279*/
+/*EmailReplace 443-482*/
 /*--------------------------*/
 
 package dao;
@@ -429,9 +430,55 @@ public class OraUserDao implements UserDao{
 		
 	}
 	
-	
-	
-	
-	
-	
+	public boolean EmailReplace(User u){
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		Connection cn = null;
+		boolean b = false;
+
+		try{
+			cn = OracleConnectionManager.getInstance().getConnection();
+
+			String sql = "UPDATE user_table set user_email = ? where user_id = ?";
+			
+			System.out.println("OraUserDao EmailReplace getEmail : "+u.getEmail());
+			System.out.println("OraUserDao EmailReplace getId : "+u.getId());
+			
+			st = cn.prepareStatement(sql);
+			
+			
+			st.setString(1,u.getEmail());
+			st.setString(2,u.getId());
+			
+			System.out.println(sql);
+			
+			
+			
+			st.executeUpdate();
+			
+			
+			b = true;
+			
+			}catch(SQLException e){
+				
+				e.printStackTrace();
+				b = false;
+			}
+			finally{
+				try{
+					if(rs != null){
+						rs.close();
+					}
+					if(st != null){
+						st.close();
+					}
+				}
+				catch(SQLException e){
+					e.printStackTrace();
+				}
+			}
+		return b;
+	}
+
 }

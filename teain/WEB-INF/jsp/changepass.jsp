@@ -4,8 +4,36 @@
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |会員登録</title>
-	
+	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
+<script> 
+		function validateForm() {
+		var email = document.getElementById('email').value;
+		var oldpass = document.getElementById('oldpass').value;
+		var pass = document.getElementById('pass').value;
+		var newpass = document.getElementById('newpass').value;
+
+		if(email ==''){
+				alert('イメールを入力してください');
+		}
+		else if(oldpass == ''){
+			alert('現在のパスワードを入力してください')
+		}
+		else if(pass ==''|| newpass ==''){
+				alert('新しいパスワード入力してください');
+		}
+		else if(pass != newpass){
+				alert('確認パスワード合っていませんよー');
+		}
+
+		else{
+				alert('確認 OK です。');
+				return true;
+			}
+		 
+			return false;
+		}
+
+	</script>	
 	
 	
 
@@ -71,7 +99,7 @@
 </div>
 
 	</div>
-	
+	<% User u = (User)session.getAttribute("userBean"); %>
 <div id="contents">
 
 <div class="customer_ col1_">
@@ -79,75 +107,48 @@
 <h1 class="common_headline1_">パスワードの変更</h1>
 
 <div class="customer_status_">
-<div class="loginname_">Ｔｏｋｙｏ Ａｎｈ 様</div>
+<div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
 
 </div>
 
-<script> 
-		function validateForm() {
-		var email = document.getElementById('email').value;
-		var oldpass = document.getElementById('oldpass').value;
-		var pass = document.getElementById('pass').value;
-		var newpass = document.getElementById('newpass').value;
 
-		if(email ==''){
-				alert('Emailを入力してください');
-		}
-		else if(oldpass == ''){
-			alert('今のパスワードを入力してください')
-		}
-		else if(pass ==''|| newpass ==''){
-				alert('新しいパスワード入力してください');
-		}
-		else if(pass != newpass){
-				alert('確認パスワード合ってないよー');
-		}
 
-		else{
-				alert('合ってる');
-				return true;
-			}
-		 
-			return false;
-		}
-	</script>
-<% User u = (User)session.getAttribute("userBean"); %>
 <form method="post" action="passchange" onsubmit="return validateForm()">
 <table class="formdetail_ passchange_">
 <tbody><tr>
 <th><img class="must_" src="img/check.gif" alt="必須">メールアドレス</th>
 <td>
-<input type="text" name="email" value="<%= u.getEmail() %>" size="40" maxlength="100" tabindex="1" id="oldid">
+<input type="text" name="email" id="email" value="<%= u.getEmail() %>" size="40" maxlength="100" tabindex="1" id="oldid">
 
 </td>
 </tr>
 <tr>
-<th><img class="must_" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/check.gif" alt="必須">現在のパスワード</th>
+<th><img class="must_" src="img/check.gif" alt="必須">現在のパスワード</th>
 <td>
-<input type="password" name="oldpass" value="" size="20" maxlength="20" tabindex="1" autocomplete="off">
+<input type="password" name="oldpass" id="oldpass" value="" size="20" maxlength="20" tabindex="1" autocomplete="off">
 
 </td>
 </tr>
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード</th>
 <td>
-<input type="password" name="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
+<input type="password" name="pass" id="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
 <br><span class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</span>
 
 </td>
 </tr>
 <tr>
-<th><img class="must_" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/check.gif" alt="必須">新しいパスワード（確認）</th>
+<th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード（確認）</th>
 <td>
-<input type="password" name="newpass" value="" size="20" maxlength="20" id="npwd2" tabindex="1" autocomplete="off" onpaste="alert('確認のためもう一度入力してください');return false">
+<input type="password" name="newpass" id="newpass" value="" size="20" maxlength="20" id="npwd2" tabindex="1" autocomplete="off" onpaste="alert('確認のためもう一度入力してください');return false">
 <br><span class="small_">（確認のためもう一度入力して下さい）</span>
 
 </td>
 </tr>
 </tbody></table>
 <div class="submit_">
-<a href="javascript:history.go(-1);"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/back.gif" alt="戻る"></a>
-<input type="image" name="submit" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/change.gif" alt="変更する" tabindex="1">
+<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
+<input type="image" name="submit" src="img/change.gif" alt="変更する" tabindex="1">
 </div>
 </form>
 

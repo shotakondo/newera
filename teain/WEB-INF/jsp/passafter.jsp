@@ -2,7 +2,7 @@
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |会員登録</title>
+	<title>ニューエラ/New Era公式オンラインストア |パスワード変更</title>
 	
 	
 	
@@ -43,10 +43,7 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-		--><li class="link_silhouette"><a href="">シルエットガイド</a></li><!--
-		--><li class="link_size"><a href="">サイズチャート</a></li><!--
-		--><li class="link_guide"><a href="">ショッピングガイド</a></li><!--
-		--><li class="link_login"><a href="">ログイン／新規会員登録</a></li><!--
+		--><li class="link_login"><a href="input">ログイン／パスワード変更</a></li><!--
 	--></ul>
 </div></div>
 
@@ -73,7 +70,8 @@
 	
 <div id="contents">
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;<a href="/shop/customer/passchange.aspx">パスワードの変更</a></div>
+<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;
+<a href="">マイページ</a>&gt;<a href="passchange">パスワードの変更</a></div>
 <h1 class="common_headline1_">パスワードの変更</h1>
 
 
@@ -81,7 +79,7 @@
 <p><strong>パスワードを変更しました。</strong></p>
 <p><strong><a href="input">もう一度マイページにログインする</a></strong></p>
 <div class="submit_">
-<a href="https://store.neweracap.jp/shop/"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/ordered.gif" alt="ホームへ戻る"></a>
+<a href="home"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
 </div>
 </div>
 

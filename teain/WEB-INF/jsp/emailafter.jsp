@@ -1,10 +1,8 @@
-<%@ page import="beans.User" %>
-<%@ page import="context.*" %>
 <%@ page language="java" contentType="text/html;charset=windows-31J"
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
+	<title>ニューエラ/New Era公式オンラインストア |パスワード変更</title>
 	
 	
 	
@@ -13,7 +11,6 @@
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-
 <link rel="stylesheet" type="text/css" href="css/display_switch.css"><!-- hien thi-->
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <meta http-equiv="content-script-type" content="text/javascript">
@@ -46,8 +43,7 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-			--><li class="link_mypage"><a href="">マイページ</a></li><!--
-			--><li class="link_logout" style="background-image: url("img/head_icon_logout.png")><a href="logout">ログアウト</a></li><!--
+		--><li class="link_login"><a href="input">ログイン／パスワード変更</a></li><!--
 	--></ul>
 </div></div>
 
@@ -71,97 +67,34 @@
 </div>
 
 	</div>
-	<% User u = (User)session.getAttribute("userBean"); %>
+	
 <div id="contents">
-
-
 <div class="customer_ col1_">
-  <div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="">マイページ</a></div>
-  <h1 class="common_headline1_"><strong><img src="img/my_page1.png" alt="Mypage"></strong><span>マイページ</span></h1>
-  
-  <div class="customer_status_">
-  <div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
+<div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;
 
-  
-  </div>
-  
-  
-  
-  <div class="mymenu_">
-    <div class="mymenu_item_"> 
-      <div class="img_"><a href="https://store.neweracap.jp/shop/"><img src="img/mypage_icon_shop.png" alt="商品ページを見る"></a></div>
-      <div class="desc_">
-      <h2 id="mymenu_top"> <a href="https://store.neweracap.jp/shop/">商品ページを見る</a> </h2>
-      <p>商品ページへ移動します。</p>
-      </div>
-       </div>
-    <div class="mymenu_item_">
-    <div class="img_"><a href="/shop/customer/history.aspx"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_hsty.png" alt="購入履歴"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_history"> <a href="/shop/customer/history.aspx">購入履歴</a> </h2>
-      <p>現在のご注文の状況と今までのご注文の履歴です。</p>
-      </div>
-    </div>
-    
-    <div class="mymenu_item_">
-    <div class="img_"><a href="jumpedituser"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_info.png" alt="会員情報変更"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_customer"> <a href="jumpedituser">会員情報変更</a> </h2>
-      <p>登録されている会員情報を変更することができます。</p>
-      </div>
-    </div>
-    
-    
-    <div class="mymenu_item_">
-    
-<div class="img_"><a href="jumpemailchange"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_mlcg.png" alt="メールアドレス変更"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_mailchange"><a href="jumpemailchange">メールアドレス変更</a></h2>
+<a href="/shop/customer/mailchange.aspx">メールアドレス変更</a>
 
-      <p>登録されているメールアドレスを変更することができます。</p>
-      </div>
-    </div>
-   
-    <div class="mymenu_item_">
-    <div class="img_"><a href="jumppasschange"><img src="img/mypage_icon_pwrd.png" alt="パスワードの変更"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_passchange"> <a href="jumppasschange">パスワードの変更</a> </h2>
-      <p>現在使用しているパスワードの変更ができます。</p>
-    </div>
-    </div>
-    
-    
-    <div class="mymenu_item_">
-    <div class="img_"><a href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_fblt.png" alt="お気に入り"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_bookmark"> <a href="">お気に入り</a> </h2>
-      <p>お気に入り商品リストです。</p>
-    </div>
-    </div>
-    
-    <div class="mymenu_item_">
-    <div class="img_"><a href="jumptaikai"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_wdwl.png" alt="退会"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_withdrawal"> <a href="jumptaikai">退会</a> </h2>
-      <p>会員情報を削除して退会します。</p>
-    </div>
-    </div>
-    <div class="mymenu_item_">
-    <div class="img_"><a href="logout"><img src="img/mypage_icon_lout.png" alt="ログアウト"></a></div>
-    <div class="desc_">
-      <h2 id="mymenu_logout"> <a href="logout">ログアウト</a> </h2>
-      <p>セッションを取り消します。システムのご利用が終わったら、ログアウトしてください。</p>
-    </div>
-    </div>
-  </div>
-  
-  
-   </div>
 </div>
+<h1 class="common_headline1_">メールアドレス変更</h1>
+
+
+<div class="mailchange_">
+<p><strong>メールアドレスを変更しました</strong></p>
+
+<p><strong><a href="input">もう一度マイページにログインする</a></strong></p>
+
+
+<div class="submit_">
+<a href="home"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
+</div>
+</div>
+
 
 
 </div>
+
 </div>
+
 
 		
 	<div id="footer">

@@ -13,5 +13,3 @@ public class TaikaiJumpCommand extends AbstractCommand{
 		return resc;
 	}
 }
-
-
