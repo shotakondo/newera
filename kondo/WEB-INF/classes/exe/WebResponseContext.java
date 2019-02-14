@@ -11,6 +11,7 @@ public class WebResponseContext implements ResponseContext{
 	private HttpServletResponse response;
 	
 	public WebResponseContext(){}
+	
 	public void setTarget(String transferInfo){
 		target="/WEB-INF/jsp/"+transferInfo+".jsp";
 	}
@@ -23,11 +24,11 @@ public class WebResponseContext implements ResponseContext{
 	public Object getResult(){
 		return result;
 	}
-	public Object getResponse(){
-		return response;
-	}
 	public void setResponse(Object obj){
 		//キャストする必要がある
 		response=(HttpServletResponse)obj;
+	}
+	public Object getResponse(){
+		return response;
 	}
 }

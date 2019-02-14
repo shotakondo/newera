@@ -10,7 +10,7 @@ import java.util.List;
 
 import exp.ResourceAccessException;
 
-import beans.ProductBean;
+import beans.FavoriteBean;
 
 public class OraFavoriteDao implements FavoriteDao{
 	
@@ -22,11 +22,9 @@ public class OraFavoriteDao implements FavoriteDao{
 		
 		ArrayList favorites = new ArrayList();
 		
-		ProductBean pb = new ProductBean();
-		
 		try{
 			//insert文
-			String sql = "select product_id, product_name, product_price, image_path from product_table a, image_table b, displayproduct_table c, user_table d, favorite_table e where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and e.favorite_user_id = d.user_id and e.favorite_product_id = a.product_id and image_path like '%|_01%' escape '|' and favorite_user_id = '"+ uid +"'";
+			String sql = "select distinct product_id, product_name, product_price, image_path, favorite_date, favorite_comment from product_table a, image_table b, displayproduct_table c, user_table d, favorite_table e where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and e.favorite_user_id = d.user_id and e.favorite_product_id = a.product_id and image_path like '%|_01%' escape '|' and favorite_user_id = '"+ uid +"'";
 			
 			//PreparedStatementインターフェイスを実装するクラスの
 			//インスタンスを取得する
@@ -36,13 +34,16 @@ public class OraFavoriteDao implements FavoriteDao{
 			rs = st.executeQuery();
 			
 			while(rs.next()){
+				FavoriteBean fb = new FavoriteBean();
 				
-				pb.setPid(rs.getString(1));
-				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
-				pb.setPath(rs.getString(4));
+				fb.setPid(rs.getString(1));
+				fb.setName(rs.getString(2));
+				fb.setPrice(rs.getString(3));
+				fb.setPath(rs.getString(4));
+				fb.setDate(rs.getString(5));
+				fb.setComment(rs.getString(6));
 				
-				favorites.add(pb);
+				favorites.add(fb);
 			}
 			
 		//getConnection, prepareStatement, executeQueryで例外発生の場合
@@ -69,7 +70,7 @@ public class OraFavoriteDao implements FavoriteDao{
 		
 		try{
 			//insert文
-			String sql = "insert into favorite_table(favorite_user_id, favorite_product_id) values ('?','?')";
+			String sql = "insert into favorite_table(favorite_user_id, favorite_product_id, favorite_date) values (?,?,default)";
 			
 			//PreparedStatementインターフェイスを実装するクラスの
 			//インスタンスを取得する
@@ -97,4 +98,78 @@ public class OraFavoriteDao implements FavoriteDao{
 			
 		}
 	}
+	
+	public void deleteFavorite(String uid, String pid){
+		
+		Connection cn = OracleConnectionManager.getInstance().getConnection();
+		PreparedStatement st = null;
+		
+		try{
+			//insert文
+			String sql = "delete from favorite_table where favorite_user_id = ? and favorite_product_id = ?";
+			
+			//PreparedStatementインターフェイスを実装するクラスの
+			//インスタンスを取得する
+			st = cn.prepareStatement(sql);
+			
+			//パラメータをセットする
+			st.setString(1, uid);
+			st.setString(2, pid);
+			
+			//SQLの実行
+			st.executeUpdate();
+			
+		//getConnection, prepareStatement, executeQueryで例外発生の場合
+		}catch(SQLException e){
+			//ロールバックする
+			try{
+				cn.rollback();
+			}catch(SQLException e2){
+				//独自例外にラップして送出する
+				throw new ResourceAccessException(e2.getMessage(), e2);
+			}
+			
+			//独自例外にラップして送出する
+			throw new ResourceAccessException(e.getMessage(), e);
+			
+		}
+	}
+	
+	public void alterFavorite(String uid, String pid, String comment){
+		
+		Connection cn = OracleConnectionManager.getInstance().getConnection();
+		PreparedStatement st = null;
+		
+		try{
+			//insert文
+			String sql = "insert into favorite_table(favorite_user_id, favorite_product_id, favorite_date, favorite_comment) values (?,?,default,?)";
+			
+			//PreparedStatementインターフェイスを実装するクラスの
+			//インスタンスを取得する
+			st = cn.prepareStatement(sql);
+			
+			//パラメータをセットする
+			st.setString(1, uid);
+			st.setString(2, pid);
+			st.setString(3, comment);
+			
+			//SQLの実行
+			st.executeUpdate();
+			
+		//getConnection, prepareStatement, executeQueryで例外発生の場合
+		}catch(SQLException e){
+			//ロールバックする
+			try{
+				cn.rollback();
+			}catch(SQLException e2){
+				//独自例外にラップして送出する
+				throw new ResourceAccessException(e2.getMessage(), e2);
+			}
+			
+			//独自例外にラップして送出する
+			throw new ResourceAccessException(e.getMessage(), e);
+			
+		}
+	}
+	
 }

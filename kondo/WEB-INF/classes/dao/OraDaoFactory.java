@@ -5,9 +5,6 @@ public class OraDaoFactory extends AbstractDaoFactory{
 	public ProductDao getProductDao(){
 		return new OraProductDao();
 	}
-	public RecordDao getRecordDao(){
-		return new OraRecordDao();
-	}
 	public UserDao getUserDao(){
 		return new OraUserDao();
 	}
@@ -17,4 +14,14 @@ public class OraDaoFactory extends AbstractDaoFactory{
 	public FavoriteDao getFavoriteDao(){
 		return new OraFavoriteDao();
 	}
+	public StockDao getStockDao(){
+		return new OraStockDao();
+	}
+	public OrderDao getOrderDao(){
+		return new OraOrderDao();
+	}
+	public DetailDao getDetailDao(){
+		return new OraDetailDao();
+	}
+	
 }

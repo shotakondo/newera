@@ -1,35 +1,76 @@
 package exe;
 
 import java.util.Map;
+import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import beans.*;
 
 public class WebRequestContext implements RequestContext{
-	private Map parameters;
-	private HttpServletRequest request;
+	
+	private Map _parameters;
+	private Map _id;
+	private HttpServletRequest _request;
+	
 	public WebRequestContext(){}
 	
 	public String getCommandPath(){
+		String servletPath = _request.getServletPath();
 		
-		//サーブレットパスを取得する
-		String servletPath = request.getServletPath();
-		
-		//2文字目以降を取得する
 		String commandPath = servletPath.substring(1);
 		
 		return commandPath;
 	}
 	
 	public String[] getParameter(String key){
-		return (String[])parameters.get(key);
+		return (String[])_parameters.get(key);
 	}
+	
 	public Object getRequest(){
-		return request;
+		return _request;
 	}
+	
 	public void setRequest(Object req){
+		_request = (HttpServletRequest)req;
 		
-		//キャストする必要がある
-		request = (HttpServletRequest) req;
-		
-		parameters = request.getParameterMap();
+		_parameters = _request.getParameterMap();
 	}
+	
+	public HttpSession getSession(){
+		return _request.getSession();
+	}
+	
+	public Object getSessionAttribute(String param){
+		HttpSession session = getSession();
+		Object beanObject = (User) session.getAttribute(param);
+		return beanObject;
+	}
+	
+	public Object getSessionObject(String object){
+		return _request.getSession().getAttribute(object);
+	}
+	
+	public void setSessionAttribute(String name, Object beanobject){
+		HttpSession session = getSession();
+		session.setAttribute(name, beanObject);
+	}
+	
+	public void setRemoveAttribute(String beanname){
+		HttpSession session = getSession();
+		session.removeAttribute(beanname);
+	}
+	
+	public String[] getUrlParameter(){
+		_id = _request.getParameterMap();
+		Iterator it = _id.keySet().iterator();
+		String[] val = null;
+		
+		while(it.hasNext()){
+			String id = (String)it.next();
+			val = (String[])_id.get(id);
+		}
+		return val;
+	}
+	
 }

@@ -1,0 +1,116 @@
+〇CREATE TABLE
+
+・masterproduct_table
+create table masterproduct_table(
+	masterproduct_id varchar2(10) primary key,
+	masterproduct_main_id varchar2(10) not null references mainproduct_table(mainproduct_id),
+	masterproduct_category_id varchar2(10) not null references category_table(category_id),
+	masterproduct_color_id varchar2(10) not null references color_table(color_id),
+	masterproduct_type_id varchar2(10) not null references type_table(type_id),
+	masterproduct_name varchar2(100) not null unique,
+	masterproduct_price number not null check(masterproduct_price > 0)
+);
+
+
+・mainproduct_table
+create table mainproduct_table(
+	mainproduct_id varchar2(10) primary key,
+	mainproduct_name varchar2(100) not null unique,
+	mainproduct_image varchar2(100) not null unique
+);
+
+
+・user_table
+create table user_table(
+	user_id varchar2(10) primary key,
+	user_firstname varchar2(100) not null,
+	user_lastname varchar2(100) not null,
+	user_email varchar2(100) not null check(user_email like '%@%'),
+	user_pass varchar2(100) not null,
+	user_tel varchar2 (100) not null check(user_tel like '%-%-%'),
+	user_postcode varchar2(100) not null check(user_postcode like '___-____'),
+	user_address varchar2(100) not null,
+	user_sex char not null check(user_sex like '0' or user_sex like '1'),
+	user_birthday varchar2(10) not null,
+	user_ng char default 0 not null check(user_ng like '0' or user_ng like '1'),
+	user_manager char default 0 not null check(user_manager like '0' or user_ng like '1')
+);
+
+
+・displayproduct_table
+create table displayproduct_table(
+	displayproduct_product_id varchar2(10) not null,
+	displayproduct_image_id varchar2(10) not null
+);
+
+
+・displaycategory_table
+create table displaycategory_table(
+	displaycategory_category_id varchar2(10) not null,
+	displaycategory_color_id varchar2(10) not null,
+	displaycategory_type_id varchar2(10) not null
+);
+
+
+・image_table
+create table image_table(
+	image_id varchar2(10) primary key,
+	image_name varchar2(100) not null unique,
+	image_url varchar2(100) not null unique
+);
+
+
+・category_table
+create table category_table(
+	category_id varchar2(10) primary key,
+	category_image varchar2(100) not null unique,
+	category_name varchar2(100) not null unique
+);
+
+
+・color_table
+create table color_table(
+	color_id varchar2(10) primary key,
+	color_image varchar2(100) not null unique,
+	color_name varchar2(100) not null unique
+);
+
+
+・type_table
+create table type_table(
+	type_id varchar2(10) primary key,
+	type_image varchar2(100) not null unique,
+	type_name varchar2(100) not null unique
+);
+
+
+・order_table
+create table order_table(
+	order_id varchar2(10) primary key,
+	order_user_id varchar2(100) not null unique,
+	order_date date default sysdate not null,
+	order_total number not null
+);
+
+
+・detail_table
+create table detail_table(
+	detail_order_id varchar2(10) not null,
+	detail_product_id varchar2(10) not null,
+	detail_num number not null,
+	detail_subtotal number not null
+);
+
+
+・stock_table
+create table stock_table(
+	stock_product_id varchar2(10) not null,
+	stock_amount number default 0 not null check(stock_amount > 0)
+);
+
+
+・favorite_table
+create table favorite_table(
+	favorite_user_id varchar2(10) not null,
+	favorite_product_id varchar2(10) not null
+);

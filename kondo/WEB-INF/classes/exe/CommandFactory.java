@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import command.AbstractCommand;
-
 public abstract class CommandFactory{
 	public static AbstractCommand getCommand(RequestContext rc){
 		

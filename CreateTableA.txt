@@ -27,8 +27,8 @@ create table displayproduct_table(
 create table order_table(
 	order_id varchar2(10) primary key,
 	order_user_id varchar2(10) not null references user_table(user_id),
-	order_product_id varchar2(10) not null references product_table(product_id),
 	order_date date default sysdate not null,
+	order_method varchar2(30) not null,
 	order_total number not null
 );
 create table detail_table(
@@ -39,9 +39,11 @@ create table detail_table(
 );
 create table stock_table(
 	stock_product_id varchar2(10) not null  references product_table(product_id),
-	stock_amount number default 0 not null check(stock_amount > 0)
+	stock_amount number default 0 not null check(stock_amount >= 0)
 );
 create table favorite_table(
 	favorite_user_id varchar2(10) not null references user_table(user_id),
-	favorite_product_id varchar2(10) not null references product_table(product_id)
+	favorite_product_id varchar2(10) not null references product_table(product_id),
+	favorite_date date default sysdate not null,
+	favorite_comment varchar2(400) 
 );

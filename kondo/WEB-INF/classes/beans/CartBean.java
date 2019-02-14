@@ -1,61 +1,67 @@
-//package
 package beans;
 
-//import
 import java.io.Serializable;
 
-//CartBeanƒNƒ‰ƒX
+import java.util.ArrayList;
+import java.util.List;
+
 public class CartBean implements Serializable{
 	
-	private String id;
-	private String name;
-	private String color;
-	private String type;
-	private String image;
-	private int price;
-	private int num;
+	private ArrayList _products =new ArrayList();
 	
-	public String getId(){
-		return id;
+	public CartBean(){}
+	
+	public void addProduct(ProductBean product){
+		
+		boolean judge = false;
+		int num = 1;
+		
+		for(int i = 0; i < getProducts().size(); i++){
+			
+			ProductBean pb = (ProductBean)getProducts().get(i);
+			
+			if(pb.getPid().equals(product.getPid())){
+				num = Integer.parseInt(pb.getNum()) + 1;
+				pb.setNum(Integer.toString(num));
+				judge = true;
+			}
+		}
+		
+		if(judge == false){
+			_products.add(product);
+		}
 	}
-	public void setId(String id){
-		this.id = id;
+	
+	public void deleteProduct(String pid){
+		
+		for(int i = 0; i < getProducts().size(); i++){
+			
+			ProductBean pb = (ProductBean)_products.get(i);
+			
+			if(pb.getPid().equals(pid)){
+				_products.remove(_products.indexOf(_products.get(i)));
+			}
+		}
 	}
-	public String getName(){
-		return name;
+	public void alterProductsNum(String numlist[]){
+		
+		for(int i = 0; i < getProducts().size(); i++){
+			ProductBean pb = (ProductBean)_products.get(i);
+			pb.setNum(numlist[i]);
+		}
+		
 	}
-	public void setName(String name){
-		this.name = name;
+	
+	public void alldeleteProduct(){
+		_products.clear();
 	}
-	public String getColor(){
-		return color;
+	
+	public void setProduct(ArrayList products){
+		_products=products;
 	}
-	public void setColor(String color){
-		this.color = color;
-	}
-	public String getType(){
-		return type;
-	}
-	public void setType(String type){
-		this.type = type;
-	}
-	public String getImage(){
-		return image;
-	}
-	public void setImage(String image){
-		this.image = image;
-	}
-	public int getPrice(){
-		return price;
-	}
-	public void setPrice(int price){
-		this.price = price;
-	}
-	public int getNum(){
-		return num;
-	}
-	public void setNum(int num){
-		this.num = num;
+	
+	public ArrayList getProducts(){
+		return _products;
 	}
 	
 }

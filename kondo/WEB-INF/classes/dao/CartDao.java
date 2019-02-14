@@ -2,8 +2,10 @@ package dao;
 
 import java.util.List;
 
+import beans.CartBean;
+
 public interface CartDao{
 	
-	public List getCart(List pidlist);
+	public CartBean addCart(CartBean cb);
 	
 }

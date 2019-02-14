@@ -29,7 +29,7 @@ public class OraProductDao implements ProductDao{
 			//パラメータをセットする
 			st.setString(1, pb.getPid());
 			st.setString(2, pb.getName());
-			st.setString(3, (String)pb.getPrice());
+			st.setString(3, pb.getPrice());
 			
 			//SQLの実行
 			st.executeUpdate();
@@ -75,6 +75,7 @@ public class OraProductDao implements ProductDao{
 			pb.setName(rs.getString(2));
 			pb.setPrice(rs.getString(3));
 			pb.setPath(rs.getString(4));
+			pb.setNum("1");
 			
 		//getConnection, prepareStatement, executeQueryで例外発生の場合
 		}catch(SQLException e){
@@ -147,7 +148,7 @@ public class OraProductDao implements ProductDao{
 		return products;
 	}
 	
-	public List getProducts(String pw){
+	public List getProductsWord(String pw){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;

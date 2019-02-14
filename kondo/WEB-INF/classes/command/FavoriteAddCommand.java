@@ -1,13 +1,11 @@
 package command;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServletRequest;
-
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
 import exe.*;
+import beans.UserBean;
 
 public class FavoriteAddCommand extends AbstractCommand{
 	
@@ -15,10 +13,11 @@ public class FavoriteAddCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
-		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
 		
-		String uid = (String)session.getAttribute("uid");
+		UserBean ub = (UserBean)reqc.getSessionAttribute("ub");
+		String uid = ub.getUid();
+		String[] pids = reqc.getParameter("pid");
+		String pid = pids[0];
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
@@ -27,6 +26,7 @@ public class FavoriteAddCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		FavoriteDao fd = factory.getFavoriteDao();
 		
+		fd.setFavorite(uid, pid);
 		resc.setResult(fd.getFavorites(uid));
 		
 		//トランザクションを終了する

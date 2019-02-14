@@ -48,9 +48,11 @@ public abstract class AbstractDaoFactory{
 	}
 	
 	public abstract ProductDao getProductDao();
-	public abstract RecordDao getRecordDao();
 	public abstract UserDao getUserDao();
 	public abstract CartDao getCartDao();
 	public abstract FavoriteDao getFavoriteDao();
+	public abstract StockDao getStockDao();
+	public abstract OrderDao getOrderDao();
+	public abstract DetailDao getDetailDao();
 	
 }

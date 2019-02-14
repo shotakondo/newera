@@ -18,6 +18,8 @@ public class UserBean implements Serializable{
 	private String sex;
 	private String birthday;
 	
+	public UserBean(){}
+	
 	public String getUid(){
 		return uid;
 	}

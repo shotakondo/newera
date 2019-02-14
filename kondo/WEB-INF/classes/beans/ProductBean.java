@@ -11,6 +11,9 @@ public class ProductBean implements Serializable{
 	private String name;
 	private String price;
 	private String path;
+	private String num;
+	
+	public ProductBean(){}
 	
 	public String getPid(){
 		return pid;
@@ -35,6 +38,12 @@ public class ProductBean implements Serializable{
 	}
 	public void setPath(String path){
 		this.path = path;
+	}
+	public String getNum(){
+		return num;
+	}
+	public void setNum(String num){
+		this.num = num;
 	}
 	
 }

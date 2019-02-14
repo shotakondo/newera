@@ -20,21 +20,23 @@ public class ProductsSearchCommand extends AbstractCommand{
 		
 		String productword = reqc.getParameter("productword")[0];
 		
-		//トランザクションを開始する
-		OracleConnectionManager.getInstance().beginTransaction();
-		
-		//インテグレーションレイヤの処理を呼び出す
-		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-		ProductDao pd = factory.getProductDao();
-		
-		session.setAttribute("productlist", pd.getProducts(productword));
-		
-		//トランザクションを終了する
-		OracleConnectionManager.getInstance().commit();
-		
-		//コネクションを切断する
-		OracleConnectionManager.getInstance().closeConnection();
-		
+		if(productword != null && productword.length() != 0){
+			//トランザクションを開始する
+			OracleConnectionManager.getInstance().beginTransaction();
+			
+			//インテグレーションレイヤの処理を呼び出す
+			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+			ProductDao pd = factory.getProductDao();
+			
+			session.setAttribute("productlist", pd.getProductsWord(productword));
+			
+			//トランザクションを終了する
+			OracleConnectionManager.getInstance().commit();
+			
+			//コネクションを切断する
+			OracleConnectionManager.getInstance().closeConnection();
+		}
+			
 		//toppage.jspへ転送
 		resc.setTarget("toppage");
 		

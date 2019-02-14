@@ -10,9 +10,11 @@ import java.util.List;
 
 import exp.ResourceAccessException;
 
+import beans.*;
+
 public class OraCartDao implements CartDao{
 	
-	public List getCart(List pidlist){
-		return pidlist;
+	public CartBean addCart(CartBean cb){
+		return cb;
 	}
 }

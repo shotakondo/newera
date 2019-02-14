@@ -10,49 +10,59 @@
 	
 		<h1>お気に入り画面</h1>
 		
-		トップページ画面に戻る
-		<p><a href="toppagejump">機能なし、トップページ画面へ</a></p><br>
-		
-		カート表示画面へ進む
-		<p><a href="cartdisplay">カート表示機能、カート表示画面へ</a></p><br>
-		
-		<p>商品検索機能、①成功→商品表示画面へ②失敗→トップページ画面へ</p>
-		<form method="post" action="productssearch">
-			カテゴリー名：<input type="text" name="categoryname"><br>
-			商品名:<input type="text" name="productward">
-			<input type="submit" value="検索">
-		</form><br>
-		
-		<c:if test="${sessionScope.uname == null}">
+		<c:if test="${sessionScope.ub == null}">
 			非ログイン状態
-			<p>こんにちはゲストさん</p>
-			<p><a href="emailentryjump">機能なし、入会申請画面へ</a></p>
-			<p><a href="loginjump">機能なし、ログイン画面へ</a></p>
+			<p><a href="loginjump">ログイン/新規会員登録</a></p>
 		</c:if>
 		
-		<c:if test="${sessionScope.uname != null}">
+		<c:if test="${sessionScope.ub != null}">
 			ログイン状態
-			<p>こんにちは${sessionScope.uname}さん<p>
-			<p><a href="mypagejump">機能なし、マイページ画面へ</a></p>
-			<p><a href="logout">ログアウト機能、トップページ画面へ</a></p>
+			<p><a href="mypagejump">マイページ</a></p>
+			<p><a href="logout">ログアウト</a></p>
 		</c:if>
 		
-		<p>--------------------------------------------------------------------------</p>
+		<p><a href="toppagejump">トップページ画面に戻る</a></p>
 		
-		<p>お気に入り削除機能、お気に入り画面へ</p>
-		<form method="post" action="favoritedelete">
-			パラメーター1：<input type="text" name="parameter1"><br>
-			パラメーター2：<input type="text" name="parameter2"><br>
-			パラメーター3：<input type="text" name="parameter3"><br>
-			パラメーター4：<input type="text" name="parameter4"><br>
-			パラメーター5：<input type="text" name="parameter5"><br>
-			<input type="submit" value="削除">
+		<form method="post" action="productssearch">
+			商品名:<input type="text" name="productword">
+			<input type="submit" value="検索">
+		</form>
+		
+		<p><a href="cartdisplay">カート</a></p>
+		
+		<select name="sortparameter" form="productssort">
+			<option value="name">名前順</option>
+			<option value="cheap">安い順</option>
+			<option value="expensive">高い順</option>
+		</select><br>
+		
+		<form method="post" action="productssort" id="productssort">
+			<input type="submit" value="ソート">
 		</form>
 		
 		<p>--------------------------------------------------------------------------</p>
 		
-		カテゴリから探す
-		<p><a href="productsdisplay">商品表示機能、商品表示画面へ</a></p>
+		<table border="1">
+			<tr><th>ID</th><th>画像</th><th>商品名</th><th>価格</th></tr>
+			<c:forEach var="favorite" items="${data}">
+				<tr>
+					<td>${favorite.pid}</td>
+					<td><img src="<c:url value='${favorite.path}' />" alt="${favorite.name}" width="180px" height="150px"></td>
+					<td>${favorite.name}</td>
+					<td>${favorite.price}</td>
+					<td>${favorite.date}</td>
+					<td>
+						<from method="post" action="favoritealter?pid=${favorite.pid}">
+							<input type="text" name="comment" value="${favorite.comment}">
+							<input type="submit" value="メモを更新">
+						</form>
+					</td>
+					<td><a href="favoritedelete?pid=${favorite.pid}">削除</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+		
+		<p>--------------------------------------------------------------------------</p>
 		
 	</body>
 	

@@ -1,0 +1,9 @@
+create table dummy_table( 
+				dummy_user varchar(20) PRIMARY KEY,
+				dummy_name varchar(20) NOT NULL,
+				dummy_pass varchar(20) NOT NULL
+);
+				
+create SEQUENCE dummy_sequence
+				START WITH 1
+				INCREMENT BY 1;
