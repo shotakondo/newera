@@ -3,22 +3,15 @@ package command;
 import exe.*;
 import beans.*;
 
-public class CartAllDeleteCommand extends AbstractCommand{
-	
+public class CartAllDeleteCommand extends AbstractCommand{	
 	//ÉJÅ[Égí«â¡èàóù
-	public ResponseContext execute(ResponseContext resc){
-		
-		RequestContext reqc = getRequestContext();
-		
+	public ResponseContext execute(ResponseContext resc){			
+		RequestContext reqc = getRequestContext();				
 		CartBean cb = (CartBean)reqc.getSessionAttribute("cb");
-		
-		cb.alldeleteProduct();
-		
-		session.setAttribute("cb", cb);
-		
-		//cartdisplay.jspÇ÷ì]ëó
+			cb.alldeleteProduct();		
+		session.setAttribute("cb", cb);	
+//cartdisplay.jspÇ÷ì]ëó		
 		resc.setTarget("cartdisplay");
-		
 		return resc;
 	}
 }

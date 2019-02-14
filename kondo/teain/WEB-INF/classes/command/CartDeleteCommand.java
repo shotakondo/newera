@@ -7,23 +7,17 @@ import exe.*;
 import beans.*;
 
 public class CartDeleteCommand extends AbstractCommand{
-	
+													
 	//ÉJÅ[Égí«â¡èàóù
 	public ResponseContext execute(ResponseContext resc){
-		
-		RequestContext reqc = getRequestContext();
-		
+						RequestContext reqc = getRequestContext();
 		CartBean cb = (CartBean)reqc.getSessionAttribute("cb");
-		String[] pids = reqc.getParameter("pid");
-		String pid = pids[0];
-		
+				String[] pids = reqc.getParameter("pid");
+					String pid = pids[0];			
 		cb.deleteProduct(pid);
-		
-		session.setAttribute("cb", cb);
-		
+			session.setAttribute("cb", cb);
 		//cartdisplay.jspÇ÷ì]ëó
 		resc.setTarget("cartdisplay");
-		
 		return resc;
 	}
 }
