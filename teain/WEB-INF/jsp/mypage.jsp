@@ -89,22 +89,22 @@
   
   <div class="mymenu_">
     <div class="mymenu_item_"> 
-      <div class="img_"><a href="https://store.neweracap.jp/shop/"><img src="img/mypage_icon_shop.png" alt="商品ページを見る"></a></div>
+      <div class="img_"><a href="home"><img src="img/mypage_icon_shop.png" alt="商品ページを見る"></a></div>
       <div class="desc_">
-      <h2 id="mymenu_top"> <a href="https://store.neweracap.jp/shop/">商品ページを見る</a> </h2>
+      <h2 id="mymenu_top"> <a href="home">商品ページを見る</a> </h2>
       <p>商品ページへ移動します。</p>
       </div>
        </div>
     <div class="mymenu_item_">
-    <div class="img_"><a href="/shop/customer/history.aspx"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_hsty.png" alt="購入履歴"></a></div>
+    <div class="img_"><a href="jumphistory"><img src="img/mypage_icon_hsty.png" alt="購入履歴"></a></div>
     <div class="desc_">
-      <h2 id="mymenu_history"> <a href="/shop/customer/history.aspx">購入履歴</a> </h2>
+      <h2 id="mymenu_history"> <a href="jumphistory">購入履歴</a> </h2>
       <p>現在のご注文の状況と今までのご注文の履歴です。</p>
       </div>
     </div>
     
     <div class="mymenu_item_">
-    <div class="img_"><a href="jumpedituser"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_info.png" alt="会員情報変更"></a></div>
+    <div class="img_"><a href="jumpedituser"><img src="img/mypage_icon_info.png" alt="会員情報変更"></a></div>
     <div class="desc_">
       <h2 id="mymenu_customer"> <a href="jumpedituser">会員情報変更</a> </h2>
       <p>登録されている会員情報を変更することができます。</p>
@@ -114,7 +114,7 @@
     
     <div class="mymenu_item_">
     
-<div class="img_"><a href="jumpemailchange"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_mlcg.png" alt="メールアドレス変更"></a></div>
+<div class="img_"><a href="jumpemailchange"><img src="img/mypage_icon_mlcg.png" alt="メールアドレス変更"></a></div>
     <div class="desc_">
       <h2 id="mymenu_mailchange"><a href="jumpemailchange">メールアドレス変更</a></h2>
 
@@ -132,7 +132,7 @@
     
     
     <div class="mymenu_item_">
-    <div class="img_"><a href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_fblt.png" alt="お気に入り"></a></div>
+    <div class="img_"><a href=""><img src="img/mypage_icon_fblt.png" alt="お気に入り"></a></div>
     <div class="desc_">
       <h2 id="mymenu_bookmark"> <a href="">お気に入り</a> </h2>
       <p>お気に入り商品リストです。</p>
@@ -140,7 +140,7 @@
     </div>
     
     <div class="mymenu_item_">
-    <div class="img_"><a href="jumptaikai"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/mypage_icon_wdwl.png" alt="退会"></a></div>
+    <div class="img_"><a href="jumptaikai"><img src="img/mypage_icon_wdwl.png" alt="退会"></a></div>
     <div class="desc_">
       <h2 id="mymenu_withdrawal"> <a href="jumptaikai">退会</a> </h2>
       <p>会員情報を削除して退会します。</p>
@@ -183,7 +183,7 @@
 	--></dl>
 </div></div>
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT? New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>

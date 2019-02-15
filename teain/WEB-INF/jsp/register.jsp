@@ -16,6 +16,8 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script><!--scroll menu-->
+<script language="JavaScript" type="text/javascript" src="js/check.js"></script><!-- all check-->
+
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 <!-- etm meta -->
 <meta property="etm:device" content="desktop">
@@ -46,7 +48,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 
 		<div class="info">
 			<div class="search"><!--
@@ -66,10 +68,9 @@
 	
 <div id="contents">
 
-
 <div class="customer_ col1_">
 <h1 class="common_headline1_"><strong><img src="img/members1.png" alt="MEMBERS"></strong><span>新規会員登録</span></h1>
-<form id="frmCustomer" name="frmCustomer" method="post" action="create" novalidate="" onsubmit="return (ecUtil.confirmInputCheck() &amp;&amp; removePlaceholder() ) ">
+<form id="frmCustomer" name="createuser" method="post" action="create" novalidate="" onsubmit="return check_shinkisubmit_addnew()">
 
 
 
@@ -89,18 +90,6 @@
 			
 		</td>
 	</tr>
-
-	<tr>
-		<th><img class="must_" src="img/check.gif" alt="必須">ID</th>
-		<td>
-			<span class="efo checktype_mail is_required">
-				<input value="" size="40" type="text" name="id" maxlength="100" id="" onblur="ecUtil.strConvert(this, false);" title="(例)theanh123	" placeholder="(例)theanh123	" class="classrequired">
-			</span>
-		
-		<p class="small_">※表示の名前</p>
-		</td>
-	</tr>
-
 
   
 	<tr>
@@ -130,8 +119,6 @@
 			<span class="efo checktype_mail is_required">
 				<input value="" size="40" type="text" name="postcode" maxlength="100" id="mail" onblur="ecUtil.strConvert(this, false);" title="(例)111-2222	" placeholder="(例)111-2222	" class="classrequired">
 			</span>
-		
-		<p class="small_">※「.@ (@の前にドット)」、「.. (ドット2つ)」を含むメールアドレスはご利用いただけません</p>
 		</td>
 	</tr>
 	
@@ -188,12 +175,20 @@
 		<th><img class="must_" src="img/check.gif" alt="必須">パスワード</th>
 		<td>
 			<span class="efo is_required checktype_pwd">
-				<input value="" size="40" type="password" name="pass" maxlength="20" id="pwd" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
+				<input value="" size="40" type="password" name="pass" maxlength="20" id="pass" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
 			</span><img id="isErrorIcon_pwd" src="img/input_ok.gif" alt="入力内容に問題有りません。">
 		
 		<div class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</div>
 		<div id="pwd_count_msg" style="color: rgb(102, 102, 255);">あと11文字入力可能です。</div>
 		
+		</td>
+	</tr>
+	<tr>
+		<th><img class="must_" src="img/check.gif" alt="必須">パスワード(確認)</th>
+		<td>
+			<span class="efo is_required checktype_pwd">
+				<input value="" size="40" type="password" name="pass1" maxlength="20" id="pass1" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
+			</span><img id="isErrorIcon_pwd" src="img/input_ok.gif" alt="入力内容に問題有りません。">
 		</td>
 	</tr>
 </tbody></table>

@@ -18,6 +18,7 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script><!--scroll menu-->
+<script language="JavaScript" type="text/javascript" src="js/check.js"></script><!-- all check-->
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 <!-- etm meta -->
 <meta property="etm:device" content="desktop">
@@ -102,24 +103,13 @@
 </tr>
 </tbody></table>
 <div class="submit_">
-<SCRIPT LANGUAGE="JavaScript">
-      function confirmAction() {
-        return confirm("ñ{ìñÇ…ëﬁâÔÇµÇƒÇÊÇÎÇµÇ¢Ç≈Ç∑Ç©ÅH")
-      }
- 
-</SCRIPT>
-<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="ñﬂÇÈ"></a>
+<a href=""><img src="img/back.gif" alt="ñﬂÇÈ"></a>
 <input type="image" name="submit" src="img/withdrawal.gif" alt="ëﬁâÔÇ∑ÇÈ" onclick="return confirmAction();">
 </div>
 </form>
-
-
-
+</div>
 </div>
 
-</div>
-
-		
 	<div id="footer">
 			
 					

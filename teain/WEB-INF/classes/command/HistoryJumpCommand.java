@@ -4,12 +4,12 @@ import dao.*;
 import beans.*;
 import context.*;
 
-public class HomeJumpCommand extends AbstractCommand{
+public class HistoryJumpCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
 				
-		resc.setTarget("home");
+		resc.setTarget("history");
 		return resc;
 	}
 }

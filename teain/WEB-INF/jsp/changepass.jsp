@@ -5,38 +5,6 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
-<script> 
-		function validateForm() {
-		var email = document.getElementById('email').value;
-		var oldpass = document.getElementById('oldpass').value;
-		var pass = document.getElementById('pass').value;
-		var newpass = document.getElementById('newpass').value;
-
-		if(email ==''){
-				alert('イメールを入力してください');
-		}
-		else if(oldpass == ''){
-			alert('現在のパスワードを入力してください')
-		}
-		else if(pass ==''|| newpass ==''){
-				alert('新しいパスワード入力してください');
-		}
-		else if(pass != newpass){
-				alert('確認パスワード合っていませんよー');
-		}
-
-		else{
-				alert('確認 OK です。');
-				return true;
-			}
-		 
-			return false;
-		}
-
-	</script>	
-	
-	
-
 
 <meta http-equiv="content-style-type" content="text/css">
 
@@ -51,6 +19,7 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script><!--scroll menu-->
+<script language="JavaScript" type="text/javascript" src="js/check.js"></script><!-- all check-->
 
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 <!-- etm meta -->
@@ -113,14 +82,12 @@
 
 
 
-<form method="post" action="passchange" onsubmit="return validateForm()">
+<form method="post" name="check" action="passchange"  onsubmit="return check_passsubmit_addnew()">
 <table class="formdetail_ passchange_">
 <tbody><tr>
-<th><img class="must_" src="img/check.gif" alt="必須">メールアドレス</th>
-<td>
-<input type="text" name="email" id="email" value="<%= u.getEmail() %>" size="40" maxlength="100" tabindex="1" id="oldid">
+<th><img class="must_" >メールアドレス</th>
+<td><%= u.getEmail() %></td>
 
-</td>
 </tr>
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">現在のパスワード</th>
@@ -182,7 +149,7 @@
 	--></dl>
 </div></div>
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT? New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>
