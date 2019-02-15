@@ -14,3 +14,19 @@ Update(12/02):
 ＊Ｊａｖａｓｃｒｉｐｔ
 －　退会
 ー　ｒｅｇｉｓｔｅｒ　
+
+createuser
+
+system した
+
+delete user ( not login & systemexception)
+
+edituser ( systemexpetion)
+
+getUser (notlogin)
+inputcommand (asdfException)
+logincommand (system)
+logout (notlogin
+passchangecommand (system
+passremind (system
+passreplace (system
