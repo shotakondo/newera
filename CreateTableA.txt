@@ -12,7 +12,7 @@ create table user_table(
 	user_tel varchar2 (20) not null check(user_tel like '%-%-%'),
 	user_postcode varchar2(8) not null check(user_postcode like '___-____'),
 	user_address varchar2(500) not null,
-	user_sex varchar2(1) not null check(user_sex like '0' or user_sex like '1'),
+	user_sex char not null check(user_sex like '0' or user_sex like '1'),
 	user_birthday varchar2(10) not null	
 );
 create table image_table(
