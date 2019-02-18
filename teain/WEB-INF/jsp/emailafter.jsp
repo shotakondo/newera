@@ -116,7 +116,7 @@
 	--></dl>
 </div></div>
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT? New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHTÅô New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>

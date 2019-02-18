@@ -4,11 +4,7 @@
 	pageEncoding="windows-31J"%>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
-	
-	
-	
-
+	<title>ニューエラ/New Era公式オンラインストア |購入履歴</title>
 
 <meta http-equiv="content-style-type" content="text/css">
 
@@ -23,7 +19,6 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script><!--scroll menu-->
-<script language="JavaScript" type="text/javascript" src="js/check.js"></script><!-- all check-->
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 <!-- etm meta -->
 <meta property="etm:device" content="desktop">
@@ -34,7 +29,6 @@
 
 	<link rel="stylesheet" type="text/css" href="css/core.css">
 	<link rel="stylesheet" type="text/css" href="css/skin.css">
-
 
 </head>
 <body cz-shortcut-listen="true" class="" style="padding-top: 0px;">
@@ -47,8 +41,8 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-            --><li class="link_mypage"><a href="jumpmypage">マイページ</a></li><!--
-			--><li class="link_logout"><a href="logout">ログアウト</a></li><!--
+		  --><li class="link_mypage"><a href="jumpmypage">マイページ</a></li><!--
+        --><li class="link_logout"><a href="logout">ログアウト</a></li><!--
 	--></ul>
 </div></div>
 
@@ -75,62 +69,45 @@
 	<% User u = (User)session.getAttribute("userBean"); %>
 <div id="contents">
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="jumpmypage" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;
+<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="jumphistory">購入履歴</a></div>
+<h1 class="common_headline1_">購入履歴一覧</h1>
 
-<a href="">メールアドレス変更</a>
-
-</div>
-<h1 class="common_headline1_">メールアドレス変更</h1>
 
 <div class="customer_status_">
 <div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
 
 </div>
-<form method="post" name="check" action="emailchange" onclick="return checkEmail();">
-<table class="formdetail_ mailchange_">
+
+
+
+
+
+<table class="formlist_ history_">
 <tbody><tr>
-<th><img class="must_" src="img/check.gif" alt="必須">メールアドレス</th>
-<td>
-<%= u.getEmail() %>
-</td>
-</tr>
-<tr>
-<th><img class="must_" src="img/check.gif" alt="必須">パスワード</th>
-<td>
-<input type="password" name="pass" id="pass" value="" size="20" maxlength="20" tabindex="1" autocomplete="off"><br />
-<span id="errpass"></span>
-</td>
-</tr>
-<tr>
-<th><img class="must_" src="img/check.gif" alt="必須">新しいメールアドレス</th>
-<td>
-<input type="text" name="email" id="email" value="" size="40" maxlength="100" tabindex="1"><br />
-<span id="erremail"></span>
-<p class="small_">（半角@を含むアドレスを100文字以内で入力してください）</p>
-<p class="small_">※「.@ (@の前にドット)」、「.. (ドット2つ)」を含むメールアドレスはご利用いただけません</p>
+<th>注文日</th>
+<th>オーダーＩＤ</th>
 
-</td>
+<th>注文内容</th>
+<th>注文金額合計</th>
+<th>支払方法</th>
+<th>処理状態</th>
 </tr>
 <tr>
-<th><img class="must_" src="img/check.gif" alt="必須">新しいメールアドレスを再入力</th>
-<td>
-<input type="text" name="newemail" id="newemail" value="" size="40" maxlength="100" tabindex="1" onpaste="alert('確認のためもう一度入力してください');return false">
-<p class="small_">（確認のためもう一度入力して下さい）</p>
-
-</td>
+<td colspan="6">お客様のご購入履歴はありません。</td>
 </tr>
+
 </tbody></table>
+
+
+
 <div class="submit_">
 <a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
-<input type="image" name="submit" src="img/change.gif" alt="変更する" tabindex="1">
-</div>
-</form>
-
-
 </div>
 
 </div>
+    
 </div>
+
 
 		
 	<div id="footer">
@@ -162,24 +139,3 @@
 
 
 <div class="selection_bubble_root" style="display: none;"></div></body></html>
-<!--function checkEmail() {
-
-        var email 		= document.getElementById('email');
-        var pass 		= document.getElementById("pass");
-        var newemail	= document.getElementById("newemail");
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (pass.value=='') {
-            
-			document.getElementById("errpass").innerHTML = "パスワード未入力です。";
-			pass.style.background = "red";
-            return false;
-       }
-       else if (email.value=='') {
-            
-			document.getElementById("erremail").innerHTML = "email未入力です。";
-			email.style.background = "red";
-            return false;
-       }
-        else
-        return true;
-    }-->

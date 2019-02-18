@@ -46,7 +46,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href="https://store.neweracap.jp/shop/"><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
 		<div class="info">
 			<div class="search"><!--
 				--><form name="frmSearch" method="get" action="https://store.neweracap.jp/shop/goods/search.aspx"><!--
@@ -97,12 +97,7 @@
              </tr>
              <tr>
              <th></th>
-             
-             <td><input type="checkbox" name="uid_next" value="check" id="login_uid_next" size="30" tabindex="2">
-             <label class="checkbox_" for="login_uid_next">
-               一定期間ログインIDを保持する
-             </label>
-             </td>
+
              
              </tr>  
              </tbody></table>
