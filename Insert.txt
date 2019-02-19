@@ -1,9 +1,0 @@
-insert all
-into product_table(product_id, product_name, product_price) values ('1','a',20)
-into image_table(image_id,image_path) values ('1','/img/item/001_01.jpg')
-into displayproduct_table(displayproduct_product_id,displayproduct_image_id) values ('1','1')
-into displayproduct_table(displayproduct_product_id,displayproduct_image_id) values ('1','2')
-into displayproduct_table(displayproduct_product_id,displayproduct_image_id) values ('1','3')
-into displayproduct_table(displayproduct_product_id,displayproduct_image_id) values ('2','4')
-into stock_table(stock_product_id,stock_amount) values ('1',1)
-select * from dual;
