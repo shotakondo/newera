@@ -17,7 +17,6 @@ create table user_table(
 );
 create table image_table(
 	image_id varchar2(10) primary key,
-	image_name varchar2(100) not null unique,
 	image_path varchar2(100) not null unique
 );
 create table displayproduct_table(
@@ -44,6 +43,5 @@ create table stock_table(
 create table favorite_table(
 	favorite_user_id varchar2(10) not null references user_table(user_id),
 	favorite_product_id varchar2(10) not null references product_table(product_id),
-	favorite_date date default sysdate not null,
-	favorite_comment varchar2(400) 
+	favorite_date date default sysdate not null
 );
