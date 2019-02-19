@@ -19,6 +19,7 @@ public class ProductsSearchCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		String productword = reqc.getParameter("productword")[0];
+		String productwordtop = reqc.getParameter("productword")[0];
 		
 		if(productword != null && productword.length() != 0){
 			//トランザクションを開始する
@@ -29,6 +30,7 @@ public class ProductsSearchCommand extends AbstractCommand{
 			ProductDao pd = factory.getProductDao();
 			
 			session.setAttribute("productlist", pd.getProductsWord(productword));
+			session.setAttribute("productlist", pd.getProductsWord(productwordtop));
 			
 			//トランザクションを終了する
 			OracleConnectionManager.getInstance().commit();

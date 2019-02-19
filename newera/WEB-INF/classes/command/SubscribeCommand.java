@@ -7,10 +7,10 @@ import dao.UserDao;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-import exe.*;
+import context.*;
 import beans.*;
 
-public class SubscribeCommand extends exe.AbstractCommand{
+public class SubscribeCommand extends AbstractCommand{
 	
 	//‰ïˆõ“o˜^ˆ—
 	public ResponseContext execute(ResponseContext resc){

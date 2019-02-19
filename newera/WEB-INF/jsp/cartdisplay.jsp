@@ -90,10 +90,10 @@
 <input type="hidden" name="refresh" value="true">
 <table class="formlist_ cartlist_">
 <tbody><tr class="title_cartlist" >
-	<th class="" style="background-color:black;color: azure" colspan="2" >アイテム名 / 商品番号</th>
+	<th class="name_cartlist" style="background-color:black;color: azure" colspan="2" >アイテム名 / 商品番号</th>
 	<th class="qty_cartlist" style="background-color:black;color: azure">数量</th>
 	<th class="money_cartlist" style="background-color:black;color: azure">金額</th>
-	<th class="" style="background-color:black;color: azure"></th>
+	<th class style="background-color:black;color: azure"></th>
 </tr>
 <c:forEach var="product" items="${sessionScope.cb.products}">
 <tr>
@@ -127,7 +127,7 @@
 		<a href="cartdelete?pid=${product.pid}" ><img src="img/delete_s.gif" name="" alt="削除"></a>
 	</td>
 </tr>
-
+</c:forEach>
 
 
 <tr class="total_line_">
@@ -144,7 +144,7 @@
         <td><input type="image" name="submit" src="img/cart_next.gif" alt="次へ（購入手続きへ）" tabindex="1"></td></tr>
 </table>
 
-</c:forEach>
+
 </div>
 </form>
 

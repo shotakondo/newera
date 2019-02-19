@@ -4,8 +4,7 @@
 
 <html lang="ja">
 	
-	<title>ニューエラ/New Era公式オンラインストア |9FIFTY ダラー ニューヨーク・ヤンキース ブラック × ホワイト プリントバイザー(57.7 - 61.5cm): キャップ</title>
-	<link rel="canonical" href="https://store.neweracap.jp/shop/g/g11914503-OSFA/">
+	<title>ニューエラ/New Era公式オンラインストア | ${data.name}</title>
 
 <meta http-equiv="content-style-type" content="text/css">
 
@@ -92,7 +91,7 @@
 
 
     </div>
-	<div class="left" style="size:50%;float:left;width: 850px;height: 1000px;padding: 50px" >
+	<div class="left" style="resize:50%;float:left;width: 850px;height: 400px;padding: 50px" >
 			<div class="photo">
 				<img src="<c:url value='${data.path}' />" alt="${data.name}">
 </div>

@@ -3,10 +3,10 @@ package command;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-import exe.*;
+import context.*;
 import beans.*;
 
-public class EmailEntryCommand extends exe.AbstractCommand{
+public class EmailEntryCommand extends AbstractCommand{
 	
 	//メールアドレス申し込み処理(仮)
 	public ResponseContext execute(ResponseContext resc){

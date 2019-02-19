@@ -1,8 +1,8 @@
 package command;
 
-import exe.*;
+import context.*;
 
-public class EmailEntryJumpCommand extends exe.AbstractCommand{
+public class EmailEntryJumpCommand extends AbstractCommand{
 
 	public ResponseContext execute(ResponseContext resc){
 		
