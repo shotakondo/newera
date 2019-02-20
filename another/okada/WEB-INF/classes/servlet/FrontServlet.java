@@ -21,14 +21,7 @@ public class FrontServlet extends javax.servlet.http.HttpServlet{
 		throws ServletException, IOException{
 			
 			req.setCharacterEncoding("Windows-31J");
-			
-			
-			if(req.getRequestedSessionId() != null && !req.isRequestedSessionIdValid()){
-				req.setAttribute("sessionTimeout", true);
-				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
-				dispatcher.forward(req, res);
-			}
-			else {
+
 				ApplicationController app = new WebApplicationController();
 
 				RequestContext reqc = app.getRequest(req);
@@ -37,7 +30,6 @@ public class FrontServlet extends javax.servlet.http.HttpServlet{
 				resc.setResponse(res);
 
 				app.handleResponse(reqc, resc);
-			}
 			
 		}
 }
