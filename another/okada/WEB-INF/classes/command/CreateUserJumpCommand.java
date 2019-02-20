@@ -1,3 +1,8 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : jumpcreate
+
+
+
 package command;
 
 import dao.*;

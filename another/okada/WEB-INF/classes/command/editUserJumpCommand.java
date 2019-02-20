@@ -1,3 +1,9 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : jumpedituser
+
+
+
+
 package command;
 
 import dao.*;

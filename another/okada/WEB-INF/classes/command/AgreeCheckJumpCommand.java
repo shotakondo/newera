@@ -1,3 +1,9 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : jumpagree
+
+
+
+
 package command;
 
 import dao.*;
