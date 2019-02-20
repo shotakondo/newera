@@ -1,3 +1,9 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : delete
+
+
+
+
 package command;
 import java.util.List;
 

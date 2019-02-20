@@ -1,3 +1,10 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : emailchange
+
+
+
+
+
 package command;
 
 import dao.*;

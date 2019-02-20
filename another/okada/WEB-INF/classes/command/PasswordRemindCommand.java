@@ -1,3 +1,10 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : remind
+
+
+
+
+
 package command;
 
 import java.io.UnsupportedEncodingException;

@@ -1,3 +1,9 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : passchange
+
+
+
+
 package command;
 
 import dao.*;

@@ -1,3 +1,7 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : login
+
+
 package command;
 import javax.servlet.http.HttpServletRequest;
 

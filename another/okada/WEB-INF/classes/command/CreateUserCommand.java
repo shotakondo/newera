@@ -1,3 +1,9 @@
+//Žg‚Á‚Ä‚é
+//propertie–¼ : create
+
+
+
+
 package command;
 
 import dao.*;
