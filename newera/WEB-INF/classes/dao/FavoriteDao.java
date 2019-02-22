@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface FavoriteDao{
 	
-	public List getFavorites(String uid);
-	public void setFavorite(String uid, String pid);
-	public void deleteFavorite(String uid, String pid);
-	public void alterFavorite(String uid, String pid, String comment);
+	public List getFavorites(String id);
+	public void setFavorite(String id, String pid);
+	public void deleteFavorite(String id, String pid);
+	public void alterFavorite(String id, String pid);
 	
 }

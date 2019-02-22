@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="js/script.js"></script>
-	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
-	
-	
-	
 	<meta name="description" content="メジャーリーグベースボール唯一の公式キャップであるニューエラの直営オンラインスストア。公式通販では、キャップだけでなく、ゴルフ向け帽子やTシャツ・パーカーなどのアパレル商品、バッグなど幅広い商品を取りニューエラキャップ　NEW ERA CAP ニューエラ">
 
 <meta http-equiv="content-style-type" content="text/css">
@@ -39,7 +36,13 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-			--><li class="link_login"><a href="jumplogin">ログイン/新規会員登録</a></li><!--
+			<c:if test="${sessionScope.u == null}">
+		--><li class="link_login"><a href="jumplogin">ログイン／新規会員登録</a></li><!--
+		</c:if>
+		<c:if test="${sessionScope.u != null}">
+			 <li class="link_mypage"><a href="mypage">マイページ</a></li>
+			 <li class="link_logout"><a href="logout">ログアウト</a></li>
+		</c:if>
 	--></ul>
 </div></div>
 

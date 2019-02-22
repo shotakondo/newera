@@ -1,4 +1,4 @@
-@charset "WINDOWS-31J";
+﻿@charset "UTF-8";
 
 /* --------------------------------------------------------------------
 	import
@@ -23,6 +23,3 @@
 @import url(freepage.css); 		/* フリーページ */
 @import url(search_suggest.css);/* 検索サジェスト */
 @import url(ui-lightness/jquery-ui.css); /* jQuery-UI */
-
-
-

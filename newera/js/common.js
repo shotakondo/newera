@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery.js"/>
+/// <reference path="jquery.js"/>
 jQuery.noConflict(); 
 /*  global変数 */
 var EC_WWW_ROOT = '';

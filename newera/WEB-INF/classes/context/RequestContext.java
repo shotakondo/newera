@@ -14,5 +14,6 @@ public interface RequestContext{
 	public void setRemoveAttribute(String n);
 	public void setRequest(Object request);
 	public  String[] getUrlParameter();
+	public void sessionInvalidate();
 	
 }

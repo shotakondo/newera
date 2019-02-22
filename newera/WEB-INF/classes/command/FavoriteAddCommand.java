@@ -14,8 +14,9 @@ public class FavoriteAddCommand extends AbstractCommand{
 		
 		RequestContext reqc = getRequestContext();
 		
-		User ub = (User)reqc.getSessionAttribute("ub");
-		String id = ub.getId();
+		User u = (User)reqc.getSessionAttribute("userBean");
+		String id = u.getId();
+		
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
 		

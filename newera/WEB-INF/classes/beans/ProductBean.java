@@ -9,9 +9,9 @@ public class ProductBean implements Serializable{
 	
 	private String pid;
 	private String name;
-	private String price;
+	private int price;
 	private String path;
-	private String num;
+	private int num;
 	
 	public ProductBean(){}
 	
@@ -27,10 +27,10 @@ public class ProductBean implements Serializable{
 	public void setName(String name){
 		this.name = name;
 	}
-	public String getPrice(){
+	public int getPrice(){
 		return price;
 	}
-	public void setPrice(String price){
+	public void setPrice(int price){
 		this.price = price;
 	}
 	public String getPath(){
@@ -39,10 +39,10 @@ public class ProductBean implements Serializable{
 	public void setPath(String path){
 		this.path = path;
 	}
-	public String getNum(){
+	public int getNum(){
 		return num;
 	}
-	public void setNum(String num){
+	public void setNum(int num){
 		this.num = num;
 	}
 	

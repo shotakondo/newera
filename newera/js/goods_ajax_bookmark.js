@@ -1,4 +1,4 @@
-﻿jQuery(document).ready(function() {
+jQuery(document).ready(function() {
     var $btn_bookmark = jQuery(".btn_bookmark_");
     $btn_bookmark.unbind("click");
     $btn_bookmark.bind("click", function(e) {

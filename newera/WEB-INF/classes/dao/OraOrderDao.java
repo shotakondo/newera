@@ -133,9 +133,9 @@ public class OraOrderDao implements OrderDao{
 					
 					pb.setPid(rs.getString(3));
 					pb.setName(rs.getString(4));
-					pb.setPrice(rs.getString(5));
+					pb.setPrice(rs.getInt(5));
 					pb.setPath(rs.getString(6));
-					pb.setNum(rs.getString(7));
+					pb.setNum(rs.getInt(7));
 					
 					products.add(pb);
 					rs.next();

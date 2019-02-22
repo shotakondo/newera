@@ -46,6 +46,37 @@ div.sidebox_ h2 a,h2.event_title_rightmenu_ a {
 	padding: 5px 10px 5px 50px;
 	background:url(../img/usr/common/topic_arrow.png) 40px center no-repeat;
 }
+.category_tree_ li.category_tree4_ a,.category_tree_ li.category_tree4_ span.nolink_ {
+	padding: 5px 10px 5px 60px;
+	background:url(../img/usr/common/topic_arrow.png) 50px center no-repeat;
+}
+/* 現在のカテゴリ */
+.category_tree_ li.category_tree2_open_ a {
+	padding: 5px 10px 5px 40px;
+	background:url(../img/usr/common/topic_arrow.png) 30px center no-repeat;
+	font-weight:bold;
+}
+.category_tree_ li.category_tree3_open_ a {
+	padding: 5px 10px 5px 50px;
+	background:url(../img/usr/common/topic_arrow.png) 40px center no-repeat;
+	font-weight:bold;
+}
+.category_tree_ li.category_tree4_open_ a {
+	padding: 5px 10px 5px 60px;
+	background:url(../img/usr/common/topic_arrow.png) 50px center no-repeat;
+	font-weight:bold;
+}
+/**/
+.category_tree_ li.category_tree1_.haveimg_ img,.category_tree_ li.category_tree1_open_.haveimg_ img {
+	width:35px;
+}
+.category_tree_ li.category_tree1_.haveimg_ span.img_,.category_tree_ li.category_tree1_open_.haveimg_  span.img_{
+	padding:0 5px 0 0;
+}
+/* リンクがない場合 */
+.category_tree_ li.category_tree1_ span.nolink_,.category_tree_ li.category_tree2_ span.nolink_,.category_tree_ li.category_tree3_ span.nolink_,.category_tree_ li.category_tree4_ span.nolink_ {
+	color: #999;
+}
 /* ----絞り込み項目：ツリーのフィルター---- */
 nav.FilterTreeStyle_ ul li {
 	font-size:11px;
@@ -189,7 +220,18 @@ div.leftmenuframe_ ul.banner_ li {
 	margin: 0 0 10px 0;
 }
 /* ----サイドボックス　ウェルカムメッセージ---- */
-
+#welcomeMessage {
+	height:65px;
+	width:130px;
+	padding:0 15px 25px 15px;
+	font-size:12px;
+	color:#ffffff;
+	vertical-align:middle;
+	text-align:center;
+	layout-grid-line:65px;
+	display:table-cell;
+	background: url(../img/usr/common/welcome.png) left top no-repeat;
+}
 #welcomeMessage a {
 	color:#ffffff;
 	font-size:10px;

@@ -90,13 +90,11 @@ public class CreateUserCommand extends AbstractCommand{
 		
 		if(b == true){
 			System.out.println("CreateUserCommand if に入った");
-			resc.setTarget("start");
+			resc.setTarget("registerafter");
 			
 		}else{
 			
-			System.out.println("CreateUserCommand daoのcreateUserでfalseが帰ったにで例外投げた");
-			
-			throw new exp.asdfException("メールアドレスが既に使われています", new RuntimeException());
+			resc.setTarget("register");
 		
 		}
 		

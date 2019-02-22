@@ -14,9 +14,9 @@ public class User implements Serializable
 	private String address;
 	private String sex;
 	private String birthday;
+	private CartBean cart;
 	
-	
-	
+	public User(){}
 	
 	public String getId(){
 		return id;
@@ -113,6 +113,12 @@ public class User implements Serializable
 	}
 	public void setBirthday(String birthday){
 		this.birthday = birthday;
+	}
+	public CartBean getCart(){
+		return cart;
+	}
+	public void setCart(CartBean cart){
+		this.cart = cart;
 	}
 }
 	
