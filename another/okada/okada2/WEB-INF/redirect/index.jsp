@@ -3,7 +3,7 @@
 
 <html lang="ja">
 	<head>
-		<meta http-equiv="refresh" content="0;URL=http://localhost:8080/newera/home">
+		<meta http-equiv="refresh" content="0;URL=http://localhost:8080/gitnewera3/home">
 
 	</head>
 </html>

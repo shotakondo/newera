@@ -75,8 +75,14 @@ public class OraProductDao implements ProductDao{
 				pb.setName(rs.getString(2));
 				pb.setPrice(rs.getString(3));
 				pb.setPath(rs.getString(4));
+				
+				System.out.println("getProduct : pb.getPid : "+pb.getPid());
+				System.out.println("getProduct : pb.getName : "+pb.getName());
+				System.out.println("getProduct : pb.getPath : "+pb.getPath());
 
 			}
+			
+			System.out.println("getProduct : pb.getPath (whileÇÃäO) : "+pb.getPath());
 			
 		//getConnection, prepareStatement, executeQueryÇ≈ó·äOî≠ê∂ÇÃèÍçá
 		}catch(SQLException e){

@@ -25,6 +25,7 @@ public class CartAddCommand extends AbstractCommand{
 		
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
+		System.out.println("CartAddCommand pid : "+pid);
 		
 		User u = (User)session.getAttribute("userBean");
 		if(u == null){
@@ -47,8 +48,14 @@ public class CartAddCommand extends AbstractCommand{
 		
 		pb = pd.getProduct(pid);
 		
+		System.out.println("CartAddCommand pb.getPid : "+pb.getPid());
+		System.out.println("CartAddCommand pb.getName : "+pb.getName());
+		System.out.println("CartAddCommand pb.getPath : "+pb.getPath());
+		
 				
 		u.setCart(cb);
+		
+		System.out.println("CartAddCommand u.getCart : "+u.getCart());
 		
 		session.setAttribute("userBean", u);
 		
