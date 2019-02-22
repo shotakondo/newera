@@ -54,7 +54,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 
 		<div class="info">
 			<div class="search">

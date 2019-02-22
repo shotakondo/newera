@@ -58,7 +58,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 
 		<div class="info">
 			<div class="search">
@@ -112,7 +112,7 @@
 </tr>
 </tbody></table>
 <div class="submit_">
-<a href=""><img src="img/back.gif" alt="–ß‚é"></a>
+<a href="jumpmypage"><img src="img/back.gif" alt="–ß‚é"></a>
 <input type="image" name="submit" src="img/withdrawal.gif" alt="‘Þ‰ï‚·‚é" onclick="return confirmAction();">
 </div>
 </form>
