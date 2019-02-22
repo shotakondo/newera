@@ -3,11 +3,15 @@ package command;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.ProductDao;
 
-import exe.*;
+import context.*;
+import beans.*;
 
 public class ProductsSearchCommand extends AbstractCommand{
 	
@@ -15,10 +19,9 @@ public class ProductsSearchCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
-		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
 		
-		String productword = reqc.getParameter("productword")[0];
+		String[] productwords = reqc.getParameter("productword");
+		String productword = productwords[0];
 		
 		if(productword != null && productword.length() != 0){
 			//トランザクションを開始する
@@ -28,7 +31,8 @@ public class ProductsSearchCommand extends AbstractCommand{
 			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 			ProductDao pd = factory.getProductDao();
 			
-			session.setAttribute("productlist", pd.getProductsWord(productword));
+			reqc.setSessionAttribute("productlist", pd.getProductsWord(productword));
+			//session.setAttribute("productlist", pd.getProductsWord(productwordtop));
 			
 			//トランザクションを終了する
 			OracleConnectionManager.getInstance().commit();
@@ -38,7 +42,7 @@ public class ProductsSearchCommand extends AbstractCommand{
 		}
 			
 		//toppage.jspへ転送
-		resc.setTarget("toppage");
+		resc.setTarget("home");
 		
 		return resc;
 	}

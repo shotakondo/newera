@@ -1,6 +1,6 @@
 package command;
 
-import exe.*;
+import context.*;
 
 public class EmailEntryJumpCommand extends AbstractCommand{
 

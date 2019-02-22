@@ -1,15 +1,17 @@
 package command;
 
-import exe.*;
+import dao.*;
+import beans.*;
+import context.*;
 
 public class MyPageJumpCommand extends AbstractCommand{
-
 	public ResponseContext execute(ResponseContext resc){
 		
-		//mypage.jsp‚Ö“]‘—
+		RequestContext reqc = getRequestContext();
+				
 		resc.setTarget("mypage");
-		
 		return resc;
 	}
-	
 }
+
+

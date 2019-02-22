@@ -7,8 +7,8 @@ import dao.UserDao;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.*;
 
 public class SubscribeCommand extends AbstractCommand{
 	
@@ -19,8 +19,8 @@ public class SubscribeCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		String firstname = reqc.getParameter("firstname")[0];
-		String lastname = reqc.getParameter("lastname")[0];
+		String firstName = reqc.getParameter("firstName")[0];
+		String lastName = reqc.getParameter("lastName")[0];
 		String tel = reqc.getParameter("tel")[0];
 		String postcode = reqc.getParameter("postcode")[0];
 		String address = reqc.getParameter("address")[0];
@@ -32,32 +32,32 @@ public class SubscribeCommand extends AbstractCommand{
 		
 		//char _sex = sex.charAt(0);
 		String judge = null;
-		String uid = null;
+		String id = null;
 		
-		if (firstname == null || firstname.length() == 0 || lastname == null || lastname.length() == 0 || tel == null || tel.length() == 0 || postcode == null || postcode.length() == 0 || address == null || address.length() == 0 || sex == null || sex.length() == 0 || birthday == null || birthday.length() == 0 || pass == null || pass.length() == 0 || repass == null || repass.length() == 0 || email == null || email.length() == 0){
+		//if (firstname == null || firstname.length() == 0 || lastname == null || lastname.length() == 0 || tel == null || tel.length() == 0 || postcode == null || postcode.length() == 0 || address == null || address.length() == 0 || sex == null || sex.length() == 0 || birthday == null || birthday.length() == 0 || pass == null || pass.length() == 0 || repass == null || repass.length() == 0 || email == null || email.length() == 0){
 			
 			//入力内容が不適切
 			resc.setTarget("subscribe");
 			
-		}else if(!(pass.equals(repass))){
+		//}else if(!(pass.equals(repass))){
 			
 			//メールアドレスと確認用メールアドレスの値が一致しない
 			resc.setTarget("subscribe");
 			
-		}else{
+		//}else{
 			
 			//新しいUserBeanクラスのインスタンス化をする
-			UserBean ub = new UserBean();
+			User u = new User();
 			
-			ub.setFirstname(firstname);
-			ub.setLastname(lastname);
-			ub.setEmail(email);
-			ub.setPass(pass);
-			ub.setTel(tel);
-			ub.setPostcode(postcode);
-			ub.setAddress(address);
-			ub.setSex(sex);
-			ub.setBirthday(birthday);
+			u.setFirstName(firstName);
+			u.setLastName(lastName);
+			u.setEmail(email);
+			u.setPass(pass);
+			u.setTel(tel);
+			u.setPostcode(postcode);
+			u.setAddress(address);
+			u.setSex(sex);
+			u.setBirthday(birthday);
 			
 			//トランザクションを開始する
 			OracleConnectionManager.getInstance().beginTransaction();
@@ -66,9 +66,9 @@ public class SubscribeCommand extends AbstractCommand{
 			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 			UserDao ud= factory.getUserDao();
 			
-			ud.insertUser(ub);
-			judge = ud.authUser(email, pass);
-			ub = ud.selectUser(email);
+			//ud.insertUser(u);
+			//judge = ud.authUser(email, pass);
+			//ub = ud.selectUser(email);
 			
 			//トランザクションを終了する
 			OracleConnectionManager.getInstance().commit();
@@ -77,19 +77,19 @@ public class SubscribeCommand extends AbstractCommand{
 			OracleConnectionManager.getInstance().closeConnection();
 			
 			//judgeがtrueの場合
-			if(judge.equals("userok")){
+			//if(judge.equals("userok")){
 				//sessionにuidを持たせる
-				session.setAttribute("email", ub.getEmail());
-				session.setAttribute("uname", ub.getFirstname());
+				//session.setAttribute("email", ub.getEmail());
+				//session.setAttribute("uname", ub.getFirstname());
 				//toppage.jspへ転送
 				resc.setTarget("toppage");
 				
 			//judgeがtrue以外の場合
-			}else{
+			//}else{
 				//subscirbe.jspへ転送
 				resc.setTarget("subscribe");
-			}
-		}
+			//}
+		//}
 		return resc;
 	}
 }

@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
-import dao.ProductDao;
+import dao.*;
 
-import exe.*;
+import context.*;
 import beans.*;
+
 
 public class CartAddCommand extends AbstractCommand{
 	
@@ -22,9 +23,15 @@ public class CartAddCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		CartBean cb = (CartBean)session.getAttribute("cb");
-		String pid = reqc.getParameter("pid")[0];
+		String[] pids = reqc.getParameter("pid");
+		String pid = pids[0];
 		
+		User u = (User)session.getAttribute("userBean");
+		if(u == null){
+			u = new User();
+		}
+		
+		CartBean cb = u.getCart();
 		if(cb == null){
 			cb = new CartBean();
 		}
@@ -42,7 +49,9 @@ public class CartAddCommand extends AbstractCommand{
 		
 		cb.addProduct(pb);
 		
-		session.setAttribute("cb", cb);
+		u.setCart(cb);
+		
+		session.setAttribute("userBean", u);
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

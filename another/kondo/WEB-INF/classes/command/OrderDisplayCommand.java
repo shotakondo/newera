@@ -7,8 +7,8 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.OrderDao;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.*;
 
 public class OrderDisplayCommand extends AbstractCommand{
 	
@@ -19,8 +19,8 @@ public class OrderDisplayCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		UserBean ub = (UserBean)session.getAttribute("ub");
-		String uid = ub.getUid();
+		User ub = (User)session.getAttribute("ub");
+		String id = ub.getId();
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
@@ -29,7 +29,7 @@ public class OrderDisplayCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		OrderDao od = factory.getOrderDao();
 		
-		resc.setResult(od.getOrders(uid));
+		resc.setResult(od.getOrders(id));
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

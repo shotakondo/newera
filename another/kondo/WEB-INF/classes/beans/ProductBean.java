@@ -4,14 +4,17 @@ package beans;
 //import
 import java.io.Serializable;
 
+import java.util.ArrayList;
+
 //ProductBeanƒNƒ‰ƒX
 public class ProductBean implements Serializable{
 	
 	private String pid;
 	private String name;
-	private String price;
+	private int price;
+	private ArrayList paths = new ArrayList();
 	private String path;
-	private String num;
+	private int num;
 	
 	public ProductBean(){}
 	
@@ -27,11 +30,23 @@ public class ProductBean implements Serializable{
 	public void setName(String name){
 		this.name = name;
 	}
-	public String getPrice(){
+	public int getPrice(){
 		return price;
 	}
-	public void setPrice(String price){
+	public void setPrice(int price){
 		this.price = price;
+	}
+	public ArrayList getPaths(){
+		return paths;
+	}
+	public void setPaths(ArrayList paths){
+		this.paths = paths;
+	}
+	public int getNum(){
+		return num;
+	}
+	public void setNum(int num){
+		this.num = num;
 	}
 	public String getPath(){
 		return path;
@@ -39,11 +54,4 @@ public class ProductBean implements Serializable{
 	public void setPath(String path){
 		this.path = path;
 	}
-	public String getNum(){
-		return num;
-	}
-	public void setNum(String num){
-		this.num = num;
-	}
-	
 }

@@ -7,8 +7,8 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.User;
 
 public class FavoriteAlterCommand extends AbstractCommand{
 	
@@ -19,31 +19,25 @@ public class FavoriteAlterCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		UserBean ub = (UserBean)session.getAttribute("ub");
-		String uid = ub.getUid();
+		User u = (User)session.getAttribute("userBean");
+		String id = u.getId();
 		String pid = reqc.getParameter("pid")[0];
-		String comment = reqc.getParameter("comment")[0];
 		
-		//値が入っているか確認
-		if (comment != null || comment.length() != 0){
-			
-			//トランザクションを開始する
-			OracleConnectionManager.getInstance().beginTransaction();
-			
-			//インテグレーションレイヤの処理を呼び出す
-			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-			FavoriteDao fd = factory.getFavoriteDao();
-			
-			fd.alterFavorite(uid, pid, comment);
-			resc.setResult(fd.getFavorites(uid));
-			
-			//トランザクションを終了する
-			OracleConnectionManager.getInstance().commit();
-			
-			//コネクションを切断する
-			OracleConnectionManager.getInstance().closeConnection();
-			
-		}
+		//トランザクションを開始する
+		OracleConnectionManager.getInstance().beginTransaction();
+		
+		//インテグレーションレイヤの処理を呼び出す
+		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		FavoriteDao fd = factory.getFavoriteDao();
+		
+		fd.alterFavorite(id, pid);
+		resc.setResult(fd.getFavorites(id));
+		
+		//トランザクションを終了する
+		OracleConnectionManager.getInstance().commit();
+		
+		//コネクションを切断する
+		OracleConnectionManager.getInstance().closeConnection();
 		
 		//favoritedisplay.jspへ転送
 		resc.setTarget("favoritedisplay");

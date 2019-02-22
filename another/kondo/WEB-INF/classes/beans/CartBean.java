@@ -19,15 +19,19 @@ public class CartBean implements Serializable{
 		for(int i = 0; i < getProducts().size(); i++){
 			
 			ProductBean pb = (ProductBean)getProducts().get(i);
-			
+			System.out.println("ƒ‹[ƒv“à");
 			if(pb.getPid().equals(product.getPid())){
-				num = Integer.parseInt(pb.getNum()) + 1;
-				pb.setNum(Integer.toString(num));
+				System.out.println(pb.getPid()+"pb.getPid()"+product.getPid()+"product.getPid()");
+				num = pb.getNum() + 1;
 				judge = true;
+				System.out.println(num);
+				pb.setNum(num);
 			}
 		}
 		
+		
 		if(judge == false){
+		product.setNum(num);
 			_products.add(product);
 		}
 	}
@@ -43,7 +47,7 @@ public class CartBean implements Serializable{
 			}
 		}
 	}
-	public void alterProductsNum(String numlist[]){
+	public void alterProductsNum(int numlist[]){
 		
 		for(int i = 0; i < getProducts().size(); i++){
 			ProductBean pb = (ProductBean)_products.get(i);

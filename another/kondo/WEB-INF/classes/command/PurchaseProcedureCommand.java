@@ -10,7 +10,7 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.StockDao;
 
-import exe.*;
+import context.*;
 import beans.*;
 
 public class PurchaseProcedureCommand extends AbstractCommand{
@@ -21,8 +21,17 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
+		User u = (User)session.getAttribute("userBean");
+		if(u == null){
+			u = new User();
+		}
 		
-		CartBean cb = (CartBean)session.getAttribute("cb");
+		CartBean cb = u.getCart();
+		if(cb == null){
+			cb = new CartBean();
+		}
+		
+		
 		String numlist[] = req.getParameterValues("num");
 		Boolean judge = false;
 		
@@ -37,7 +46,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		
 		for(int i = 0; i < cb.getProducts().size(); i++){
 			ProductBean pb = (ProductBean)cb.getProducts().get(i);
-			if(pb.getNum().length() == 0 || Integer.parseInt(pb.getNum()) == 0){
+			if(String.valueOf(pb.getNum()).equals(null) || pb.getNum() == 0){
 				System.out.println("カートから"+pb.getName()+"を削除します");
 				cb.deleteProduct(pb.getPid());
 			}
@@ -48,7 +57,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		}else{
 			for(int i = 0; i < cb.getProducts().size(); i++){
 				ProductBean pb = (ProductBean)cb.getProducts().get(i);
-				if(Integer.parseInt(pb.getNum()) > 30){
+				if(pb.getNum() > 30){
 					System.out.println(pb.getName()+"の在庫を30以下にしてください");
 					judge = true;
 					break;
@@ -56,7 +65,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 			}
 			for(int i = 0; i < cb.getProducts().size(); i++){
 				ProductBean pb = (ProductBean)cb.getProducts().get(i);
-				if(judge == false && Integer.parseInt(pb.getNum()) > sd.getStock(pb.getPid())){
+				if(judge == false && pb.getNum() > sd.getStock(pb.getPid())){
 					System.out.println(pb.getName()+"の在庫が不足しています");
 					judge = true;
 					break;

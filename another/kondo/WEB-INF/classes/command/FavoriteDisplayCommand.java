@@ -7,8 +7,8 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.User;
 
 public class FavoriteDisplayCommand extends AbstractCommand{
 	
@@ -19,8 +19,8 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		UserBean ub = (UserBean)session.getAttribute("ub");
-		String uid = ub.getUid();
+		User u = (User)session.getAttribute("userBean");
+		String id = u.getId();
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
@@ -29,7 +29,7 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		FavoriteDao fd = factory.getFavoriteDao();
 		
-		resc.setResult(fd.getFavorites(uid));
+		resc.setResult(fd.getFavorites(id));
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

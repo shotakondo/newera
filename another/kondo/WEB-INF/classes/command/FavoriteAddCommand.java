@@ -4,8 +4,8 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.User;
 
 public class FavoriteAddCommand extends AbstractCommand{
 	
@@ -14,8 +14,9 @@ public class FavoriteAddCommand extends AbstractCommand{
 		
 		RequestContext reqc = getRequestContext();
 		
-		UserBean ub = (UserBean)reqc.getSessionAttribute("ub");
-		String uid = ub.getUid();
+		User u = (User)reqc.getSessionAttribute("userBean");
+		String id = u.getId();
+		
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
 		
@@ -26,8 +27,8 @@ public class FavoriteAddCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		FavoriteDao fd = factory.getFavoriteDao();
 		
-		fd.setFavorite(uid, pid);
-		resc.setResult(fd.getFavorites(uid));
+		fd.setFavorite(id, pid);
+		resc.setResult(fd.getFavorites(id));
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

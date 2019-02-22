@@ -7,12 +7,10 @@ import java.sql.SQLException;
 public class OracleConnectionManager{
 	
 	private static OracleConnectionManager oraconn = null;
-	private Connection cn;
+	private Connection cn = null;
 	
-	private OracleConnectionManager(){
-	}
+	private OracleConnectionManager(){}
 	
-	//シングルトンパターンを適用する
 	public static OracleConnectionManager getInstance(){
 		if(oraconn == null){
 			oraconn = new OracleConnectionManager();
@@ -21,18 +19,17 @@ public class OracleConnectionManager{
 	}
 	
 	public Connection getConnection(){
-		
-		try{
-			//Driverインターフェイスを実装クラスをロードする
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//Connectionインターフェイスを実装するクラスの
-			//インスタンスを返す
-			cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
-			
-		}catch(ClassNotFoundException e){
-			e.printStackTrace();
-		}catch(SQLException e){
-			e.printStackTrace();
+		if(cn == null){
+			try{
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				
+				cn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+				
+			}catch(ClassNotFoundException e){
+				e.printStackTrace();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
 		}
 		return cn;
 	}
@@ -41,6 +38,10 @@ public class OracleConnectionManager{
 		try{
 			if(cn != null){
 				cn.close();
+				cn= null;
+				System.out.println("close");
+				//commandでcloseしているからここの条件を（cn != null || cn == null）にするか
+				//cn = null しないと connectionがとれない
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -48,28 +49,30 @@ public class OracleConnectionManager{
 	}
 	
 	public void beginTransaction(){
+		if(cn == null){
+			getConnection();
+			System.out.println("getConnection");
+		}
 		try{
-			if(cn == null || cn.isClosed()){
-				getConnection();
-			}
-			//自動コミットをOFFにする
 			cn.setAutoCommit(false);
+			System.out.println("setAutoCommit");
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
 	
 	public void commit(){
-		//コミットする
 		try{
-			cn.commit();
+			if(cn != null || cn.isClosed() == false){
+				cn.commit();
+				System.out.println("commit");
+			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
 	}
 	
 	public void rollback(){
-		//ロールバックする
 		try{
 			cn.rollback();
 		}catch(SQLException e){

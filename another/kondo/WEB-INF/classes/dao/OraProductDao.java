@@ -29,7 +29,7 @@ public class OraProductDao implements ProductDao{
 			//パラメータをセットする
 			st.setString(1, pb.getPid());
 			st.setString(2, pb.getName());
-			st.setString(3, pb.getPrice());
+			st.setInt(3, pb.getPrice());
 			
 			//SQLの実行
 			st.executeUpdate();
@@ -57,6 +57,7 @@ public class OraProductDao implements ProductDao{
 		ResultSet rs = null;
 		
 		ProductBean pb = new ProductBean();
+		ArrayList al = new ArrayList();
 		
 		try{
 			//insert文
@@ -71,11 +72,18 @@ public class OraProductDao implements ProductDao{
 			
 			rs.next();
 			
+			
 			pb.setPid(rs.getString(1));
 			pb.setName(rs.getString(2));
-			pb.setPrice(rs.getString(3));
+			pb.setPrice(rs.getInt(3));
 			pb.setPath(rs.getString(4));
-			pb.setNum("1");
+			
+			al.add(rs.getString(4));
+			if(rs.next()){
+				al.add(rs.getString(4));
+			}
+			
+			pb.setPaths(al);
 			
 		//getConnection, prepareStatement, executeQueryで例外発生の場合
 		}catch(SQLException e){
@@ -86,9 +94,10 @@ public class OraProductDao implements ProductDao{
 				//独自例外にラップして送出する
 				throw new ResourceAccessException(e2.getMessage(), e2);
 			}
-			
+			System.out.println("カード入っていないよー");
 			//独自例外にラップして送出する
 			throw new ResourceAccessException(e.getMessage(), e);
+			
 			
 		}
 		return pb;
@@ -121,7 +130,7 @@ public class OraProductDao implements ProductDao{
 				
 				pb.setPid(rs.getString(1));
 				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
+				pb.setPrice(rs.getInt(3));
 				pb.setPath(rs.getString(4));
 				
 				//コレクションに追加する
@@ -156,7 +165,6 @@ public class OraProductDao implements ProductDao{
 		
 		ArrayList products = new ArrayList();
 		
-		ProductBean pb = new ProductBean();
 		
 		try{
 			//select文
@@ -173,12 +181,12 @@ public class OraProductDao implements ProductDao{
 			
 			//カーソルを一行ずつスクロールし、データをフェッチする
 			while(rs.next()){
+				ProductBean pb = new ProductBean();
 				
 				pb.setPid(rs.getString(1));
 				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
+				pb.setPrice(rs.getInt(3));
 				pb.setPath(rs.getString(4));
-				
 				//コレクションに追加する
 				products.add(pb);
 			}
@@ -227,7 +235,7 @@ public class OraProductDao implements ProductDao{
 				
 				pb.setPid(rs.getString(1));
 				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
+				pb.setPrice(rs.getInt(3));
 				pb.setPath(rs.getString(4));
 				
 				//コレクションに追加する
@@ -281,7 +289,7 @@ public class OraProductDao implements ProductDao{
 				
 				pb.setPid(rs.getString(1));
 				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
+				pb.setPrice(rs.getInt(3));
 				pb.setPath(rs.getString(4));
 				
 				//コレクションに追加する
@@ -334,7 +342,7 @@ public class OraProductDao implements ProductDao{
 				
 				pb.setPid(rs.getString(1));
 				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getString(3));
+				pb.setPrice(rs.getInt(3));
 				pb.setPath(rs.getString(4));
 				
 				//コレクションに追加する

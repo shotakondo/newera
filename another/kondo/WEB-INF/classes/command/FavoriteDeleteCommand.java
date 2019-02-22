@@ -7,8 +7,8 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
-import exe.*;
-import beans.UserBean;
+import context.*;
+import beans.User;
 
 public class FavoriteDeleteCommand extends AbstractCommand{
 	
@@ -19,8 +19,8 @@ public class FavoriteDeleteCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		UserBean ub = (UserBean)session.getAttribute("ub");
-		String uid = ub.getUid();
+		User ub = (User)session.getAttribute("ub");
+		String id = ub.getId();
 		String pid = reqc.getParameter("pid")[0];
 		
 		//トランザクションを開始する
@@ -30,8 +30,8 @@ public class FavoriteDeleteCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		FavoriteDao fd = factory.getFavoriteDao();
 		
-		fd.deleteFavorite(uid, pid);
-		resc.setResult(fd.getFavorites(uid));
+		fd.deleteFavorite(id, pid);
+		resc.setResult(fd.getFavorites(id));
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

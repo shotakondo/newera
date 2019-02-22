@@ -10,7 +10,7 @@ import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.ProductDao;
 
-import exe.*;
+import context.*;
 
 public class ProductsSortCommand extends AbstractCommand{
 	
@@ -47,7 +47,7 @@ public class ProductsSortCommand extends AbstractCommand{
 		OracleConnectionManager.getInstance().closeConnection();
 		
 		//toppage.jsp‚Ö“]‘—
-		resc.setTarget("toppage");
+		resc.setTarget("home");
 		
 		return resc;
 	}

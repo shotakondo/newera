@@ -1,68 +1,61 @@
 package command;
-
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
-import dao.AbstractDaoFactory;
-import dao.OracleConnectionManager;
-import dao.UserDao;
 
-import exe.*;
+import dao.*;
+import beans.*;
+import context.*;
+import exp.*;
 
-import beans.UserBean;
 
 public class LoginCommand extends AbstractCommand{
-	
-	//ログイン処理
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
-		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
-		HttpSession session = req.getSession();
+		OracleConnectionManager.getInstance().beginTransaction();
 		
-		String email = reqc.getParameter("email")[0];
-		String pass = reqc.getParameter("pass")[0];
-		String judge = null;
+		String[] emails = reqc.getParameter("email");
+		String email = emails[0];
 		
-		//新しいUserBeanのインスタンス化をする
-		UserBean ub = new UserBean();
 		
-		ub.setEmail(email);
-		ub.setPass(pass);
+		String[] passs = reqc.getParameter("pass");
+		String pass = passs[0];
 		
-		//値が入っているか確認
-		if (email == null || email.length() == 0 || pass == null || pass.length() == 0){
-			
-			//ログイン失敗→login.jspへ転送
-			resc.setTarget("login");
-			
+		User u = new User();
+		System.out.println(u);
+		u.setEmail(email);
+		System.out.println(email);
+		u.setPass(pass);
+		System.out.println(pass);
+		
+		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		UserDao ud = factory.getUserDao();
+		boolean b = ud.checkLogin(u);
+		System.out.println("LoginCommand boolean 確認した" + b);
+		
+		
+		
+		if(b == true){
+
+			reqc.getSession();
+			reqc.setSessionAttribute("userBean",u);
+			System.out.println("sessionAttribute Request");
+			u = (User)reqc.getSessionAttribute("userBean");
+			System.out.println("session.getAttribute()"+ u.getId());
+			System.out.println("session.getAttribute()"+ u.getLastName());
+			resc.setTarget("mypage");
 		}else{
-			
-			//トランザクションを開始する
-			OracleConnectionManager.getInstance().beginTransaction();
-			
-			//インテグレーションレイヤの処理を呼び出す
-			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-			UserDao ud = factory.getUserDao();
-			
-			judge = ud.authUser(email, pass);
-			ub = ud.selectUser(email);
-			
-			resc.setResult(ub);
-			
-			//トランザクションを終了する
-			OracleConnectionManager.getInstance().commit();
-			
-			//コネクションを切断する
-			OracleConnectionManager.getInstance().closeConnection();
-			
-			if(judge.equals("ok")){
-				//sessionにuidを持たせる
-				session.setAttribute("ub",ub);
-				//toppage.jspへ転送
-				resc.setTarget("toppage");
-			}
+			System.out.println("LoginCommand daoのcheckLoginでfalseが帰ったのでcatchに入って例外投げました");
+			resc.setTarget("login");
 		}
+		OracleConnectionManager.getInstance().commit();
+		
+		OracleConnectionManager.getInstance().closeConnection();
+		
 		return resc;
 	}
 }
+		
+		
+
+

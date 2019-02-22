@@ -1,19 +1,18 @@
 package command;
 
-import exe.*;
+import context.RequestContext;
+import context.ResponseContext;
+
 
 public abstract class AbstractCommand{
-	
-	//RequestContextを格納するインスタンス変数
-	private RequestContext reqContext;
+	private RequestContext _reqContext;
 	
 	public void init(RequestContext reqc){
-		reqContext = reqc;
+		_reqContext = reqc;
 	}
-	//protectedでもよい
 	public RequestContext getRequestContext(){
-		return reqContext;
+		return _reqContext;
 	}
-	
 	public abstract ResponseContext execute(ResponseContext resc);
+	// public abstract ResponseContext execute();
 }
