@@ -20,6 +20,7 @@ public class ProductsDisplayCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		User u = (User)session.getAttribute("userBean");
+		System.out.println("ProductsDisplayCommand session : " + u);
 		if(u == null){
 			u = new User();
 			session.setAttribute("userBean", u);
