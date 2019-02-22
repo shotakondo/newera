@@ -8,6 +8,7 @@ import dao.OracleConnectionManager;
 import dao.ProductDao;
 
 import context.*;
+import beans.*;
 
 public class ProductsDisplayCommand extends AbstractCommand{
 	
@@ -17,6 +18,12 @@ public class ProductsDisplayCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
+		
+		User u = (User)session.getAttribute("userBean");
+		if(u == null){
+			u = new User();
+			session.setAttribute("userBean", u);
+		}
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();

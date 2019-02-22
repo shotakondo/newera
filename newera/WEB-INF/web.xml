@@ -21,6 +21,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 </servlet-mapping>
 <servlet-mapping>
 		<servlet-name>default</servlet-name>
+		<url-pattern>/img/item/*</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+		<servlet-name>default</servlet-name>
 		<url-pattern>/css/*</url-pattern>
 </servlet-mapping>
 <servlet-mapping>

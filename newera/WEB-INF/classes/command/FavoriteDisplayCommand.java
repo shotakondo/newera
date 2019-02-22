@@ -19,8 +19,8 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		User ub = (User)session.getAttribute("ub");
-		String id = ub.getId();
+		User u = (User)session.getAttribute("userBean");
+		String id = u.getId();
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();

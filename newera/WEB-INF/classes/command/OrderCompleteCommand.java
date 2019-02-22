@@ -20,7 +20,7 @@ public class OrderCompleteCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		CartBean cb = (CartBean)session.getAttribute("cb");
-		User ub = (User)session.getAttribute("ub");
+		User u = (User)session.getAttribute("userBean");
 		PaymentBean payb = (PaymentBean)session.getAttribute("payb");
 		
 		int total = 0;
@@ -36,15 +36,15 @@ public class OrderCompleteCommand extends AbstractCommand{
 		
 		for(int i = 0; i < cb.getProducts().size(); i++){
 			ProductBean pb = (ProductBean)cb.getProducts().get(i);
-			sd.alterStock(Integer.parseInt(pb.getNum()), pb.getPid());
+			sd.alterStock(pb.getNum(), pb.getPid());
 		}
 		
 		for(int i = 0; i < cb.getProducts().size(); i++){
 			ProductBean pb = (ProductBean)cb.getProducts().get(i);
-			total += Integer.parseInt(pb.getPrice()) * Integer.parseInt(pb.getNum());
+			total += pb.getPrice() * pb.getNum();
 		}
 		String sq = od.getSequence();
-		od.setOrder(sq, ub.getId(), payb.getMethod(), total);
+		od.setOrder(sq, u.getId(), payb.getMethod(), total);
 		
 		for(int i = 0; i < cb.getProducts().size(); i++){
 			ProductBean pb = (ProductBean)cb.getProducts().get(i);

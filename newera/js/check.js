@@ -110,6 +110,7 @@ function check_submit_addnew()
    else                       
       return true;   
 }
+/*--------------------イメール変更---------------------*/
 
 /*--------------------退会---------------------*/
 function confirmAction() {
@@ -117,80 +118,7 @@ function confirmAction() {
 }
 
 /*--------------------パスワード変更---------------------*/
-function check_passsubmit_addnew(){
-   var anh = window.document.check;         
 
-   if(anh.email.value=='')
-   {
-      alert('イメール未入力です。');
-      document.forms['check'].email.focus();           
-      return false;
-   }
-    else if(anh.oldpass.value=='')
-   {
-      alert('パスワード未入力です。');
-      document.forms['check'].oldpass.focus();           
-      return false;
-   }
-   else if(anh.pass.value=='')
-   {
-      alert('新しいパスワード未入力です。');
-      document.forms['check'].pass.focus();           
-      return false;
-   }
-   else if(anh.newpass.value=='')
-   {
-      alert('確認新しいパスワード未入力です。');
-      document.forms['check'].newpass.focus();           
-      return false;
-   }
-   else if(anh.pass.value != anh.newpass.value)
-   {
-      alert('確認パスワード合ってないよー');         
-      return false;
-   }
-
-   else                       
-      return true;   
-}
-/*--------------------イメール変更---------------------*/
-function check_emailsubmit_addnew()
-{
-   var anh = window.document.check;         
-
-   if(anh.oldemail.value=='')
-   {
-      alert('イメール未入力です。');
-      document.forms['check'].oldemail.focus();           
-      return false;
-   }
-    else if(anh.pass.value=='')
-   {
-      alert('パスワード未入力です。');
-      document.forms['check'].pass.focus();           
-      return false;
-   }
-   else if(anh.email.value=='')
-   {
-      alert('新しいイメール未入力です。');
-      document.forms['check'].email.focus();           
-      return false;
-   }
-   else if(anh.newemail.value=='')
-   {
-      alert('確認新しいイメール未入力です。');
-      document.forms['check'].newemail.focus();           
-      return false;
-   }
-   else if(anh.email.value != anh.newemail.value)
-   {
-      alert('確認イメール合ってないよー');         
-      return false;
-   }
-
-   else                       
-      return true;   
-}
 
 /*-----------------Checkemail---------*/
 function checkEmail() {

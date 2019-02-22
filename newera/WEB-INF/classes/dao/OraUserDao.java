@@ -37,7 +37,7 @@ public class OraUserDao implements UserDao{
 			
 			//String sql = "insert into user_table values(?,?,?,?,?,?,?,?,?,?)";
 			//String sql = "insert into user_table(user_id,user_firstname,user_lastname,user_email,user_pass,user_pass,user_tel,user_postcode,user_address,user_sex,user_birthday) values(u.getId.product_seq.nextval,
-			String sql = "insert into user_table(user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday) values (user_sequence.nextval ,? ,?  ,? ,? ,? ,? ,? ,? ,?)";
+			String sql = "insert into user_table(user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday) values (user_seq.nextval ,? ,?  ,? ,? ,? ,? ,? ,? ,?)";
 
 			
 			st = cn.prepareStatement(sql);

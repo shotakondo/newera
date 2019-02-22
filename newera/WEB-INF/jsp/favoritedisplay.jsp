@@ -10,18 +10,18 @@
 	
 		<h1>お気に入り画面</h1>
 		
-		<c:if test="${sessionScope.ub == null}">
+		<c:if test="${sessionScope.userBean.id == null}">
 			非ログイン状態
-			<p><a href="loginjump">ログイン/新規会員登録</a></p>
+			<p><a href="jumplogin">ログイン/新規会員登録</a></p>
 		</c:if>
 		
-		<c:if test="${sessionScope.ub != null}">
+		<c:if test="${sessionScope.userBean.id != null}">
 			ログイン状態
-			<p><a href="mypagejump">マイページ</a></p>
+			<p><a href="jumpmypage">マイページ</a></p>
 			<p><a href="logout">ログアウト</a></p>
 		</c:if>
 		
-		<p><a href="toppagejump">トップページ画面に戻る</a></p>
+		<p><a href="home">トップページ画面に戻る</a></p>
 		
 		<form method="post" action="productssearch">
 			商品名:<input type="text" name="productword">

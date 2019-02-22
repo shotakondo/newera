@@ -15,10 +15,6 @@ public class PasswordChangeCommand extends AbstractCommand{
 		User ub = (User) reqc.getSessionAttribute("userBean");
 		
 		
-		String[] emails = reqc.getParameter("email");
-		String email = emails[0];
-		
-		
 		String[] oldpasss = reqc.getParameter("oldpass");
 		String oldpass = oldpasss[0];
 		
@@ -28,9 +24,7 @@ public class PasswordChangeCommand extends AbstractCommand{
 		
 	
 		System.out.println("PasswordChangeCommand UserŒ^‚ÉƒLƒƒƒXƒg‚µ‚½getSession‚ÌuserBean : "+ub);
-		
-		ub.setEmail(email);
-		System.out.println("PasswordChangeCommand setEmail : "+email);
+
 		
 		ub.setPass(oldpass);
 		System.out.println("PasswordChangeCommand setPass(ŒÃ‚¢password‚Ì—\’è) : "+oldpass);
