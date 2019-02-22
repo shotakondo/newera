@@ -1,0 +1,32 @@
+Update 02/19 (変更):
+
+- ProductSearchCommand 書き直し
+
+- home.jsp (Search)
+
+- display.jsp (Title session)
+
+- start.jsp じゃなく　home.jsp (web.xml も　変更した) --> start.jsp (消した)
+
+- cartdisplay.jsp ( Table が綺麗になった )
+
+- JSP: managertoppage.jsp, nguseradd.jsp, nguserrelease.jsp, emailentry.jsp, passwardremind.jsp  要らない --> 消した
+
+- javaのファイル:exeのフォルダーの中に　AbstractCommand.java, ApplicationController.java, CommandFactory.java, RequestContext.java,
+
+ ResponseContext.java, WebApplicationController.java, WebRequestContext.java, WebResponseContext.java 要らない --> 消した
+
+
+
+明日の仕事：
+
+- Table　商品の合計金額 (税込) 書いてみる
+
+- Homeページ完成
+
+- 例外、session 入れる
+
+- ログインとログアウトとマイページのマークを直す
+
+
+以上。ご理解ください

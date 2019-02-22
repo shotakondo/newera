@@ -148,7 +148,9 @@
 		<td>
 		<span class="efo checktype_tel  is_required">
 			<input value="<%= u.getTel() %>" size="20" type="text" name="tel" id="tel" maxlength="13" onblur="ecUtil.strConvert(this, false); " placeholder="(例)09012345678	" class="classrequired classerror" title="(例)09012345678	">
-		</span><img id="isErrorIcon_tel" src="img/input_okimg/input_error.gif.gif" alt="入力内容に誤りがあります。">
+		</span><!--
+		<img id="isErrorIcon_tel" src="img/input_okimg/input_error.gif.gif" alt="入力内容に誤りがあります。">
+		-->
 		
 		
 		</td>
