@@ -49,7 +49,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 		<div class="info">
 			<div class="search"><!--
 				--><form name="frmSearch" method="get" action="https://store.neweracap.jp/shop/goods/search.aspx"><!--
@@ -158,7 +158,7 @@ jQuery("#login_uid").ready(function(){
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
 
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT© New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHTc New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>

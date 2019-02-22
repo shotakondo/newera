@@ -64,7 +64,7 @@
 					<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick=""></p>
 				</form>
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="home">お気に入り</a></p>
 			<p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p>
 		</div>
 	</div>
