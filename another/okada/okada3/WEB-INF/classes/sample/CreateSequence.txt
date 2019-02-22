@@ -1,0 +1,47 @@
+〇CREATE SEQUENCE
+・masterproduct_sequence
+create sequence masterproduct_sequence
+	start with 1
+	increment by 1;
+
+
+・mainproduct_sequence
+create sequence mainproduct_sequnece
+	start with 1
+	increment by 1;
+
+
+・user_sequence
+create sequence user_sequence
+	start with 1
+	increment by 1;
+
+
+・image_sequence
+create sequence image_sequence
+	start with 1
+	increment by 1;
+
+
+・category_sequence
+create sequence category_sequence
+	start with 1
+	increment by 1;
+
+
+・color_sequence
+create sequence color_sequence
+	start with 1
+	increment by 1;
+
+
+・type_sequence
+create sequence type_sequence
+	start with 1
+	increment by 1;
+
+
+・order_sequence
+create sequence order_sequence
+	start with 1
+	increment by 1;
