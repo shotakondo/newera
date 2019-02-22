@@ -12,7 +12,7 @@ public abstract class AbstractDaoFactory{
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(new FileInputStream("C:/WEB-UPS/N/dao2.properties"));
+			prop.load(new FileInputStream("C:/Users/HY17304018/Documents/GitHub/newera/another/yamamoto/dao.properties"));
 			
 			String name = prop.getProperty("dao");
 			
@@ -39,12 +39,16 @@ public abstract class AbstractDaoFactory{
 		return factory;
 	}
 	//add!
-	public abstract ProductsDao getProductsDao();
 	/*-----------------------------------------------*/
 	
 	
 	public abstract UserDao getUserDao();
-	
+	public abstract ProductDao getProductDao();
+	public abstract CartDao getCartDao();
+	public abstract FavoriteDao getFavoriteDao();
+	public abstract StockDao getStockDao();
+	public abstract OrderDao getOrderDao();
+	public abstract DetailDao getDetailDao();
 	
 	
 	

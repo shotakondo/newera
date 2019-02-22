@@ -39,7 +39,7 @@ public class OracleConnectionManager{
 			if(cn != null){
 				cn.close();
 				cn= null;
-				System.out.println("close");
+				System.out.println("OracleConnectionManager : close");
 				//command‚Åclose‚µ‚Ä‚¢‚é‚©‚ç‚±‚±‚ÌğŒ‚ğicn != null || cn == nullj‚É‚·‚é‚©
 				//cn = null ‚µ‚È‚¢‚Æ connection‚ª‚Æ‚ê‚È‚¢
 			}
@@ -51,11 +51,11 @@ public class OracleConnectionManager{
 	public void beginTransaction(){
 		if(cn == null){
 			getConnection();
-			System.out.println("getConnection");
+			System.out.println("OracleConnectionManager : getConnection");
 		}
 		try{
 			cn.setAutoCommit(false);
-			System.out.println("setAutoCommit");
+			System.out.println("OracleConnectionManager : setAutoCommit");
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
@@ -65,7 +65,7 @@ public class OracleConnectionManager{
 		try{
 			if(cn != null || cn.isClosed() == false){
 				cn.commit();
-				System.out.println("commit");
+				System.out.println("OracleConnectionManager : commit");
 			}
 		}catch(SQLException e){
 			e.printStackTrace();

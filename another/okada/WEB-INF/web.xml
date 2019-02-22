@@ -34,6 +34,12 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 		<url-pattern>/js/*</url-pattern>
 </servlet-mapping>
 
+<!-- <error-page>  
+  <error-code>500</error-code>  
+  <location>/errhand.jsp</location> 
+</error-page>
+ -->
+
 <error-page>
 	<exception-type>exp.asdfException</exception-type>
 	<location>/WEB-INF/error/errorpage.jsp</location>

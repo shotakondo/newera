@@ -20,6 +20,9 @@ public class ProductDetailDisplayCommand extends AbstractCommand{
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
 		
+		System.out.println("ProductDetailDisplayCommand : pid" + pid);
+
+		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		
@@ -27,15 +30,29 @@ public class ProductDetailDisplayCommand extends AbstractCommand{
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		ProductDao pd = factory.getProductDao();
 		
-		resc.setResult(pd.getProduct(pid));
+		try{
+			resc.setResult(pd.getProduct(pid));
+		}catch(Exception e){
+			e.printStackTrace();
+		}		
 		
-		//トランザクションを終了する
-		OracleConnectionManager.getInstance().commit();
 		
-		//コネクションを切断する
-		OracleConnectionManager.getInstance().closeConnection();
+		try{
+			//トランザクションを終了する
+			OracleConnectionManager.getInstance().commit();
+			
+			//コネクションを切断する
+			OracleConnectionManager.getInstance().closeConnection();
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
+		
+		System.out.println("displayにsetTargetした");
 		
 		resc.setTarget("display");
+		
+		
 		
 		return resc;
 	}
