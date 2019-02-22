@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : jumpremind
-
-
-
-
 package command;
 
 import dao.*;

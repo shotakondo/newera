@@ -1,7 +1,3 @@
-//使ってる
-//propertie名 : login
-
-
 package command;
 import javax.servlet.http.HttpServletRequest;
 
@@ -50,7 +46,7 @@ public class LoginCommand extends AbstractCommand{
 			resc.setTarget("mypage");
 		}else{
 			System.out.println("LoginCommand daoのcheckLoginでfalseが帰ったのでcatchに入って例外投げました");
-			throw new exp.asdfException("ログインできませんでした。", new RuntimeException());
+			resc.setTarget("login");
 		}
 		OracleConnectionManager.getInstance().commit();
 		

@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : jumpemailchange
-
-
-
-
 package command;
 
 import dao.*;

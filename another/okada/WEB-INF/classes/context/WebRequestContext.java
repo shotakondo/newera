@@ -42,7 +42,10 @@ public class WebRequestContext implements RequestContext{
 		System.out.println("USER.getId()="+ub.getId());
 		return beanObject;
 	}
-
+	public void sessionInvalidate(){
+		HttpSession session = getSession();
+		session.invalidate();
+	}
 	public void setRemoveAttribute(String n){
 		HttpSession session = getSession();
 		session.removeAttribute(n);

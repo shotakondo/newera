@@ -1,9 +1,3 @@
-//使ってる
-//propertie名 : passreplace
-
-
-
-
 package command;
 
 import dao.*;
@@ -60,7 +54,7 @@ public class PasswordReplaceCommand extends AbstractCommand{
 			reqc.setSessionAttribute("userBean",ub);
 			System.out.println("sessionAttribute Request");
 
-			resc.setTarget("login");
+			resc.setTarget("jumplogin");
 		}else{
 			System.out.println("PasswordReplaceCommand daoのPasswordReplaceでfalseが帰ったのでcatchに入って例外投げました");
 			throw new exp.asdfException("パスワードが変更できませんでした。", new RuntimeException());

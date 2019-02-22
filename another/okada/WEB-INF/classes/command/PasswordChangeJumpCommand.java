@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : jumppasschange
-
-
-
-
 package command;
 
 import dao.*;

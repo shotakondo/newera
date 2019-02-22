@@ -1,10 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : jumptaikai
-
-
-
-
-
 package command;
 
 import dao.*;

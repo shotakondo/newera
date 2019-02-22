@@ -14,7 +14,7 @@ import beans.FavoriteBean;
 
 public class OraFavoriteDao implements FavoriteDao{
 	
-	public List getFavorites(String uid){
+	public List getFavorites(String id){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
@@ -24,7 +24,7 @@ public class OraFavoriteDao implements FavoriteDao{
 		
 		try{
 			//insert文
-			String sql = "select distinct product_id, product_name, product_price, image_path, favorite_date, favorite_comment from product_table a, image_table b, displayproduct_table c, user_table d, favorite_table e where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and e.favorite_user_id = d.user_id and e.favorite_product_id = a.product_id and image_path like '%|_01%' escape '|' and favorite_user_id = '"+ uid +"'";
+			String sql = "select distinct product_id, product_name, product_price, image_path, favorite_date from product_table a, image_table b, displayproduct_table c, user_table d, favorite_table e where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and e.favorite_user_id = d.user_id and e.favorite_product_id = a.product_id and image_path like '%|_01%' escape '|' and favorite_user_id = '"+ id +"'";
 			
 			//PreparedStatementインターフェイスを実装するクラスの
 			//インスタンスを取得する
@@ -41,7 +41,7 @@ public class OraFavoriteDao implements FavoriteDao{
 				fb.setPrice(rs.getString(3));
 				fb.setPath(rs.getString(4));
 				fb.setDate(rs.getString(5));
-				fb.setComment(rs.getString(6));
+				
 				
 				favorites.add(fb);
 			}
@@ -63,7 +63,7 @@ public class OraFavoriteDao implements FavoriteDao{
 		return favorites;
 	}
 	
-	public void setFavorite(String uid, String pid){
+	public void setFavorite(String id, String pid){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
@@ -77,7 +77,7 @@ public class OraFavoriteDao implements FavoriteDao{
 			st = cn.prepareStatement(sql);
 			
 			//パラメータをセットする
-			st.setString(1, uid);
+			st.setString(1, id);
 			st.setString(2, pid);
 			
 			//SQLの実行
@@ -99,7 +99,7 @@ public class OraFavoriteDao implements FavoriteDao{
 		}
 	}
 	
-	public void deleteFavorite(String uid, String pid){
+	public void deleteFavorite(String id, String pid){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
@@ -113,7 +113,7 @@ public class OraFavoriteDao implements FavoriteDao{
 			st = cn.prepareStatement(sql);
 			
 			//パラメータをセットする
-			st.setString(1, uid);
+			st.setString(1, id);
 			st.setString(2, pid);
 			
 			//SQLの実行
@@ -135,23 +135,22 @@ public class OraFavoriteDao implements FavoriteDao{
 		}
 	}
 	
-	public void alterFavorite(String uid, String pid, String comment){
+	public void alterFavorite(String id, String pid){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
 		
 		try{
 			//insert文
-			String sql = "insert into favorite_table(favorite_user_id, favorite_product_id, favorite_date, favorite_comment) values (?,?,default,?)";
+			String sql = "insert into favorite_table(favorite_user_id, favorite_product_id, favorite_date) values (?,?,default)";
 			
 			//PreparedStatementインターフェイスを実装するクラスの
 			//インスタンスを取得する
 			st = cn.prepareStatement(sql);
 			
 			//パラメータをセットする
-			st.setString(1, uid);
+			st.setString(1, id);
 			st.setString(2, pid);
-			st.setString(3, comment);
 			
 			//SQLの実行
 			st.executeUpdate();

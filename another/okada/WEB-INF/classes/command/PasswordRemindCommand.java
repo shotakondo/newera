@@ -1,10 +1,3 @@
-//使ってる
-//propertie名 : remind
-
-
-
-
-
 package command;
 
 import java.io.UnsupportedEncodingException;
@@ -63,8 +56,7 @@ public class PasswordRemindCommand extends AbstractCommand{
 			System.out.println(email+"メール送ました");
 		}else{
 			
-			System.out.println("PasswordRemindCommand daoのcheckEmailでfalseが帰ったのでcatchに入って例外投げました");	
-			throw new exp.asdfException("メールアドレスまたは電話番号が存在しません。", new RuntimeException());
+			resc.setTarget("email");
 		}
 		return resc;
 	}

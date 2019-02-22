@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : delete
-
-
-
-
 package command;
 import java.util.List;
 
@@ -49,7 +43,7 @@ public class DeleteUserCommand extends AbstractCommand{
 			
 			reqc.setRemoveAttribute("userBean");
 			System.out.println("‘Þ‰ï‚µ‚Ü‚µ‚½");
-			resc.setTarget("start");
+			resc.setTarget("home");
 			
 		}else{
 			

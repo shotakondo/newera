@@ -1,10 +1,3 @@
-//使ってる
-//propertie名 : emailchange
-
-
-
-
-
 package command;
 
 import dao.*;
@@ -28,18 +21,12 @@ public class EmailChangeCommand extends AbstractCommand{
 		String pass = passs[0];
 		
 		
-		String[] oldemails = reqc.getParameter("oldemail");
-		String oldemail = oldemails[0];
-		
-		
 		String[] newemails = reqc.getParameter("newemail");
 		String newemail = newemails[0];
 		
 	
 		System.out.println("EmailChangeCommand User型にキャストしたgetSessionのuserBean : "+ub);
 		
-		ub.setEmail(oldemail);
-		System.out.println("EmailChangeCommand setEmail(古いイメール) : "+oldemail);
 		
 		ub.setPass(pass);
 		System.out.println("EmailChangeCommand setPass : "+pass);
@@ -72,21 +59,23 @@ public class EmailChangeCommand extends AbstractCommand{
 				System.out.println("EmailChangeCommand-setsessionAttribute");
 				
 				resc.setTarget("emailafter");
-				
+				reqc.setRemoveAttribute("userBean");
 			}else{
 				
-				resc.setTarget("");
+				resc.setTarget("changeemail");
 				System.out.println("EmailChangeCommand-updateできなかった");
+				User u = new User();
+				reqc.setSessionAttribute("userBean", u);
 				
 			}
 		}else{
-			resc.setTarget("error");
+			resc.setTarget("changeemail");
 			System.out.println("emailかpassが間違ってる");
 		}
 		OracleConnectionManager.getInstance().commit();
 
 		OracleConnectionManager.getInstance().closeConnection();
-		reqc.setRemoveAttribute("userBean");
+		
 
 		//System.out.println("EmailChangeAfterログアウトした");
 		return resc;

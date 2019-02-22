@@ -28,10 +28,12 @@ public class OraDetailDao implements DetailDao{
 			//インスタンスを取得する
 			st = cn.prepareStatement(sql);
 			
+			int subtotal = pb.getNum() * pb.getPrice();
+			
 			st.setString(1, sq);
 			st.setString(2, pb.getPid());
-			st.setInt(3, Integer.parseInt(pb.getNum()));
-			st.setInt(4, Integer.parseInt(pb.getNum()) * Integer.parseInt(pb.getPrice()));
+			st.setInt(3, pb.getNum());
+			st.setInt(4, subtotal);
 			
 			//select文を送信し
 			//ResultSetインターフェイスを実装したクラスの

@@ -53,7 +53,7 @@
 		</c:if>
 		
 		<c:if test="${sessionScope.userBean != null}">
-			<li class="link_mypage"><a href="mypage">マイページ</a></li>
+			<li class="link_mypage"><a href="jumpmypage">マイページ</a></li>
 			<li class="link_logout"><a href="logout">ログアウト</a></li>
 		</c:if>
 </div></div>
@@ -139,9 +139,9 @@
     
     
     <div class="mymenu_item_">
-    <div class="img_"><a href=""><img src="img/mypage_icon_fblt.png" alt="お気に入り"></a></div>
+    <div class="img_"><a href="favoritedisplay"><img src="img/mypage_icon_fblt.png" alt="お気に入り"></a></div>
     <div class="desc_">
-      <h2 id="mymenu_bookmark"> <a href="">お気に入り</a> </h2>
+      <h2 id="mymenu_bookmark"> <a href="favoritedisplay">お気に入り</a> </h2>
       <p>お気に入り商品リストです。</p>
     </div>
     </div>

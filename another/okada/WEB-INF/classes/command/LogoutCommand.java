@@ -1,41 +1,22 @@
-//使ってる
-//propertie名 : logout
-
-
-
-
 package command;
 
-import dao.*;
-import beans.*;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+
 import context.*;
-import exp.*;
+import beans.*;
 
 
 public class LogoutCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
+		
 		RequestContext reqc = getRequestContext();
 		
-		//OracleConnectionManager.getInstance().beginTransaction();
+	
+		reqc.sessionInvalidate();
 		User u = new User();
+		reqc.setSessionAttribute("userBean", u);
 		
-		
-		try{
-			
-			u = (User)reqc.getSessionAttribute("userBean");
-			System.out.println("session.getAttribute()"+ u.getId());
-			System.out.println("session.getAttribute()"+ u.getLastName());		
-		
-		}catch(NullPointerException e){
-			System.out.println("LogoutCommand getSessionがnullだったのでcatchに入って例外投げました");
-			throw new exp.asdfException("ログインしてください。", new RuntimeException());
-			
-		}
-		
-		//AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-		//UserDao ud = factory.getUserDao();
-		
-		reqc.setRemoveAttribute("userBean");
 		System.out.println("ログアウトしました");
 		resc.setTarget("logout");
 		return resc;

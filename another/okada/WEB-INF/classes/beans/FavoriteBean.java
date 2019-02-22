@@ -12,7 +12,6 @@ public class FavoriteBean implements Serializable{
 	private String price;
 	private String path;
 	private String date;
-	private String comment;
 	
 	public FavoriteBean(){}
 	
@@ -45,12 +44,6 @@ public class FavoriteBean implements Serializable{
 	}
 	public void setDate(String date){
 		this.date = date;
-	}
-	public String getComment(){
-		return comment;
-	}
-	public void setComment(String comment){
-		this.comment = comment;
 	}
 	
 }

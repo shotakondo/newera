@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : jumplogin
-
-
-
-
 package command;
 
 import dao.*;

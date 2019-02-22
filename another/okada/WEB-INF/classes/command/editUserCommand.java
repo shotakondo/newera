@@ -1,9 +1,3 @@
-//Žg‚Á‚Ä‚é
-//propertie–¼ : edituser
-
-
-
-
 package command;
 import java.util.List;
 
@@ -75,7 +69,7 @@ public class editUserCommand extends AbstractCommand{
 		
 		resc.setResult(array);
 
-		resc.setTarget("view");
+		resc.setTarget("mypage");
 		return resc;
 
 	}

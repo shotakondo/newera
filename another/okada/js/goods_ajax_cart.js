@@ -1,4 +1,4 @@
-﻿jQuery(document).ready(function() {
+jQuery(document).ready(function() {
     var s_width = 60;
     var l_width = 200;
 
