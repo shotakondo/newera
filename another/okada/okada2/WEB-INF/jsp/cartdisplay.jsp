@@ -78,11 +78,6 @@
 
 <form method="POST" action="purchaseprocedure" name="form">
 
-
-
-
-
-
 <input type="image" src="img/spacer.gif" name="update" alt="çƒåvéZ" class="calc_" tabindex="1">
 <input type="hidden" name="refresh" value="true">
 <table class="formlist_ cartlist_" style="width:1100px; height: 215px">
@@ -102,10 +97,6 @@
 		<div class="name_">
 		
 		<div class="name_"><a href="" title="${product.name}">${product.name}</a><p>Åi57.7 - 61.5cmÅj</p></div>
-		
-		
-<div class=""></div>
-
 		
 		</div>
 		
@@ -186,7 +177,7 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 </div></div>
 			
 	</div>
-</div>
+
 
 
 
