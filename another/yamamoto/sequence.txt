@@ -1,0 +1,23 @@
+
+
+
+
+product_seq.nextval
+
+
+create sequence product_seq start with 1 increment by 1 nomaxvalue;
+
+
+create sequence user_seq start with 1 increment by 1 nomaxvalue;
+
+
+create sequence image_seq start with 1 increment by 1 nomaxvalue;
+
+
+create sequence order_seq start with 1 increment by 1 nomaxvalue;
+
+
+product_table
+user_table
+image_table
+order_table
