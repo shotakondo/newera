@@ -15,7 +15,7 @@ public abstract class CommandFactory{
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(new FileInputStream("C:/webapp/newera/command.properties"));
+			prop.load(new FileInputStream("C:/Users/HY17304018/Documents/GitHub/newera/another/yamamoto/command.properties"));
 			
 			String name = prop.getProperty(rc.getCommandPath());
 			
