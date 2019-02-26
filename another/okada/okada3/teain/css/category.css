@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/* ----カテゴリ一覧　ピックアップ---- */
+div.CategoryStyleP_ {
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleP_Line_ {
+	width: 105%;
+	overflow: hidden;
+}
+div.CategoryStyleP_Item_ {
+	width:296px;
+	margin:0 8px 0 0;
+	padding: 0 0 20px 0;
+	float: left;
+}
+div.CategoryStyleP_Item_ h3.name_ {
+	padding: 6px 10px 4px;
+	margin-bottom:10px;
+	font-size: 14px;
+	font-weight: bold;
+	color:#fff;
+	background: #3fbf0d;
+}
+div.CategoryStyleP_Item_ h3.name_ a {
+	color:#fff;
+	display:block;
+}
+div.CategoryStyleP_Item_ div.comment_ {
+	margin: 0 10px;
+}
+div.CategoryStyleP_Item_ div.comment_ img {
+	margin: 0 0 10px 0;
+}
+div.CategoryStyleP_Item_.haveimg_ {
+	zoom:1;
+}
+div.CategoryStyleP_Item_.haveimg_:after {
+	content: "";
+	display: block;
+	height: 0;
+	font-size:0;
+	clear: both;
+	visibility:hidden;
+}
+div.CategoryStyleP_Item_.haveimg_ div.img_ {
+	width:145px;
+	float:left;
+}
+div.CategoryStyleP_Item_.haveimg_ div.img_ img {
+	max-width:145px;
+}
+div.CategoryStyleP_Item_.haveimg_ div.comment_ {
+	width:140px;
+	margin: 0;
+	float:right;
+}
+/* ----カテゴリ一覧　孫カテゴリ---- */
+div.CategoryStyleG_ {
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleG_Line_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.CategoryStyleG_Item_ {
+	padding: 0 0 20px 0;
+	float: left;
+	display: inline;
+	width: 33%;
+	overflow: hidden;
+}
+div.CategoryStyleG_Item_ h3.name_ {
+	margin: 0 5px 10px 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+div.CategoryStyleG_Item_ .comment_ {
+	margin: 0 10px;
+}
+div.CategoryStyleG_Item_ div.comment_ img {
+	margin: 0 0 10px 0;
+}
+div.CategoryStyleG_ ul {
+	margin: 10px 10px 0 10px;
+	padding: 0;
+}
+div.CategoryStyleG_ ul li {
+	margin: 0 0 0 2em;
+	padding: 0;
+	list-style: square;
+}
+/* ----カテゴリ一覧　一覧---- */
+div.CategoryStyleL_ {
+	width:100%;
+	border:none;
+}
+div.CategoryStyleL_ span.name_ {
+	margin:4px;
+	font-weight:bold;
+	white-space: nowrap;
+}
+/* ----カテゴリ一覧　サムネイル---- */
+div.CategoryStyleT_ {
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleT_Line_ {
+	width:100%;
+	overflow: hidden;
+}
+div.CategoryStyleT_Item_ {
+	padding: 0 0 20px 0;
+	float: left;
+	display: inline;
+	width: 25%;
+	overflow: hidden;
+}
+div.CategoryStyleT_Item_ h3.name_ {
+	margin: 0 5px 10px 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+div.CategoryStyleT_Item_ h3.img_ {
+	padding: 0 10px 10px 10px;
+	font-size: 5px;
+	border: none;
+}
+div.CategoryStyleT_Item_ .comment_ {
+	margin: 0 10px;
+}
+/* ----カテゴリ一覧　詳細---- */
+div.CategoryStyleD_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.CategoryStyleD_Item_ {
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+div.CategoryStyleD_Item_ h3 {
+	margin: 0 5px 10px 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+/* ----ジャンル一覧---- */
+div.GenreStyle_ {
+	width: 100%;
+	overflow: hidden;
+}
+div.GenreStyle_Line_ {
+	margin: 0 0 20px 0;
+	width: 100%;
+	overflow: hidden;
+}
+div.GenreStyle_Item_ {
+	margin: 0;
+	float: left;
+	display: inline;
+	width: 33%;
+}
+div.GenreStyle_Item_ h3.img_ {
+	padding: 0 10px 10px 10px;
+	font-size: 5px;
+	border: none;
+}
+div.GenreStyle_Item_ h3.name_ {
+	margin: 0 5px 10px 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+div.GenreStyle_Item_ div.comment_ {
+	margin: 0 10px;
+}
