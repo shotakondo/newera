@@ -92,7 +92,7 @@
 	<th class="money_cartlist" style="background-color:black;color: azure">ã‡äz</th>
 	<th class style="background-color:black;color: azure"></th>
 </tr>
-<c:forEach var="product" items="${sessionScope.userBean.cart.products}">
+<c:forEach var="product" items="${sessionScope.cb.products}">
 <tr>
 	<td class="img_" style="width:200px;height:215px !important">
 
@@ -123,9 +123,9 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 }
 </script>
 	<td class="qty_">
-		<img src="img/spinplus.png" onclick="cong()">
+		<img src="" onclick="cong()">
 		<input type="text" name="num" value="${product.num}" size="1" maxlength="2" tabindex="10" id="${product.num}">
-		<img src="img/spinminus.png" onclick="tru()">
+		<img src="" onclick="tru()">
 		
 	</td>
 	<td class="money_">

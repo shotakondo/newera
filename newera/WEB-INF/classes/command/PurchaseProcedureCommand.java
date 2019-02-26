@@ -31,8 +31,8 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 			cb = new CartBean();
 		}
 		
-		
-		String numlist[] = req.getParameterValues("num");
+		int numlist;
+		numlist = Integer.parseInt(req.getParameterValues("num"));
 		Boolean judge = false;
 		
 		cb.alterProductsNum(numlist);

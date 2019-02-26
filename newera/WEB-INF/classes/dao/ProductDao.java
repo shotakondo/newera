@@ -7,7 +7,7 @@ import beans.ProductBean;
 public interface ProductDao{
 	
 	public void addProduct(ProductBean pb);
-	public ArrayList getProduct(String pid);
+	public ProductBean getProduct(String pid);
 	public List getAllProducts();
 	public List getProductsWord(String pw);
 	public List getProductsName();

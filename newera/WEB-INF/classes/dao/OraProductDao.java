@@ -50,13 +50,14 @@ public class OraProductDao implements ProductDao{
 		}
 	}
 	
-	public ArrayList getProduct(String pid){
+	public ProductBean getProduct(String pid){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		
-		ArrayList products = new ArrayList();
+		ProductBean pb = new ProductBean();
+		ArrayList al = new ArrayList();
 		
 		try{
 			//insertï∂
@@ -69,15 +70,20 @@ public class OraProductDao implements ProductDao{
 			//SQLÇÃé¿çs
 			rs = st.executeQuery();
 			
-			while(rs.next()){
-				ProductBean pb = new ProductBean();
-				pb.setPid(rs.getString(1));
-				pb.setName(rs.getString(2));
-				pb.setPrice(rs.getInt(3));
-				pb.setPath(rs.getString(4));
-				
-				products.add(pb);
+			rs.next();
+			
+			
+			pb.setPid(rs.getString(1));
+			pb.setName(rs.getString(2));
+			pb.setPrice(rs.getInt(3));
+			pb.setPath(rs.getString(4));
+			
+			al.add(rs.getString(4));
+			if(rs.next()){
+				al.add(rs.getString(4));
 			}
+			
+			pb.setPaths(al);
 			
 		//getConnection, prepareStatement, executeQueryÇ≈ó·äOî≠ê∂ÇÃèÍçá
 		}catch(SQLException e){
@@ -94,7 +100,7 @@ public class OraProductDao implements ProductDao{
 			
 			
 		}
-		return products;
+		return pb;
 	}
 	
 	public List getAllProducts(){

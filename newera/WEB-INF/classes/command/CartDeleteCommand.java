@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import context.*;
 import beans.*;
+import dao.*;
 
 public class CartDeleteCommand extends AbstractCommand{
 	
@@ -21,9 +22,22 @@ public class CartDeleteCommand extends AbstractCommand{
 		CartBean cb = (CartBean)session.getAttribute("cb");
 		String pid = reqc.getParameter("pid")[0];
 		
-		cb.deleteProduct(pid);
+		User u = (User)session.getAttribute("userBean");
+		if(u == null){
+			u = new User();
+		}
 		
-		session.setAttribute("cb", cb);
+		
+		if(cb == null){
+			cb = new CartBean();
+		}
+		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		ProductDao pd = factory.getProductDao();
+		cb.deleteProduct(pid);
+
+		
+		reqc.setSessionAttribute("userBean",u);
+		
 		
 		//cartdisplay.jsp‚Ö“]‘—
 		resc.setTarget("cartdisplay");

@@ -43,7 +43,7 @@ div.contents_:after { clear: both; }
 /* メインフレーム */
 div.mainframe_ {
 	float: right;
-	width: 840px;
+	width: 1000px;
 }
 
 /* 左メニュー */
