@@ -1,11 +1,13 @@
 package command;
 
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
 import context.*;
-import beans.User;
+import beans.*;
 
 public class FavoriteAddCommand extends AbstractCommand{
 	
@@ -13,8 +15,10 @@ public class FavoriteAddCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
+		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
+		HttpSession session = req.getSession();
 		
-		User u = (User)reqc.getSessionAttribute("userBean");
+		User u = (User)session.getAttribute("userBean");
 		String id = u.getId();
 		
 		String[] pids = reqc.getParameter("pid");

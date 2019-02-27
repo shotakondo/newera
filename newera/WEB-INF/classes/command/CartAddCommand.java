@@ -22,7 +22,8 @@ public class CartAddCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		CartBean cb = (CartBean)session.getAttribute("cb");
+		User u = (User)session.getAttribute("userBean");
+		CartBean cb = u.getCart();
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
 		
@@ -43,7 +44,7 @@ public class CartAddCommand extends AbstractCommand{
 		
 		cb.addProduct(pb);
 		
-		session.setAttribute("cb", cb);
+		u.setCart(cb);
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();

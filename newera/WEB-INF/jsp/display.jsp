@@ -113,7 +113,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="contents">
+			<!--<div id="contents">
 				<div class="navitopicpath_">
 					<ul id="bread-crumb-list" class="wrap clearfix">
 						<li itemscope="" itemtype="" itemprop="" class="topicpath_home_">
@@ -188,7 +188,156 @@
 						</div>
 					</div>
 				</div>
+			</div>-->
+        <div id="contents">
+	<div id="product_detail">
+
+<div class="navitopicpath_">
+
+<ul id="bread-crumb-list" class="wrap clearfix">
+<li itemscope="" itemtype="">
+  <a href="home" itemprop="url" class="topicpath_home_">
+    <span itemprop="title">トップ</span>
+  </a>
+</li>
+<li itemscope="" itemtype="" itemprop="child">
+　&gt;　<a href="" itemprop="url"><span itemprop="title">キャップ</span></a>
+</li>
+<li itemscope="" itemtype="" itemprop="child">
+　&gt;　<a href="" itemprop="url"><span itemprop="title">${data.name}</span></a>
+
+</ul>
+
+
+</div>
+<div class="clear_"></div>
+
+
+
+<input type="hidden" value="11914503" id="hidden_variation_group">
+<input type="hidden" value="0" id="variation_design_type">
+<input type="hidden" value="11914503-OSFA" id="hidden_goods">
+<div class="detail wrap clearfix goods_detail_">
+	<div class="right_box box">
+		<div class="goodsspec_">
+			<p class="icon_">
+				
+				<img src="img/new.gif" alt="">
+                <span class="icon1_"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/icon/03limit.gif" alt="ニューエラストア限定"></span>
+			</p>
+			<h2 class="goods_name_">${data.name}</h2>
+			<p class="goods_price_">
+				
+				<span class="goods_detail_price_">
+				￥${data.price}
+				</span>
+				
+			</p>
+			<dl class="explain">
+				<dt>アイテム説明</dt>
+				<dd class="top_comment_" id="spec_goods_comment">
+					<p>アメリカの1ドル紙幣に使用されているデザイン要素をモチーフにしたシリーズです。</p>
+				</dd>
+			</dl>
+			
+		</div>
+		<form name="frm" method="POST" action="">
+		
+		
+		<div class="cartbox_">
+			<div class="variationlist_">
+			
+<div class="sizes_">
+	<table>
+		<tbody>
+<tr class="variation_noline_">
+	<td class="size2_">
+	
+		
+		
+		57.7 - 61.5cm
+		
+		
+	
+	</td>
+	<td class="cart_" id="">
+		
+		<input id="" type="image" class="btn_add_cart_" src="img/prd_detail_cart_in.png" alt="">
+		<div class="add_cart" href="cartadd?pid=${data.pid}">
+			<dl>
+				<dt>カートに追加されました。</dt>
+				<dd>
+					<ul>
+						
+						<li class="btn_cart"><a href="cartadd?pid=${data.pid}">カートに進む</a></li>
+					</ul>
+				</dd>
+			</dl>
+		<a class="close" href="">CLOSE</a><a class="close" href="#">CLOSE</a></div>
+		
+	</td>
+</tr>
+
+		</tbody>
+	</table>
+</div>
+
+			
+			
 			</div>
+			
+		</div> 
+
+		
+
+		
+		</form>
+
+			
+		<ul class="option_buttons_ clearfix">
+			<li class="btn_favorite"><a href="favoriteadd?pid=${data.pid}">お気に入り追加</a></li>
+			</ul>
+			
+	</div>
+	<div class="left_box box">
+		<div class="goodsimg_">
+			<div class="photo">
+				<img src="<c:url value='${data.path}' />" alt="${data.name}">
+				<a class="zoom" href="" target="_blank"></a>
+			<div class="expand start_expand" style="display: block;"><img src="<c:url value='${data.path}' />" style="width: 1200px; position: absolute; top: -380px; left: -280px;"></div><div class="expand start_expand" style="display: block; opacity: 0.013815;"><img src="<c:url value='${data.path}' />" style="width: 1200px; position: absolute; top: -219px; left: -262px;"></div></div>
+		<!--	<ul class="thumb clearfix">
+				<li><span class="on"><img src="<c:url value='${data.path}' />" alt="${data.name}"></span></li>
+				<li><span><img src="<c:url value='${data.path}' />" alt="${data.name}"></span></li>
+				<li><span><img src="<c:url value='${data.path}' />" alt="${data.name}"></span></li>
+				<li><span class=""><img src="<c:url value='${data.path}' />" alt="${data.name}"></span></li>
+				
+			</ul>-->
+        </div>
+	</div>
+</div>
+
+	<div id="footer">
+<div id="foot_main"><div class="footer_inner_">
+<!--
+	--><dl class="follow"><!--
+		--><dt>FOLLOW US</dt><!--
+		--><dd><!--
+			--><ul><!--
+				--><li><a href="https://www.facebook.com/newerajapan" target="_blank"><img src="img/foot_sns_fb.png" alt="facebook"></a></li><!--
+				--><li><a href="https://twitter.com/newera_japan" target="_blank"><img src="img/foot_sns_tw.png" alt="twitter"></a></li><!--
+				--><li><a href="http://www.neweracap.jp/news/line/" target="_blank"><img src="img/foot_sns_gplus.png" alt="Google Plus"></a></li><!--
+				--><li><a href="https://www.instagram.com/newerajapan/" target="_blank"><img src="img/foot_sns_instagram.png" alt="Instagram"></a></li><!--
+			--></ul><!--
+		--></dd><!--
+	--></dl>
+</div></div>
+<div id="foot_btm"><div class="footer_inner_">
+	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>
+</div></div>
+			
+	</div>
+</div>
+    </div>
 		</div>
 	</body>
 </html>

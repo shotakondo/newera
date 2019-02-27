@@ -2,26 +2,27 @@ package command;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
-
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
 import dao.FavoriteDao;
 
 import context.*;
-import beans.User;
+import beans.*;
 
 public class FavoriteDeleteCommand extends AbstractCommand{
 	
-	//お気に入り削除処理
+	//お気に入り追加処理
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		User ub = (User)session.getAttribute("ub");
-		String id = ub.getId();
-		String pid = reqc.getParameter("pid")[0];
+		User u = (User)session.getAttribute("userBean");
+		String id = u.getId();
+		
+		String[] pids = reqc.getParameter("pid");
+		String pid = pids[0];
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();

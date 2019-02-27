@@ -47,11 +47,13 @@ public class CartBean implements Serializable{
 			}
 		}
 	}
-	public void alterProductsNum(int numlist[]){
-		
+	public void alterProductsNum(int[] numlist){
+		System.out.println("’†");
+		System.out.println(getProducts().size());
 		for(int i = 0; i < getProducts().size(); i++){
 			ProductBean pb = (ProductBean)_products.get(i);
 			pb.setNum(numlist[i]);
+			System.out.println(pb.getNum());
 		}
 		
 	}

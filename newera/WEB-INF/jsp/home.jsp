@@ -96,22 +96,46 @@
 
 <div class="container_">
 <div class="mainframe_">
-<div class="sort_style clearfix">
-    
-  <div class="">
-        <dl class=""> <form method="post" action="productssort" id="productssort">
+    <div class="sort_style clearfix">
+  <div class="sort">
+        <dl class="navistyle_">
       <dt>表示順：</dt>
-      <select name="sortparameter" form="productssort">
+      <dd><form method="post" action="productssort" id="productssort">
+        <select class="selected" name="sortparameter" form="productssort">
 			<option value="name">名前順</option>
 			<option value="cheap">安い順</option>
 			<option value="expensive">高い順</option>
-		</select><input type="submit" value="ソート" style="margin-left:30px">
+		</select>
 		</form>
+      </dd>
     </dl>
 
 
+        <dl class="order">
+      <dt><input class="selected" type="submit" value="ソート" style="margin-left:30px"></dt>
+    </dl>
+
 
   </div>
+
+<div class="style">
+  <dl class="navistyle_">
+    <dt>表示切替：</dt>
+    <dd>
+      <ul>
+        <li>
+
+
+<span class=""><img src="img/list_style1.png" alt="4列"></span><span class="navistyle_now_"></span>
+
+</li>
+
+      </ul>
+    </dd>
+  </dl>
+</div>
+
+
 </div>
 <div id="product_list">
   <div class="autopagerize_page_element">
@@ -124,6 +148,7 @@
                         <a href="productdetaildisplay?pid=${product.pid}">
 	                        <p class="icon">
                                 <img src="img/01new.gif" alt="">
+                                <span class="icon1_"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/icon/03limit.gif" alt="ニューエラストア限定"></span>
                             </p>
                             <div class="photo">
                                 <img src="<c:url value='${product.path}' />" alt="">
@@ -147,9 +172,6 @@
   </div>
   <div class="pager clearfix top_"><p class="navipage_sum_">120件</p><div class="navipage_forward_">
 <span class="#header">1</span>
-<!--<a href="https://store.neweracap.jp/shop/c/c10_p2/?fmt=xml&amp;path=%e3%82%ad%e3%83%a3%e3%83%83%e3%83%97&amp;limit=40&amp;sort=n&amp;s1=0&amp;s3=0">2</a>
-<a href="https://store.neweracap.jp/shop/c/c10_p3/?fmt=xml&amp;path=%e3%82%ad%e3%83%a3%e3%83%83%e3%83%97&amp;limit=40&amp;sort=n&amp;s1=0&amp;s3=0">3</a>
-<span class="space">…</span><a href="https://store.neweracap.jp/shop/c/c10_p41/?fmt=xml&amp;path=%e3%82%ad%e3%83%a3%e3%83%83%e3%83%97&amp;limit=40&amp;sort=n&amp;s1=0&amp;s3=0">41</a><span class="navipage_last_"><a href="https://store.neweracap.jp/shop/c/c10_p41/?fmt=xml&amp;path=%e3%82%ad%e3%83%a3%e3%83%83%e3%83%97&amp;limit=40&amp;sort=n&amp;s1=0&amp;s3=0">最後</a></span>-->
 
 </div></div>
 </div>
@@ -165,8 +187,7 @@
 	<div id="footer">
 
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
-<div id="foot_top"><div class="footer_inner_">
-</div></div>
+
 <div id="foot_main"><div class="footer_inner_">
 	<dl class="follow">
 		<dt>FOLLOW US</dt>
@@ -181,7 +202,7 @@
 	</dl>
 </div></div>
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT? New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>

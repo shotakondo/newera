@@ -230,7 +230,7 @@ div.leftmenuframe_ ul.banner_ li {
 	text-align:center;
 	layout-grid-line:65px;
 	display:table-cell;
-	background: url(../img/usr/common/welcome.png) left top no-repeat;
+	background: url(img/welcome.png) left top no-repeat;
 }
 #welcomeMessage a {
 	color:#ffffff;
@@ -326,6 +326,6 @@ dl.cart_total_ dd {
 .item_history_link_ {
 	padding:5px 5px 5px 20px;
 	margin:0 5px 5px 5px;
-	background:#ffffff url(../img/usr/common/topic_arrow.png) 10px 9px no-repeat;
+	background:#ffffff url(img/topic_arrow.png) 10px 9px no-repeat;
 	display:block;
 }

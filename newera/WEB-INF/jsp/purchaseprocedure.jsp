@@ -76,26 +76,10 @@
 <div class="order_flow_">
 <h1><img src="img/order_step2.png" alt="STEP2 ご注文方法の指定"></h1>
 </div>
-<% User u = (User)session.getAttribute("userBean"); %>
-<form method="post" action="" novalidate="" onsubmit="return (ecUtil.confirmInputCheck() &amp;&amp; removePlaceholder() &amp;&amp; checkGeustOrderAddr2() )" name="frmMethod" id="frmMethod">
-<input type="image" value="submit" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/spacer.gif" name="submit" alt="次へ" class="hiddenEnter_" tabindex="1">
+<form method="post" action="orderconfirm" novalidate="" onsubmit="" name="frmMethod" id="frmMethod">
+<input type="image" value="submit" src="" name="submit" alt="次へ" class="hiddenEnter_" tabindex="1">
 
-<div class="method_host_">
-  <h2 class="common_headline2_">ご注文主</h2>
-  <div class="host_info_">
-    <p class="host_name_"><strong>ＴＯＫＹＯ ＶＩＰ 様</strong></p>
-    <address>
-    〒 <%= u.getPostcode() %></%><br>
-    <%= u.getAddress() %><br>
-    
-    
-    TEL: <%= u.getTel() %>
-    </address>
-    
-  </div>
-</div>
 
-<input type="hidden" name="mode" value="">
 
 <div class="method_address_" id="address">
 <h2 class="common_headline2_">お届け先</h2>
@@ -104,22 +88,15 @@
 <div class="addresslist_">
 
 <div class="address_item_">
-  <div class="address_title_"><input type="radio" name="dest" value="0" id="dest_r0" checked=""><label for="dest_r0"><strong> <%= u.getFirstName() %><%= u.getLastName() %></strong></label></div>
+  <div class="address_title_"><input type="radio" name="dest" value="0" id="dest_r0" checked=""><label for="dest_r0"><strong> ${userBean.getFirstName()} ${userBean.getLastName()} </strong></label></div>
     <address>
-      〒 <%= u.getPostcode() %><br>
-      <%= u.getAddress() %>　<br>
-      <%= u.getFirstName() %><%= u.getLastName() %> 様
+      〒 ${userBean.getPostcode()}<br>
+      ${userBean.getAddress()}<br>
+      ${userBean.getFirstName()} ${userBean.getLastName()} 様
     </address>
     
   </div>
 
-
-
-
-
-<div class="address_bottom_">
-<input type="image" name="otherdest" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/addr.gif" alt="新しいお届け先を登録する" class="button_">
-</div>
 </div>
 
 
@@ -140,28 +117,32 @@
     <th class="method_qty_">数量</th>
     <th class="method_sales_detail_append_">備考</th>
   </tr>
-  
+  <c:forEach var="product" items="${sessionScope.userBean.cart.products}">
   <tr>
     <td class="method_img_">
-      <img class="img_" src="//d3iuyfi32mtj8g.cloudfront.net/img/goods/S/11883348_1_s.jpg">
+      <img class="img_" src="<c:url value='${product.path}' />"  alt="${product.name}">
     </td>
     <td class="method_goodsname_">
-      <input type="hidden" name="rowgoods1" value="11883348-OSFA">
-      9FIFTY NBA バックハーフシリーズ ロサンゼルス・レイカーズ
-<div class="name2_">（57.7 - 61.5cm）</div>
-
+       ${product.name}
+    </td>
+    <td>
+       ${product.price}
+    </td>
+    <td>
+       ${product.num}
     </td>
     <td class="method_wrapping_">
       可<input value="可" type="hidden" name="wrapping1">
     </td>
     <td class="method_qty_">
-      1<input value="1" type="hidden" name="qty1">
+      <input value="1" type="hidden" name="qty1">
     </td>
     
     <td class="method_sales_detail_append_">
     
     
     </td>
+    </c:forEach>
   </tr>
   
   
@@ -178,11 +159,21 @@
   <h3>配送希望日時指定</h3>
   <div class="method_box_content_">
   
-    <dl><dt>配送希望日：</dt><dd><select name="date_detail_spec"><option value="" selected="">希望なし</option><option value="20190223">2019年02月23日(土)</option><option value="20190224">2019年02月24日(日)</option><option value="20190225">2019年02月25日(月)</option><option value="20190226">2019年02月26日(火)</option><option value="20190227">2019年02月27日(水)</option></select></dd><dd><span class="small_">※在庫状況や諸事情により、ご希望に添えない場合がございます。</span></dd></dl>
+    <dl><dt>配送希望日：</dt><dd><select name="deliverydate"><option value="希望なし" selected="">希望なし</option><option value="早く">早く</option><option value="遅く">遅く</option></select></dd><dd><span class="small_">※在庫状況や諸事情により、ご希望に添えない場合がございます。</span></dd></dl>
     
   
   
-    <dl><dt>配送希望時間：</dt><dd><input name="time_spec" type="radio" id="time_spec_00" value="00" checked=""><label for="time_spec_00">希望なし</label><input name="time_spec" type="radio" id="time_spec_01" value="01"><label for="time_spec_01">8:00-12:00（午前中）</label><input name="time_spec" type="radio" id="time_spec_12" value="12"><label for="time_spec_12">12:00-14:00</label><input name="time_spec" type="radio" id="time_spec_14" value="14"><label for="time_spec_14">14:00-16:00</label><input name="time_spec" type="radio" id="time_spec_16" value="16"><label for="time_spec_16">16:00-18:00</label><input name="time_spec" type="radio" id="time_spec_18" value="18"><label for="time_spec_18">18:00-20:00</label><input name="time_spec" type="radio" id="time_spec_19" value="19"><label for="time_spec_19">19:00-21:00（沖縄県は20:00-21:00)</label></dd></dl>
+    <dl><dt>配送希望時間：</dt><dd>
+        <input name="deliverytime" type="radio" id="time_spec_00" value="00" checked="">
+        <label for="time_spec_00">希望なし</label>
+        <input name="deliverytime" type="radio" id="time_spec_01" value="01"><label for="time_spec_01">8:00-12:00（午前中）</label>
+        <input name="deliverytime" type="radio" id="time_spec_12" value="12"><label for="time_spec_12">12:00-14:00</label>
+        <input name="deliverytime" type="radio" id="time_spec_14" value="14"><label for="time_spec_14">14:00-16:00</label>
+        <input name="deliverytime" type="radio" id="time_spec_16" value="16">
+        <label for="time_spec_16">16:00-18:00</label>
+        <input name="deliverytime" type="radio" id="time_spec_18" value="18"><label for="time_spec_18">18:00-20:00</label>
+        <input name="deliverytime" type="radio" id="time_spec_19" value="19">
+        <label for="time_spec_19">19:00-21:00（沖縄県は20:00-21:00)</label></dd></dl>
   
   
 
@@ -196,9 +187,9 @@
 <div class="method_box_" id="method_cupon">
     <h3>クーポン利用</h3>
     <div class="method_box_content_">
-      クーポンコード : <input type="text" name="coupon" value="" size="30" maxlength="20">
+      クーポンコード : <input type="text" name="couponcode" value="" size="30" maxlength="20">
       
-      <a class="open_available_coupon" href="/shop/order/couponajax.aspx"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
+      <a class="open_available_coupon" href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
       
       
       
@@ -269,7 +260,7 @@ jQuery(document).ready(function() {
 <div class="method_box_" id="method_promotion">
     <h3>キャンペーン適用</h3>
     <div class="method_box_content_">
-      キャンペーンコード : <input type="text" name="promotion_code" value="" size="30" maxlength="20">
+      キャンペーンコード : <input type="text" name="campaigncode" value="" size="30" maxlength="20">
       
     </div>
 </div>
@@ -282,28 +273,28 @@ jQuery(document).ready(function() {
   <div class="method_box_content_">
   <ul id="method_radio"><li>
   <label for="method_r2">
-    <input type="radio" id="method_r2" name="method" value="2">
+    <input type="radio" id="method_r2" name="method" value="代金引換">
     代金引換
   </label>
 
 </li>
 <li>
   <label for="method_r7">
-    <input type="radio" id="method_r7" name="method" value="7">
+    <input type="radio" id="method_r7" name="method" value="クレジットカード">
     クレジットカード
   </label>
 
 </li>
 <li>
   <label for="method_rF">
-    <input type="radio" id="method_rF" name="method" value="F">
+    <input type="radio" id="method_rF" name="method" value="Amazon Pay">
     Amazon Pay
   </label>
 
 </li>
 <li>
   <label for="method_rI">
-    <input type="radio" id="method_rI" name="method" value="I">
+    <input type="radio" id="method_rI" name="method" value="Paidy翌月払い(コンビニ/銀行)">
     Paidy翌月払い(コンビニ/銀行)
   </label>
 
@@ -407,7 +398,7 @@ jQuery(document).ready(function() {
 
   <input type="image" name="submit" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/ordernext.gif" alt="次へ" class="button_">
 
-  <div class="back_ button_"><a href="/shop/cart/cart.aspx">カート画面に戻る</a></div>
+  <div class="back_ button_"><a href="javascript:history.go(-1);">カート画面に戻る</a></div>
 </div>
 
 </form>

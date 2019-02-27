@@ -19,25 +19,23 @@ public class CartDeleteCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		CartBean cb = (CartBean)session.getAttribute("cb");
-		String pid = reqc.getParameter("pid")[0];
+		String[] pids = reqc.getParameter("pid");
+		String pid = pids[0];
 		
 		User u = (User)session.getAttribute("userBean");
 		if(u == null){
 			u = new User();
 		}
 		
-		
+		CartBean cb = u.getCart();
 		if(cb == null){
 			cb = new CartBean();
 		}
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		ProductDao pd = factory.getProductDao();
 		cb.deleteProduct(pid);
-
 		
-		reqc.setSessionAttribute("userBean",u);
-		
+		u.setCart(cb);
 		
 		//cartdisplay.jsp‚Ö“]‘—
 		resc.setTarget("cartdisplay");
