@@ -1,19 +1,24 @@
 package command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 
 import context.*;
-import beans.PaymentBean;
+import beans.*;
 
 public class OrderConfirmCommand extends AbstractCommand{
 	
-	//’•¶Šm’èˆ—
+	//’•¶Šm”Fˆ—
 	public ResponseContext execute(ResponseContext resc){
 		
 		RequestContext reqc = getRequestContext();
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
+		
+		User u = (User)session.getAttribute("userBean");
 		
 		String dd = reqc.getParameter("deliverydate")[0];
 		String dt = reqc.getParameter("deliverytime")[0];

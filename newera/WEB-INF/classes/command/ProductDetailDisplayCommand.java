@@ -5,7 +5,6 @@ import dao.OracleConnectionManager;
 import dao.ProductDao;
 
 import context.*;
-import beans.*;
 
 public class ProductDetailDisplayCommand extends AbstractCommand{
 	
@@ -14,11 +13,9 @@ public class ProductDetailDisplayCommand extends AbstractCommand{
 		
 		RequestContext reqc = getRequestContext();
 		
-		User u = (User)reqc.getSessionAttribute("userBean");
-		String id = u.getId();
+		String pid = reqc.getParameter("pid")[0];
 		
-		String[] pids = reqc.getParameter("pid");
-		String pid = pids[0];
+		System.out.println("ProductDetailDisplayCommand" + pid);
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();

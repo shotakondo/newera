@@ -95,7 +95,6 @@
 <c:forEach var="product" items="${sessionScope.userBean.cart.products}">
 <tr>
 	<td class="img_" style="width:200px;height:215px !important">
-
 		<a href="productdetaildisplay?pid=${product.pid}" title="${product.name}" style=""><img src="<c:url value='${product.path}' />"  alt="${product.name}"></a>
 	</td>
 	<td class="name_">
@@ -123,9 +122,9 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 }
 </script>
 	<td class="qty_">
-		<img src="img/spinplus.png" onclick="cong()">
+		<img src="" onclick="cong()">
 		<input type="text" name="num" value="${product.num}" size="1" maxlength="2" tabindex="10" id="${product.num}">
-		<img src="img/spinminus.png" onclick="tru()">
+		<img src="" onclick="tru()">
 		
 	</td>
 	<td class="money_">

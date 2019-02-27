@@ -2,6 +2,7 @@
 <%@ page import="context.*" %>
 <%@ page language="java" contentType="text/html;charset=windows-31J"
 	pageEncoding="windows-31J"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |購入履歴</title>
@@ -49,7 +50,7 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
+		<p id="logo"><a href="homejump"><img src="img/logo.svg" alt="NEWERA"></a></p>
 
 		<div class="info">
 			<div class="search"><!--
@@ -84,6 +85,7 @@
 
 <table class="formlist_ history_">
 <tbody><tr>
+
 <th>注文日</th>
 <th>オーダーＩＤ</th>
 
@@ -92,10 +94,28 @@
 <th>支払方法</th>
 <th>処理状態</th>
 </tr>
+<c:forEach var="orders" items="${data}">
+				<tr>
+					<td>${orders.date}</td>
+					<td>${orders.oid}</td>
+					<td>
+						<c:forEach var="products" items="${orders.products}">
+							商品ID:${products.pid}
+							<img src="<c:url value='${products.path}' />" alt="${products.name}" width="180px" height="150px">
+							商品名:${products.name}
+							価格:${products.price}
+							個数:${products.num}<br/>
+						</c:forEach>
+					</td>
+					<td>${orders.total}</td>
+					<td>${orders.method}</td>
+				</tr>
+			</c:forEach>
+			<c:if test="${data == null}">
 <tr>
 <td colspan="6">お客様のご購入履歴はありません。</td>
 </tr>
-
+</c:if>
 </tbody></table>
 
 

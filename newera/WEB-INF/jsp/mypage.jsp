@@ -47,12 +47,12 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links">
-	<c:if test="${sessionScope.userBean == null}">
+	<c:if test="${sessionScope.userBean.id == null}">
 			
 			<li class="link_login"><a href="login">ログイン/新規会員登録</a></li>
 		</c:if>
 		
-		<c:if test="${sessionScope.userBean != null}">
+		<c:if test="${sessionScope.userBean.id != null}">
 			<li class="link_mypage"><a href="jumpmypage">マイページ</a></li>
 			<li class="link_logout"><a href="logout">ログアウト</a></li>
 		</c:if>
@@ -65,14 +65,15 @@
 
 		<div class="info">
 			<div class="search">
-				<form name="frmSearch" method="get" action="">
-					<input type="hidden" value="x" name="search">
-					<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="keyword" autocomplete="off" placeholder="キーワードを入力"><div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-					<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick=""></p>
-				</form>
+				<form method="post" action="productssearch">
+			<input type="hidden" name="" >
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワードを入力">
+			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
+			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+		</form>
 			</div>
 			<p class="btn_favorite"><a href="">お気に入り</a></p>
-			<p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p>
+			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
 </div>
@@ -105,7 +106,7 @@
     <div class="mymenu_item_">
     <div class="img_"><a href="jumphistory"><img src="img/mypage_icon_hsty.png" alt="購入履歴"></a></div>
     <div class="desc_">
-      <h2 id="mymenu_history"> <a href="jumphistory">購入履歴</a> </h2>
+      <h2 id="mymenu_history"> <a href="orderdisplay">購入履歴</a> </h2>
       <p>現在のご注文の状況と今までのご注文の履歴です。</p>
       </div>
     </div>

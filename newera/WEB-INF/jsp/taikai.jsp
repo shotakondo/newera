@@ -112,7 +112,7 @@
 </tr>
 </tbody></table>
 <div class="submit_">
-<a href="jumpmypage"><img src="img/back.gif" alt="–ß‚é"></a>
+<a href=""><img src="img/back.gif" alt="–ß‚é"></a>
 <input type="image" name="submit" src="img/withdrawal.gif" alt="‘Þ‰ï‚·‚é" onclick="return confirmAction();">
 </div>
 </form>

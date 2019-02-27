@@ -9,6 +9,7 @@ import dao.OrderDao;
 
 import context.*;
 import beans.*;
+import dao.*;
 
 public class OrderDisplayCommand extends AbstractCommand{
 	
@@ -19,8 +20,8 @@ public class OrderDisplayCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		User ub = (User)session.getAttribute("ub");
-		String id = ub.getId();
+		User u = (User)session.getAttribute("userBean");
+		String id = u.getId();
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
@@ -38,7 +39,7 @@ public class OrderDisplayCommand extends AbstractCommand{
 		OracleConnectionManager.getInstance().closeConnection();
 		
 		//favoritedisplay.jspへ転送
-		resc.setTarget("orderdisplay");
+		resc.setTarget("history");
 		
 		return resc;
 	}

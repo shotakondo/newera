@@ -232,7 +232,7 @@ div.freepage_ .box_ {margin-bottom: 20px;width: 100%;overflow: hidden;}
 #helpmenu .list_helpmenu .list_second_item {}
 #helpmenu .list_helpmenu .list_second_item a {position: relative;display: block;padding: .8em 1em .8em 1.3em;border-bottom: 1px solid #e9e9e9;}
 #helpmenu .list_helpmenu .list_second_item a::before {position: absolute;left: .6em;content: "-";}
-#helpcontents {float: right;width: 840px;}
+#helpcontents {float: right;width: 900px;}
 /* ----シルエットガイド---- */
 #silhouette_guide {padding-bottom: 90px;}
 #silhouette_guide .buttons {margin: 0 0 50px;font-size: 1.2rem;}

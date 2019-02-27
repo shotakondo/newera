@@ -31,12 +31,17 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 			cb = new CartBean();
 		}
 		
+		String[] numliststring = req.getParameterValues("num");
+		int[] numlistint = new int[numliststring.length];
 		
-		String numlist[] = req.getParameterValues("num");
+		for(int i = 0; i < numliststring.length; i++){
+			numlistint[i] = Integer.parseInt(numliststring[i]);
+		}
+		
 		Boolean judge = false;
-		
-		cb.alterProductsNum(numlist);
-		
+		System.out.println("はじめ");
+		cb.alterProductsNum(numlistint);
+		System.out.println("終わり");
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		
@@ -73,7 +78,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 			}
 		}
 		
-		session.setAttribute("cb", cb);
+		u.setCart(cb);
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();
