@@ -89,12 +89,12 @@
 				transition: ease .3s;
 			}
 
-			#head_top .links .link_silhouette a:before { margin-top: -6px; width: 16px; height: 12px; background-image: url("img/head_icon_silhouette.png"); }
-			#head_top .links .link_size a:before { margin-top: -10px; width: 20px; height: 20px; background-image: url("img/head_icon_size.png"); }
-			#head_top .links .link_guide a:before { margin-top: -8px; width: 16px; height: 16px; background-image: url("img/head_icon_guide.png"); }
-			#head_top .links .link_login a:before { margin-top: -8px; width: 12px; height: 16px; background-image: url("img/head_icon_login.png"); }
-			#head_top .links .link_mypage a:before { margin-top: -8px; width: 16px; height: 16px; background-image: url("img/head_icon_mypage.png"); }
-			#head_top .links .link_logout a:before { margin-top: -8px; width: 12px; height: 16px; background-image: url("img/head_icon_logout.png"); }
+			#head_top .links .link_silhouette a:before { margin-top: -6px; width: 16px; height: 12px; background-image: url("../img/head_icon_silhouette.png"); }
+			#head_top .links .link_size a:before { margin-top: -10px; width: 20px; height: 20px; background-image: url("../img/head_icon_size.png"); }
+			#head_top .links .link_guide a:before { margin-top: -8px; width: 16px; height: 16px; background-image: url("../img/head_icon_guide.png"); }
+			#head_top .links .link_login a:before { margin-top: -8px; width: 12px; height: 16px; background-image: url("../img/head_icon_login.png"); }
+			#head_top .links .link_mypage a:before { margin-top: -8px; width: 16px; height: 16px; background-image: url("../img/head_icon_mypage.png"); }
+			#head_top .links .link_logout a:before { margin-top: -8px; width: 12px; height: 16px; background-image: url("../img/head_icon_logout.png"); }
 
 			#head_top .links li a:hover { color: #999; }
 			#head_top .links li a:hover:before { opacity: .5; }

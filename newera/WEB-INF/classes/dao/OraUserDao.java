@@ -33,10 +33,6 @@ public class OraUserDao implements UserDao{
 			
 			cn = OracleConnectionManager.getInstance().getConnection();
 			
-			// String sql ="INSERT INTO user_table values('?','?','?','?','?','?','?','?','?','?')";
-			
-			//String sql = "insert into user_table values(?,?,?,?,?,?,?,?,?,?)";
-			//String sql = "insert into user_table(user_id,user_firstname,user_lastname,user_email,user_pass,user_pass,user_tel,user_postcode,user_address,user_sex,user_birthday) values(u.getId.product_seq.nextval,
 			String sql = "insert into user_table(user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday) values (user_seq.nextval ,? ,?  ,? ,? ,? ,? ,? ,? ,?)";
 
 			
@@ -336,9 +332,7 @@ public class OraUserDao implements UserDao{
 			cn = OracleConnectionManager.getInstance().getConnection();
 
 			String sql = "UPDATE user_table set user_pass = ? where user_id = ?";
-			
-			//UPDATE user_table set user_pass = 'asd' where user_id = 'asdf';
-			
+
 			System.out.println("OraUserDao PasswordReplace getPass : "+u.getPass());
 			System.out.println("OraUserDao PasswordReplace getId : "+u.getId());
 			
@@ -349,12 +343,9 @@ public class OraUserDao implements UserDao{
 			st.setString(2,u.getId());
 			
 			System.out.println(sql);
-			
-			
-			
+
 			st.executeUpdate();
-			
-			
+
 			b = true;
 			
 			}catch(SQLException e){
@@ -454,14 +445,9 @@ public class OraUserDao implements UserDao{
 			
 			st.setString(1,u.getEmail());
 			st.setString(2,u.getId());
-			
-			System.out.println(sql);
-			
-			
-			
+
 			st.executeUpdate();
-			
-			
+		
 			b = true;
 			
 			}catch(SQLException e){

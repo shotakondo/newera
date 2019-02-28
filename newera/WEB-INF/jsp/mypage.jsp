@@ -67,7 +67,7 @@
 			<div class="search">
 				<form method="post" action="productssearch">
 			<input type="hidden" name="" >
-			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワードを入力">
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
 			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
 			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
 		</form>

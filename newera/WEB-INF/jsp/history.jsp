@@ -50,42 +50,37 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href="homejump"><img src="img/logo.svg" alt="NEWERA"></a></p>
-
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 		<div class="info">
-			<div class="search"><!--
-				--><form name="frmSearch" method="get" action=""><!--
-					--><input type="hidden" value="x" name="search"><!--
-					--><p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="keyword" autocomplete="off" placeholder="キーワードを入力"><div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p><!--
-					--><p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick=""></p><!--
-				--></form><!--
-			--></div><!--
-			--><p class="btn_favorite"><a href="">お気に入り</a></p><!--
-			--><p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p><!--
-		--></div>
+			<div class="search">
+				<form method="post" action="productssearch">
+			<input type="hidden" name="" >
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
+			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
+			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+		</form>
+			</div>
+			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
+		</div>
 	</div>
 </div>
 
 	</div>
 	<% User u = (User)session.getAttribute("userBean"); %>
-<div id="contents">
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="jumphistory">購入履歴</a></div>
+<div class="navitopicpath_"><a href="homejump" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="">購入履歴</a></div>
 <h1 class="common_headline1_">購入履歴一覧</h1>
 
 
 <div class="customer_status_">
-<div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
+<div class="loginname_">${userBean.getFirstName()} ${userBean.getLastName()} 様</div>
 
 </div>
 
 
-
-
-
 <table class="formlist_ history_">
 <tbody><tr>
-
 <th>注文日</th>
 <th>オーダーＩＤ</th>
 
@@ -94,41 +89,41 @@
 <th>支払方法</th>
 <th>処理状態</th>
 </tr>
-<c:forEach var="orders" items="${data}">
-				<tr>
-					<td>${orders.date}</td>
-					<td>${orders.oid}</td>
-					<td>
-						<c:forEach var="products" items="${orders.products}">
-							商品ID:${products.pid}
-							<img src="<c:url value='${products.path}' />" alt="${products.name}" width="180px" height="150px">
-							商品名:${products.name}
-							価格:${products.price}
-							個数:${products.num}<br/>
-						</c:forEach>
-					</td>
-					<td>${orders.total}</td>
-					<td>${orders.method}</td>
-				</tr>
-			</c:forEach>
-			<c:if test="${data == null}">
+    <c:forEach var="orders" items="${data}">
 <tr>
-<td colspan="6">お客様のご購入履歴はありません。</td>
+	<td class="order_dt_">${orders.date}</td>
+	<td class="order_id_"><a href="">${orders.oid}</a></td>
+	
+	<td class="order_detail_"><ul>
+<c:forEach var="products" items="${orders.products}">
+<li><div class="name_"><div class="name1_">${products.name}</div>
+<div class="name2_">（56.8 - 60.6cm）</div>
+</div></li>
+</c:forEach>
+</ul>
+
+<p class="order_again_"><a href="">この注文内容で再度購入する</a></p>
+</td>
+	<td class="total_">￥${orders.total}</td>
+	<td class="method_">${orders.method}</td>
+	<td class="status_"><a href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/status/ship2.gif" class="process_" alt="処理状態"></a></td>
 </tr>
-</c:if>
+</c:forEach>
 </tbody></table>
+<div class="navipage_ bottom_">
+
+1件
+
+
+</div>
 
 
 
 <div class="submit_">
-<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
+<a href="javascript:history.go(-1);"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/back.gif" alt="戻る"></a>
 </div>
 
 </div>
-    
-</div>
-
-
 		
 	<div id="footer">
 			

@@ -78,19 +78,12 @@
 						</p>
 						<div class="info">
 							<div class="search">
-								<form name="frmSearch" method="get" action="">
-									<input type="hidden" value="x" name="search">
-									<p class="keyword">
-										<input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="keyword" autocomplete="off" placeholder="キーワードを入力">
-										<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;">
-										</div>
-										<div class="np-item-suggest" style="display: none; left: 677px; top: 50px;">
-										</div>
-									</p>
-									<p class="btn">
-										<input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick="">
-									</p>
-								</form>
+								<form method="post" action="productssearch">
+			<input type="hidden" name="" >
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
+			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
+			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+		</form>
 							</div>
 							<c:if test="${sessionScope.userBean.id == null}">
 								<a href="jumplogin">
@@ -104,9 +97,9 @@
 								</p>
 							</c:if>
 							<p class="btn_cart">
-								<a href="cartadd?pid=${data.pid}">
+								<a href="cartdisplay">
 									カート
-									<span id="jscart_count_">0</span>
+									<span id=""></span>
 								</a>
 							</p>
 						</div>

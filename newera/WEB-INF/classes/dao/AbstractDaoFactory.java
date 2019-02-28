@@ -49,10 +49,4 @@ public abstract class AbstractDaoFactory{
 	public abstract StockDao getStockDao();
 	public abstract OrderDao getOrderDao();
 	public abstract DetailDao getDetailDao();
-	
-	
-	
-	
-	
-	
 }

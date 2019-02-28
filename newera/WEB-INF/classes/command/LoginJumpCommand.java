@@ -1,16 +1,13 @@
 package command;
 
-import dao.*;
-import beans.*;
 import context.*;
-import exp.*;
 
-public class OrderCompleteJumpCommand extends AbstractCommand{
+public class LoginJumpCommand extends AbstractCommand{
 
 	public ResponseContext execute(ResponseContext resc){
 		
 		//login.jsp‚Ö“]‘—
-		resc.setTarget("ordercomplete");
+		resc.setTarget("login");
 		
 		return resc;
 	}

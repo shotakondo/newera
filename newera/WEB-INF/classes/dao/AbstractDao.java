@@ -29,7 +29,7 @@ public abstract class AbstractDao implements ProductDao, UserDao, CartDao, Favor
 	
 	public abstract String getSequence();
 	public abstract void setOrder(String sq, String uid, String method, int total);
-	public abstract List getOrders(String uid);
+	public abstract List getOrders(String id);
 	
 	public abstract void setDetail(String sq, ProductBean pb);
 	

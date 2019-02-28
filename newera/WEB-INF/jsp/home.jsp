@@ -63,10 +63,11 @@
 			<div class="search">
 				<form method="post" action="productssearch">
 			<input type="hidden" name="" >
-			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワードを入力">
-			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
+			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
 		</form>
+            
 			</div>
 			<p class="btn_favorite"><a href="">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
@@ -100,7 +101,7 @@
   <div class="sort">
         <dl class="navistyle_">
       <dt>表示順：</dt>
-      <dd><form method="post" action="productssort" id="productssort">
+      <dd>
         <select class="selected" name="sortparameter" form="productssort">
 			<option value="name">名前順</option>
 			<option value="cheap">安い順</option>
@@ -109,10 +110,9 @@
 		</form>
       </dd>
     </dl>
-
-
         <dl class="order">
-      <dt><input class="selected" type="submit" value="ソート" style="margin-left:30px"></dt>
+            <form method="post" action="productssort" id="productssort">
+      <dt><input class="selected" type="submit" value="ソート" ></dt>
     </dl>
 
 

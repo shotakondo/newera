@@ -186,23 +186,7 @@ div.review_ {
 span.title_ {
 	float: left;
 }
-.review_table_ div.star_base_ {
-	float: left;
-	width: 60px;
-	height: 15px;
-	background: url('../img/usr/user_review/star.png');
-}
-.review_table_ div.star_select_ {
-	width: 60px;
-	height: 15px;
-	background: url('../img/usr/user_review/star.png');
-	background-repeat: no-repeat;
-}
-.review_table_ div.star_select_link_ {
-	color: #6666ff;
-	float: left;
-	margin-left: 5px;
-}
+
 /**/
 /* 確認画面 */
 div.confirm_layer_frame_ {
