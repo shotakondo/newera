@@ -5,13 +5,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import dao.AbstractDaoFactory;
 import dao.OracleConnectionManager;
-import dao.FavoriteDao;
+import dao.OrderDao;
 
 import context.*;
-import beans.User;
-import exp.*;
+import beans.*;
 
-public class FavoriteDisplayCommand extends AbstractCommand{
+public class OrderDisplayCommand extends AbstractCommand{
 	
 	//お気に入り表示処理
 	public ResponseContext execute(ResponseContext resc){
@@ -20,28 +19,17 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
 		
-		User u = (User)session.getAttribute("userBean");
-		String id = null;
-		
-		try{
-				id = u.getId();
-			
-		}catch(NullPointerException e){
-			
-			System.out.println("FavoriteDisplayCommand idがnullだった=ログインしていないので例外投げました");
-			throw new exp.favoriteException("ログインしてください。", new RuntimeException());
-			
-		}
-	
+		User ub = (User)session.getAttribute("ub");
+		String id = ub.getId();
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		
 		//インテグレーションレイヤの処理を呼び出す
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-		FavoriteDao fd = factory.getFavoriteDao();
+		OrderDao od = factory.getOrderDao();
 		
-		resc.setResult(fd.getFavorites(id));
+		resc.setResult(od.getOrders(id));
 		
 		//トランザクションを終了する
 		OracleConnectionManager.getInstance().commit();
@@ -50,7 +38,7 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		OracleConnectionManager.getInstance().closeConnection();
 		
 		//favoritedisplay.jspへ転送
-		resc.setTarget("favoritedisplay");
+		resc.setTarget("orderdisplay");
 		
 		return resc;
 	}
