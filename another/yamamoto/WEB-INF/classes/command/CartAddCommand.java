@@ -47,7 +47,8 @@ public class CartAddCommand extends AbstractCommand{
 		
 		pb = pd.getProduct(pid);
 		
-				
+		cb.addProduct(pb);
+		
 		u.setCart(cb);
 		
 		session.setAttribute("userBean", u);

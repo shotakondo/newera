@@ -4,7 +4,8 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
 	<meta name="description" content="メジャーリーグベースボール唯一の公式キャップであるニューエラの直営オンラインスストア。公式通販では、キャップだけでなく、ゴルフ向け帽子やTシャツ・パーカーなどのアパレル商品、バッグなど幅広い商品を取りニューエラキャップ　NEW ERA CAP ニューエラ">
-
+<!-- login.jsp -->
+<!-- login.jsp -->
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -28,7 +29,7 @@
 </head>
 <body cz-shortcut-listen="true" class="" style="padding-top: 0px;">
 
-
+<!-- login.jsp --><!-- login.jsp -->
 
 <div class="wrapper_">
 	<div id="header" style="top: auto;">
@@ -58,7 +59,7 @@
 					--><p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png" onclick="if(jQuery(&#39;#keyword&#39;).val() == jQuery(&#39;#keyword&#39;).attr(&#39;title&#39;)){jQuery(&#39;#keyword&#39;).val(&#39;&#39;)}"></p><!--
 				--></form><!--
 			--></div><!--
-			--><p class="btn_favorite"><a href="">お気に入り</a></p><!--
+			--><p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p><!--
 			--><p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p><!--
 		--></div>
 	</div>
@@ -158,7 +159,7 @@ jQuery("#login_uid").ready(function(){
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
 
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT© New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHTc New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>

@@ -66,7 +66,7 @@
 			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword">
 			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
 			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
-		</form>
+				</form>
 			</div>
 			<p class="btn_favorite"><a href="">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート<span id="jscart_count_">0</span></a></p>
@@ -106,7 +106,8 @@
 			<option value="cheap">安い順</option>
 			<option value="expensive">高い順</option>
 		</select>
-            <form method="post" action="productssort" id="productssort">
+		
+        <form method="post" action="productssort" id="productssort">
 			<input type="submit" value="ソート">
 		</form>
     </dl>

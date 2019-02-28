@@ -87,7 +87,7 @@
   <h1 class="common_headline1_"><strong><img src="img/my_page1.png" alt="Mypage"></strong><span>マイページ</span></h1>
   
   <div class="customer_status_">
-  <div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
+  <div class="loginname_"> <%= u.getFirstName() %><%= u.getLastName() %> 様</div>
 
   
   </div>

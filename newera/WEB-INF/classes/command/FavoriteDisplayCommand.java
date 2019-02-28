@@ -9,6 +9,7 @@ import dao.FavoriteDao;
 
 import context.*;
 import beans.User;
+import exp.*;
 
 public class FavoriteDisplayCommand extends AbstractCommand{
 	
@@ -20,7 +21,18 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		User u = (User)session.getAttribute("userBean");
-		String id = u.getId();
+		String id = null;
+		
+		try{
+				id = u.getId();
+			
+		}catch(NullPointerException e){
+			
+			System.out.println("FavoriteDisplayCommand idがnullだった=ログインしていないので例外投げました");
+			throw new exp.favoriteException("ログインしてください。", new RuntimeException());
+			
+		}
+	
 		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();

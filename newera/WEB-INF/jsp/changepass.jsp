@@ -93,25 +93,25 @@ function check_passsubmit_addnew(){
 
 		if(a.oldpass.value=='')
    {
-      alert('パスワード未入力です。');
+      alert('パスワードが未入力です。');
                 
       return false;
    }
    		else if(a.pass.value=='')
    {
-      alert('新しいパスワード未入力です。');
+      alert('新しいパスワードが未入力です。');
                  
       return false;
    }
    		else if(a.newpass.value=='')
    {
-      alert('確認新しいパスワード未入力です。');
+      alert('確認パスワードが未入力です。');
                  
       return false;
    }
    else if(a.pass.value != a.newpass.value)
    {
-      alert('確認パスワード合ってないよー');         
+      alert('確認パスワードが正しくありません');         
       return false;
    }
 
@@ -139,7 +139,7 @@ function check_passsubmit_addnew(){
 <th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード</th>
 <td>
 <input type="password" name="pass" id="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
-<br><span class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</span>
+<br><span class="small_"><%(半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）%></span>
 
 </td>
 </tr>

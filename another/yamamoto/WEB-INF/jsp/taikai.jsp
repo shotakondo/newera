@@ -61,13 +61,13 @@
 		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 
 		<div class="info">
-			<div class="search">
+			<!--<div class="search">
 				<form name="frmSearch" method="get" action="">
 					<input type="hidden" value="x" name="search">
 					<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="keyword" autocomplete="off" placeholder="キーワードを入力"><div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
 					<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick=""></p>
 				</form>
-			</div>
+			</div>-->
 			<p class="btn_favorite"><a href="">お気に入り</a></p>
 			<p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p>
 		</div>
@@ -84,7 +84,7 @@
 <h1 class="common_headline1_">退会</h1>
 
 <div class="customer_status_">
-<div class="loginname_">Ｔｏｋｙｏ Ａｎｈ 様</div>
+<div class="loginname_">  様</div>
 
 </div>
 <% User u = (User)session.getAttribute("userBean"); %>

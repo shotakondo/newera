@@ -12,7 +12,7 @@ public abstract class AbstractDaoFactory{
 		Properties prop = new Properties();
 		
 		try{
-			prop.load(new FileInputStream("C:/webapp/newera/dao.properties"));
+			prop.load(new FileInputStream("C:/Users/H17304004/Desktop/gitnewera/dao.properties"));
 			
 			String name = prop.getProperty("dao");
 			

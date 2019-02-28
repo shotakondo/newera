@@ -4,6 +4,8 @@
 
 <html lang="ja">
 <head>
+
+<!-- home.jsp -->
 	<title>ニューエラ/New Era公式オンラインストア |キャップ</title>
 	<link rel="canonical" href="">
 	
@@ -69,7 +71,7 @@
 		</form>
             
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>

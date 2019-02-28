@@ -95,25 +95,25 @@ function check_emailsubmit_addnew()
    var anh = window.document.check;         
 		if(anh.pass.value=='')
    {
-      alert('パスワード未入力です。');
+      alert('パスワードが未入力です。');
                 
       return false;
    }
    else if(anh.email.value=='')
    {
-      alert('新しいイメール未入力です。');
+      alert('新しいメールアドレスが未入力です。');
                 
       return false;
    }
    else if(anh.newemail.value=='')
    {
-      alert('確認新しいイメール未入力です。');
+      alert('メールアドレス(確認)が未入力です。');
                 
       return false;
    }
    else if(anh.email.value != anh.newemail.value)
    {
-      alert('確認イメール合ってないよー');         
+      alert('メールアドレス(確認)が正しくありません');         
       return false;
    }
 
