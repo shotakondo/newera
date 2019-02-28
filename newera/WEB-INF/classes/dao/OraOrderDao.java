@@ -116,7 +116,7 @@ public class OraOrderDao implements OrderDao{
 			//SQLの実行
 			rs = st.executeQuery();
 			
-			rs.next();
+			if(rs.next()){
 			
 			while(rs.getBoolean("order_id")){
 				ArrayList products = new ArrayList();
@@ -162,7 +162,7 @@ public class OraOrderDao implements OrderDao{
 					System.out.println(ob.getOid()+":"+pb.getPid());
 				}
 			}
-			
+			}
 		//getConnection, prepareStatement, executeQueryで例外発生の場合
 		}catch(SQLException e){
 			//ロールバックする
