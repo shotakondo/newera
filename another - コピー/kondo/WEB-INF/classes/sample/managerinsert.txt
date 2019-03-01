@@ -1,5 +1,0 @@
-insert into user_table(
-	user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday, user_ng, user_manager)
-values( 
-	'9998', 'kondo','shota','dodonko@gmail.com','azuma','080-8888-8888', '080-8888', '‚ ‚»‚±‚ç‚Ö‚ñ', '0', '88888888', default, '1'
-);
