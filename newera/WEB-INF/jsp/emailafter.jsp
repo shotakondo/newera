@@ -1,20 +1,19 @@
-<%@ page import="beans.User" %>
-<%@ page import="context.*" %>
 <%@ page language="java" contentType="text/html;charset=windows-31J"
 	pageEncoding="windows-31J"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="ja"><head>
 	
-	<title>ニューエラ/New Era公式オンラインストア |マイページ</title>
-<!-- changepass.jsp -->
+	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
+
+<!-- emailafter.jsp -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 <link rel="stylesheet" type="text/css" href="css/display_switch.css">
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <meta http-equiv="content-script-type" content="text/javascript">
-<script async="" src="js/tag.js"></script>
-<script async="" src="js/gtm.js"></script>
+<script async="" src="js/tag.js"></script><script async="" src="js/gtm.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/jquery.balloon.js"></script>
@@ -22,9 +21,8 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script>
-
-
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
+
 <meta property="etm:device" content="desktop">
 <meta property="etm:page_type" content="">
 <meta property="etm:cart_item" content="[]">
@@ -45,7 +43,7 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links">
-        <c:if test="${sessionScope.userBean.id == null}">
+		<c:if test="${sessionScope.userBean.id == null}">
 			<li class="link_login"><a href="jumplogin">ログイン／新規会員登録</a></li>
 		</c:if>
 		<c:if test="${sessionScope.userBean.id != null}">
@@ -75,98 +73,34 @@
 </div>
 
 	</div>
-	<% User u = (User)session.getAttribute("userBean"); %>
+	
 <div id="contents">
-
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="home">マイページ</a>&gt;<a href="passchange">パスワードの変更</a></div>
-<h1 class="common_headline1_">パスワードの変更</h1>
+<div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;
 
-<div class="customer_status_">
-<div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
+<a href="/shop/customer/mailchange.aspx">メールアドレス変更</a>
 
 </div>
+<h1 class="common_headline1_">メールアドレス変更</h1>
 
-<script>
-function check_passsubmit_addnew(){
-   var a = window.document.check;         
 
-		if(a.oldpass.value=='')
-   {
-      alert('パスワード未入力です。');
-                
-      return false;
-   }
-   		else if(a.pass.value=='')
-   {
-      alert('新しいパスワード未入力です。');
-                 
-      return false;
-   }
-   		else if(a.newpass.value=='')
-   {
-      alert('確認新しいパスワード未入力です。');
-                 
-      return false;
-   }
-   else if(a.pass.value != a.newpass.value)
-   {
-      alert('確認パスワード合ってないよー');         
-      return false;
-   }
+<div class="mailchange_">
+<p><strong>メールアドレスを変更しました</strong></p>
 
-   else                       
-      return true;   
-}
+<p><strong><a href="jumplogin">もう一度マイページにログインする</a></strong></p>
 
-</script>
 
-<form method="post" name="check" action="passchange"  onsubmit="return check_passsubmit_addnew()">
-<table class="formdetail_ passchange_">
-<tbody><tr>
-<th><img class="must_" >メールアドレス</th>
-<td><%= u.getEmail() %></td>
-
-</tr>
-<tr>
-<th><img class="must_" src="img/check.gif" alt="必須">現在のパスワード</th>
-<td>
-<input type="password" name="oldpass" id="oldpass" value="" size="20" maxlength="20" tabindex="1" autocomplete="off">
-
-</td>
-</tr>
-<tr>
-<th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード</th>
-<td>
-<input type="password" name="pass" id="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
-<br><span class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</span>
-
-</td>
-</tr>
-<tr>
-<th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード（確認）</th>
-<td>
-<input type="password" name="newpass" id="newpass" value="" size="20" maxlength="20" id="npwd2" tabindex="1" autocomplete="off" onpaste="alert('確認のためもう一度入力してください');return false">
-<br><span class="small_">（確認のためもう一度入力して下さい）</span>
-
-</td>
-</tr>
-</tbody></table>
 <div class="submit_">
-<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
-<input type="image" name="submit" src="img/change.gif" alt="変更する" tabindex="1">
+<a href="home"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
 </div>
-</form>
+</div>
 
-
-</div>
-</div>
 
 
 </div>
 
 </div>
-</div>
+
 
 		
 	<div id="footer">

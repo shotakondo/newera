@@ -6,7 +6,7 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
-
+<!-- changeemail.jsp -->
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -95,25 +95,25 @@ function check_emailsubmit_addnew()
    var anh = window.document.check;         
 		if(anh.pass.value=='')
    {
-      alert('パスワードが未入力です。');
+      alert('パスワード未入力です。');
                 
       return false;
    }
    else if(anh.email.value=='')
    {
-      alert('新しいメールアドレスが未入力です。');
+      alert('新しいイメール未入力です。');
                 
       return false;
    }
    else if(anh.newemail.value=='')
    {
-      alert('確認メールアドレスが未入力です。');
+      alert('確認新しいイメール未入力です。');
                 
       return false;
    }
    else if(anh.email.value != anh.newemail.value)
    {
-      alert('確認メールアドレスが正しくありません');         
+      alert('確認イメール合ってないよー');         
       return false;
    }
 
