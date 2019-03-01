@@ -1,0 +1,4 @@
+drop sequence user_sequence;
+drop sequence product_sequence;
+drop sequence order_sequence;
+drop sequence image_sequence;
