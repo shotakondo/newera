@@ -4,8 +4,6 @@
 
 <html lang="ja">
 <head>
-
-<!-- home.jsp -->
 	<title>ニューエラ/New Era公式オンラインストア |キャップ</title>
 	<link rel="canonical" href="">
 	
@@ -150,7 +148,7 @@
                         <a href="productdetaildisplay?pid=${product.pid}">
 	                        <p class="icon">
                                 <img src="img/01new.gif" alt="">
-                                <span class="icon1_"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/icon/03limit.gif" alt="ニューエラストア限定"></span>
+                                <span class="icon1_"><img src="img/03limit.gif" alt="ニューエラストア限定"></span>
                             </p>
                             <div class="photo">
                                 <img src="<c:url value='${product.path}' />" alt="">
@@ -158,7 +156,7 @@
                             <div class="info">
                                 <h3 class="name">
                                     ${product.name}
-                                </h3>
+                                </h3><br/>
                                 <p class="price">\
                                     ${product.price}
                                 </p>

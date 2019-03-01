@@ -5,7 +5,6 @@
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="ja"><head>
 	
-<!-- taikai.jsp -->
 	<title>ニューエラ/New Era公式オンラインストア | 退会</title>
 <meta http-equiv="content-style-type" content="text/css">
 

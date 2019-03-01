@@ -40,12 +40,8 @@ public class OrderCompleteCommand extends AbstractCommand{
 			sd.alterStock(pb.getNum(), pb.getPid());
 		}
 		
-		for(int i = 0; i < cb.getProducts().size(); i++){
-			ProductBean pb = (ProductBean)cb.getProducts().get(i);
-			total += pb.getPrice() * pb.getNum();
-		}
 		String sq = od.getSequence();
-		od.setOrder(sq, u.getId(), payb.getMethod(), total);
+		od.setOrder(sq, u.getId(), payb.getMethod(), payb.getTotal());
 		
 		for(int i = 0; i < cb.getProducts().size(); i++){
 			ProductBean pb = (ProductBean)cb.getProducts().get(i);

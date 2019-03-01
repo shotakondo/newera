@@ -22,10 +22,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 		<servlet-name>default</servlet-name>
 		<url-pattern>/img/*</url-pattern>
 </servlet-mapping>
-<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>/img/item/*</url-pattern>
-</servlet-mapping>
+
 <servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/css/*</url-pattern>
@@ -47,11 +44,18 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<location>/WEB-INF/error/notlogin.jsp</location>
 </error-page>
 
-
 <error-page>
 	<exception-type>exp.favoriteException</exception-type>
 	<location>/WEB-INF/error/favoriteException.jsp</location>
 </error-page>
 
+<error-page>
+	<exception-type>exp.cartaddException</exception-type>
+	<location>/WEB-INF/error/cartaddException.jsp</location>
+</error-page>favoriteaddException
 
+<error-page>
+	<exception-type>exp.favoriteaddException</exception-type>
+	<location>/WEB-INF/error/favoriteaddException.jsp</location>
+</error-page>
 </web-app>

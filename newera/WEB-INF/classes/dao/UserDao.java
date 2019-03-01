@@ -12,7 +12,7 @@ public interface UserDao{
 	public void updateUser(User u);
 	
 	public boolean checkEmail(User u);
-	public List getUser(String id);
+	public User getUser(String email, User u);
 	public List editUser(User u);
 	
 	public boolean PasswordReplace(User u);

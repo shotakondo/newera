@@ -97,7 +97,7 @@ public class OraOrderDao implements OrderDao{
 		return sequence;
 	}
 	
-	public List getOrders(String uid){
+	public List getOrders(String id){
 		
 		Connection cn = OracleConnectionManager.getInstance().getConnection();
 		PreparedStatement st = null;
@@ -107,7 +107,7 @@ public class OraOrderDao implements OrderDao{
 		
 		try{
 			//insert文
-			String sql = "select distinct order_date, order_id, product_id, product_name, product_price, image_path, detail_num, order_total, order_method from product_table a, image_table b, displayproduct_table c, order_table d, detail_table e, user_table f where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and d.order_id = e.detail_order_id and e.detail_product_id = a.product_id and image_path like '%|_01%' escape '|' and order_user_id = '"+ uid +"' order by order_id";
+			String sql = "select distinct order_date, order_id, product_id, product_name, product_price, image_path, detail_num, order_total, order_method from product_table a, image_table b, displayproduct_table c, order_table d, detail_table e, user_table f where c.displayproduct_product_id = a.product_id and c.displayproduct_image_id = b.image_id and d.order_id = e.detail_order_id and e.detail_product_id = a.product_id and image_path like '%|_01%' escape '|' and order_user_id = '"+ id +"' order by order_id";
 			
 			//PreparedStatementインターフェイスを実装するクラスの
 			//インスタンスを取得する

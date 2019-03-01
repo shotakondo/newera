@@ -4,7 +4,7 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
-<!-- orderconfirm.jsp -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -109,20 +109,20 @@
       <table class="formdetail_ estimate_ sales_">
         <tbody><tr>
           <th>商品金額合計(税込)</th>
-          <td>￥${product.price}</td>
+          <td>￥${sessionScope.userBean.cart.subtotal}</td>
         </tr>
 
 
         <tr>
           <th>送料</th>
-          <td>￥540
+          <td>￥${sessionScope.payb.postage}
           </td>
         </tr>
 
 
         <tr>
           <th>支払手数料</th>
-          <td>￥324</td>
+          <td>￥${sessionScope.payb.option}</td>
         </tr>
 
 
@@ -133,7 +133,7 @@
 
         <tr>
           <th>注文金額合計(税込)</th>
-          <td>￥${product.price}</td>
+          <td>￥${sessionScope.payb.total}</td>
         </tr>
       </tbody></table>
 
@@ -190,13 +190,7 @@
 </div>
 
 <div class="method_address_">
-<h2 class="common_headline2_">お届け先</h2>
-<div class="method_addr_">
-〒 ${userBean.getPostcode()}
-${userBean.getAddress()}<br>
-  ${userBean.getFirstName()}${userBean.getLastName()} 様<br>
-TEL: ${userBean.getTel()}
-</div>
+
 <div class="destgoodslist_">
 <table class="formlist_ estimate_ destgoodslist_">
 <tbody><tr>
@@ -242,9 +236,9 @@ TEL: ${userBean.getTel()}
 <input name="crsirefo_hidden" type="hidden" value="">
 
 <div class="submit_">
-    <a href="ordercomplete"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/order.gif" alt="ご注文"></a>
+    <a href="ordercomplete"><img src="img/order.gif" alt="ご注文"></a>
 
-  <!--<input type="image" name="submit" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/order.gif" alt="ご注文" tabindex="1" class="button_" >-->
+  <!--<input type="image" name="submit" src="img/order.gif" alt="ご注文" tabindex="1" class="button_" >-->
   
 
   <div class="back_ button_">

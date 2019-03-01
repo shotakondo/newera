@@ -12,6 +12,7 @@ import dao.ProductDao;
 
 import context.*;
 import beans.*;
+import exp.*;
 
 public class CartAddCommand extends AbstractCommand{
 	
@@ -23,9 +24,12 @@ public class CartAddCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		User u = (User)session.getAttribute("userBean");
+		
+		
 		CartBean cb = u.getCart();
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
+		int subtotal = 0;
 		
 		if(cb == null){
 			cb = new CartBean();
@@ -44,6 +48,12 @@ public class CartAddCommand extends AbstractCommand{
 		
 		cb.addProduct(pb);
 		
+		for(int i = 0; i < cb.getProducts().size(); i++){
+			ProductBean pro = (ProductBean)cb.getProducts().get(i);
+			subtotal += pro.getPrice() * pro.getNum();
+		}
+		
+		cb.setSubtotal(subtotal);
 		u.setCart(cb);
 		
 		//トランザクションを終了する
