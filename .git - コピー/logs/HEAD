@@ -1,0 +1,60 @@
+0000000000000000000000000000000000000000 1448f4ff786ffec44c923ec47de4333bdb922109 huuukun <32837889+huuukun@users.noreply.github.com> 1548397559 +0900	clone: from https://github.com/shotakondo/newera.git
+1448f4ff786ffec44c923ec47de4333bdb922109 bac654510d7da173ff9a5ab932eb5e30596b6978 huuukun <32837889+huuukun@users.noreply.github.com> 1548398147 +0900	commit: 1/25
+bac654510d7da173ff9a5ab932eb5e30596b6978 b60103fb445c94356f178bdb4df23b86e4a741b8 huuukun <32837889+huuukun@users.noreply.github.com> 1548398473 +0900	commit: 1/25
+b60103fb445c94356f178bdb4df23b86e4a741b8 4014131735f0536317d249deab59ce3e7eaf9aa0 huuukun <32837889+huuukun@users.noreply.github.com> 1548398577 +0900	commit: 1/25
+4014131735f0536317d249deab59ce3e7eaf9aa0 1e35e49807a821958d0d4dbda46232752285317e huuukun <32837889+huuukun@users.noreply.github.com> 1548398894 +0900	commit: 1/25
+1e35e49807a821958d0d4dbda46232752285317e 7be084d1db4b432e69620aab7943328e0c3c8ba0 huuukun <32837889+huuukun@users.noreply.github.com> 1548736514 +0900	commit: 1/29
+7be084d1db4b432e69620aab7943328e0c3c8ba0 a9c205b7385be07e546e9b1f2ec147beefa713bc huuukun <32837889+huuukun@users.noreply.github.com> 1548738694 +0900	pull --no-rebase --progress origin: Fast-forward
+a9c205b7385be07e546e9b1f2ec147beefa713bc f3e2843cbad88f1107bd6ae1b5aa0580ed77f3db huuukun <32837889+huuukun@users.noreply.github.com> 1548742390 +0900	commit: 1/29
+f3e2843cbad88f1107bd6ae1b5aa0580ed77f3db e995c92085064df0125544e0acb7e343a5c774b3 huuukun <32837889+huuukun@users.noreply.github.com> 1548742986 +0900	commit: 1/29
+e995c92085064df0125544e0acb7e343a5c774b3 cdf4f8d14e161f8cb752723c362f7f13609b43d8 huuukun <32837889+huuukun@users.noreply.github.com> 1548745459 +0900	commit: 1/29
+cdf4f8d14e161f8cb752723c362f7f13609b43d8 8779137bfea3a61fca57da18b7f9cfd2d253c486 huuukun <32837889+huuukun@users.noreply.github.com> 1548904974 +0900	pull --no-rebase --progress origin: Fast-forward
+8779137bfea3a61fca57da18b7f9cfd2d253c486 4c2c83bb7c6c5041e21c0919a49466e8443df787 huuukun <32837889+huuukun@users.noreply.github.com> 1548905021 +0900	commit: image
+4c2c83bb7c6c5041e21c0919a49466e8443df787 faf272a28beb1625fd41198f49780065fff6f8ad huuukun <32837889+huuukun@users.noreply.github.com> 1548905828 +0900	commit: image2
+faf272a28beb1625fd41198f49780065fff6f8ad 8e95436d70b95f8d942de1cb6efbd265f110d6f5 huuukun <32837889+huuukun@users.noreply.github.com> 1550043302 +0900	pull --no-rebase --progress origin: Fast-forward
+8e95436d70b95f8d942de1cb6efbd265f110d6f5 f6e75cdfac6f1b386a607572bb9f243a51ad697c huuukun <32837889+huuukun@users.noreply.github.com> 1550190436 +0900	pull --no-rebase --progress origin: Fast-forward
+f6e75cdfac6f1b386a607572bb9f243a51ad697c 5b719c616826b39ffd26436ffb27ee79dad1dba3 huuukun <32837889+huuukun@users.noreply.github.com> 1550190838 +0900	commit: a
+5b719c616826b39ffd26436ffb27ee79dad1dba3 d8f880df5532518af516709104967687633f13b5 huuukun <32837889+huuukun@users.noreply.github.com> 1550553876 +0900	pull --no-rebase --progress origin: Fast-forward
+d8f880df5532518af516709104967687633f13b5 2a1e1722df98e8fdcc61c8982c193b0c5f1a6242 huuukun <32837889+huuukun@users.noreply.github.com> 1550553990 +0900	pull --no-rebase --progress origin: Fast-forward
+2a1e1722df98e8fdcc61c8982c193b0c5f1a6242 2a0df0bb08ce5a8a602954941b219dbbde521898 huuukun <32837889+huuukun@users.noreply.github.com> 1550556900 +0900	pull --no-rebase --progress origin: Fast-forward
+2a0df0bb08ce5a8a602954941b219dbbde521898 083d7036a190f5e88fee12b65ec6fbb759b0b10d huuukun <32837889+huuukun@users.noreply.github.com> 1550557569 +0900	pull --no-rebase --progress origin: Fast-forward
+083d7036a190f5e88fee12b65ec6fbb759b0b10d 4df6ba62ba8a3e2eac81e6ab0f21df9df36ec928 huuukun <32837889+huuukun@users.noreply.github.com> 1550642017 +0900	pull --no-rebase --progress origin: Fast-forward
+4df6ba62ba8a3e2eac81e6ab0f21df9df36ec928 c78afc56f238e9b2ddc4ffcd17d48f3beb7243d6 huuukun <32837889+huuukun@users.noreply.github.com> 1550642273 +0900	commit: localtest用
+c78afc56f238e9b2ddc4ffcd17d48f3beb7243d6 62e6689f1f5bbc8f2aaf5a4d97fb5aaa1c4ff38b huuukun <32837889+huuukun@users.noreply.github.com> 1550644432 +0900	commit: locattest用変更
+62e6689f1f5bbc8f2aaf5a4d97fb5aaa1c4ff38b da0011d3dd303c2ad8e148f6fb1822a3d6e40f26 huuukun <32837889+huuukun@users.noreply.github.com> 1550645606 +0900	commit: localtestcommand整頓
+da0011d3dd303c2ad8e148f6fb1822a3d6e40f26 55e21f5aa80d02809bd3094fa13319572fffdf71 huuukun <32837889+huuukun@users.noreply.github.com> 1550646425 +0900	commit: localtestproperties整頓
+55e21f5aa80d02809bd3094fa13319572fffdf71 2e02c37f0cf12eeaa67e9cbb0d7f17857d7046d5 huuukun <32837889+huuukun@users.noreply.github.com> 1550646852 +0900	commit: localtestpropeties整頓
+2e02c37f0cf12eeaa67e9cbb0d7f17857d7046d5 7ba5f20909e2842fef2ca26c1adf22760cae8630 huuukun <32837889+huuukun@users.noreply.github.com> 1550647296 +0900	commit: localtest command18個確認した
+7ba5f20909e2842fef2ca26c1adf22760cae8630 24cd4735d479706669d088126e188dc70172b7d7 huuukun <32837889+huuukun@users.noreply.github.com> 1550647902 +0900	commit: localtestcommand整頓
+24cd4735d479706669d088126e188dc70172b7d7 7ba5f20909e2842fef2ca26c1adf22760cae8630 huuukun <32837889+huuukun@users.noreply.github.com> 1550647938 +0900	reset: moving to 7ba5f20909e2842fef2ca26c1adf22760cae8630
+7ba5f20909e2842fef2ca26c1adf22760cae8630 46c6e9facc98bcbd07c2ec2c2ab6f4908ecd8673 huuukun <32837889+huuukun@users.noreply.github.com> 1550647941 +0900	commit: localtestcommand整頓
+46c6e9facc98bcbd07c2ec2c2ab6f4908ecd8673 7ba5f20909e2842fef2ca26c1adf22760cae8630 huuukun <32837889+huuukun@users.noreply.github.com> 1550647956 +0900	reset: moving to 7ba5f20909e2842fef2ca26c1adf22760cae8630
+7ba5f20909e2842fef2ca26c1adf22760cae8630 1cf2ea57593e192844c4e5ef1d197b310e0ee9ca huuukun <32837889+huuukun@users.noreply.github.com> 1550647991 +0900	pull --no-rebase --progress origin: Fast-forward
+1cf2ea57593e192844c4e5ef1d197b310e0ee9ca 7c9623dd12f9dbc761ef74631ddce86388bb4efe huuukun <32837889+huuukun@users.noreply.github.com> 1550648018 +0900	commit: localtest command整頓
+7c9623dd12f9dbc761ef74631ddce86388bb4efe 67790142c6efdbccfc91fab84f20e4629bda3078 huuukun <32837889+huuukun@users.noreply.github.com> 1550723456 +0900	pull --no-rebase --progress origin: Fast-forward
+67790142c6efdbccfc91fab84f20e4629bda3078 91b4f70e7984839acef85b944e73a3987d526ebd huuukun <32837889+huuukun@users.noreply.github.com> 1550726243 +0900	pull --no-rebase --progress origin: Fast-forward
+91b4f70e7984839acef85b944e73a3987d526ebd 193489b4f3791227961bd29fbc604202a282f676 huuukun <32837889+huuukun@users.noreply.github.com> 1550727082 +0900	pull --no-rebase --progress origin: Fast-forward
+193489b4f3791227961bd29fbc604202a282f676 fe407061d52c2b4b242fdfc1d608cfa9722768e0 huuukun <32837889+huuukun@users.noreply.github.com> 1550795407 +0900	pull --no-rebase --progress origin: Fast-forward
+fe407061d52c2b4b242fdfc1d608cfa9722768e0 312318ed62895906f650b902c4c7cb29dff0026f huuukun <32837889+huuukun@users.noreply.github.com> 1550795792 +0900	pull --no-rebase --progress origin: Fast-forward
+312318ed62895906f650b902c4c7cb29dff0026f 3b01e319b5dbc219a4c584d0ab61d7cf159d5a1b huuukun <32837889+huuukun@users.noreply.github.com> 1550800302 +0900	commit: リダイレクト
+3b01e319b5dbc219a4c584d0ab61d7cf159d5a1b d4337772ebacdfd6a3eea0aa2af902ceb2ad1df1 huuukun <32837889+huuukun@users.noreply.github.com> 1550811650 +0900	commit: test用
+d4337772ebacdfd6a3eea0aa2af902ceb2ad1df1 e8231e1058029dba37e61fdf716e3e91775b30ee huuukun <32837889+huuukun@users.noreply.github.com> 1550812534 +0900	commit: sequence
+e8231e1058029dba37e61fdf716e3e91775b30ee c13ec6d39888d0d9b60681a2130f78599ded8a43 huuukun <32837889+huuukun@users.noreply.github.com> 1550812714 +0900	pull --no-rebase --progress origin: Fast-forward
+c13ec6d39888d0d9b60681a2130f78599ded8a43 9e6bf397b881615444090e041632b5ba5045bd42 huuukun <32837889+huuukun@users.noreply.github.com> 1550816139 +0900	commit: localtest
+9e6bf397b881615444090e041632b5ba5045bd42 42573e9c44276d77fee84d4d87a7b47bb0cfb60b huuukun <32837889+huuukun@users.noreply.github.com> 1550816223 +0900	pull --no-rebase --progress origin: Fast-forward
+42573e9c44276d77fee84d4d87a7b47bb0cfb60b 6d605ee1c04cf920214f825629496f2ea4e410e3 huuukun <32837889+huuukun@users.noreply.github.com> 1550818701 +0900	commit: localtest
+6d605ee1c04cf920214f825629496f2ea4e410e3 e0b2db16256973fee80011e980d468a0047e313e huuukun <32837889+huuukun@users.noreply.github.com> 1550822347 +0900	commit: localtest
+e0b2db16256973fee80011e980d468a0047e313e 521537a7c03b24c68fa0e165396f3de9bfaf63f2 huuukun <32837889+huuukun@users.noreply.github.com> 1550822351 +0900	pull --no-rebase --progress origin: Merge made by the 'recursive' strategy.
+521537a7c03b24c68fa0e165396f3de9bfaf63f2 1ec88c0efbb15d2070941c9e8f5a26c668eb0409 huuukun <32837889+huuukun@users.noreply.github.com> 1550822487 +0900	pull --no-rebase --progress origin: Fast-forward
+1ec88c0efbb15d2070941c9e8f5a26c668eb0409 2e3e14550bbacffa4c3aeaee7b67e1559022c4d1 huuukun <32837889+huuukun@users.noreply.github.com> 1550823113 +0900	commit: localtest
+2e3e14550bbacffa4c3aeaee7b67e1559022c4d1 1ec88c0efbb15d2070941c9e8f5a26c668eb0409 huuukun <32837889+huuukun@users.noreply.github.com> 1550823126 +0900	reset: moving to 1ec88c0efbb15d2070941c9e8f5a26c668eb0409
+1ec88c0efbb15d2070941c9e8f5a26c668eb0409 ecb8ac9f9a050ddc5ea0ade45b5d1c0eeba618a6 huuukun <32837889+huuukun@users.noreply.github.com> 1550823134 +0900	pull --no-rebase --progress origin: Fast-forward
+ecb8ac9f9a050ddc5ea0ade45b5d1c0eeba618a6 0a64b3f626b8e559c2da2ad0cc35846da299e0b8 huuukun <32837889+huuukun@users.noreply.github.com> 1550823142 +0900	commit: localtest
+0a64b3f626b8e559c2da2ad0cc35846da299e0b8 93965bc2ef0cfbb0704d533d7da007b8dc133f7f huuukun <32837889+huuukun@users.noreply.github.com> 1551250369 +0900	pull --no-rebase --progress origin: Fast-forward
+93965bc2ef0cfbb0704d533d7da007b8dc133f7f 16b916560eb069675c852f29efab12c7202695dd huuukun <32837889+huuukun@users.noreply.github.com> 1551250469 +0900	pull --no-rebase --progress origin: Fast-forward
+16b916560eb069675c852f29efab12c7202695dd 974e7872ba5a2bc657e833f55eeee8393b78ab6e huuukun <32837889+huuukun@users.noreply.github.com> 1551313889 +0900	pull --no-rebase --progress origin: Fast-forward
+974e7872ba5a2bc657e833f55eeee8393b78ab6e 41b36404ab83b259d8b79a2e1cbb41e705028153 huuukun <32837889+huuukun@users.noreply.github.com> 1551315554 +0900	pull --no-rebase --progress origin: Fast-forward
+41b36404ab83b259d8b79a2e1cbb41e705028153 f929bcec0c0ee7e7d4b701079653e49392624443 huuukun <32837889+huuukun@users.noreply.github.com> 1551319596 +0900	commit: 例外
+f929bcec0c0ee7e7d4b701079653e49392624443 e766966d8d38f04c12340df0e17536a9b63b1e86 huuukun <32837889+huuukun@users.noreply.github.com> 1551339030 +0900	pull --no-rebase --progress origin: Fast-forward
+e766966d8d38f04c12340df0e17536a9b63b1e86 5793175939981fcf7ac0359a9677f7c8ed88caa5 huuukun <32837889+huuukun@users.noreply.github.com> 1551339512 +0900	pull --no-rebase --progress origin: Fast-forward
+5793175939981fcf7ac0359a9677f7c8ed88caa5 70a05cff62cf6b0fa5969ecbfed71a1acc404185 huuukun <32837889+huuukun@users.noreply.github.com> 1551406318 +0900	pull --no-rebase --progress origin: Fast-forward
