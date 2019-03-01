@@ -11,7 +11,7 @@ public class EmailChangeCommand extends AbstractCommand{
 		
 		OracleConnectionManager.getInstance().beginTransaction();
 		
-		User ub = (User) reqc.getSessionAttribute("userBean");
+		User u = (User) reqc.getSessionAttribute("userBean");
 		
 		
 		String[] emails = reqc.getParameter("email");
@@ -25,47 +25,45 @@ public class EmailChangeCommand extends AbstractCommand{
 		String newemail = newemails[0];
 		
 	
-		System.out.println("EmailChangeCommand User型にキャストしたgetSessionのuserBean : "+ub);
+		System.out.println("EmailChangeCommand User型にキャストしたgetSessionのuserBean : "+u);
 		
 		
-		ub.setPass(pass);
+		u.setPass(pass);
 		System.out.println("EmailChangeCommand setPass : "+pass);
 		
 		
 		
-		System.out.println("EmailChangeCommand getId : " + ub.getId());
-		System.out.println("EmailChangeCommand getEmail(古いイメール) : " + ub.getEmail());
-		System.out.println("EmailChangeCommand getPass : " + ub.getPass());
+		System.out.println("EmailChangeCommand getId : " + u.getId());
+		System.out.println("EmailChangeCommand getEmail(古いイメール) : " + u.getEmail());
+		System.out.println("EmailChangeCommand getPass : " + u.getPass());
 		
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		UserDao ud = factory.getUserDao();
 		
-		boolean b = ud.checkEmail(ub);
+		boolean b = ud.checkEmail(u);
 		System.out.println("EmailCheck boolean : " + b);
 		
 		boolean pb;
 		if(b == true){
 			
-			ub.setEmail(newemail);
-			System.out.println("checkEmailがtrueだったからpassをnewpassに上書きした後のub.getEmail() : " + ub.getEmail());
+			u.setEmail(newemail);
+			System.out.println("checkEmailがtrueだったからpassをnewpassに上書きした後のu.getEmail() : " + u.getEmail());
 			
-			pb = ud.EmailReplace(ub);
+			pb = ud.EmailReplace(u);
 			
 			if(pb == true){
 					
-					
-				reqc.getSession();
-				reqc.setSessionAttribute("EmailChangeCommand-userBean",ub);
 				System.out.println("EmailChangeCommand-setsessionAttribute");
 				
 				resc.setTarget("emailafter");
-				reqc.setRemoveAttribute("userBean");
+				
+				User ub = new User();
+				
+				reqc.setSessionAttribute("userBean", ub);
 			}else{
 				
 				resc.setTarget("changeemail");
 				System.out.println("EmailChangeCommand-updateできなかった");
-				User u = new User();
-				reqc.setSessionAttribute("userBean", u);
 				
 			}
 		}else{

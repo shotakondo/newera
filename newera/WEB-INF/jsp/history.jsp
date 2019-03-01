@@ -6,7 +6,7 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |購入履歴</title>
-<!-- history.jsp -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -102,7 +102,7 @@
 </c:forEach>
 </ul>
 
-<p class="order_again_"><a href="">この注文内容で再度購入する</a></p>
+<p class="order_again_"><a href="cartdisplay">この注文内容で再度購入する</a></p>
 </td>
 	<td class="total_">￥${orders.total}</td>
 	<td class="method_">${orders.method}</td>

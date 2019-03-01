@@ -21,31 +21,16 @@ public class FavoriteDisplayCommand extends AbstractCommand{
 		HttpSession session = req.getSession();
 		
 		User u = (User)session.getAttribute("userBean");
-		
-		System.out.println("FavoriteDisplayCommand u.getId()"+u.getId());
-		
 		String id = u.getId();
-		
+			System.out.println("id = u.getId()"+id);
+			
 		
 		if(id == null){
 			System.out.println("FavoriteDisplayCommand idがnullだった=ログインしていないので例外投げました");
 			throw new exp.favoriteException("ログインしてください。", new RuntimeException());
-			
 		}
-		
-		// String id = null;
-		
-		// try{
-				// id = u.getId();
 			
-		// }catch(NullPointerException e){
-			
-			// System.out.println("FavoriteDisplayCommand idがnullだった=ログインしていないので例外投げました");
-			// throw new exp.favoriteException("ログインしてください。", new RuntimeException());
-			
-		// }
-	
-		
+				
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		

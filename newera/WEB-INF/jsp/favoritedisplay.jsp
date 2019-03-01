@@ -4,7 +4,6 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア |イメール変更</title>
-<!-- favoritedisplay.jsp -->
 
 <meta http-equiv="content-style-type" content="text/css">
 
@@ -54,18 +53,19 @@
 
 			
 				<div id="head_main">
-	<div class="clearfix header_inner_">
+		<div class="clearfix header_inner_">
 		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 		<div class="info">
 			<div class="search">
 				<form method="post" action="productssearch">
 			<input type="hidden" name="" >
 			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
-			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
 		</form>
+            
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
@@ -73,7 +73,7 @@
 
 	</div>
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="https://store.neweracap.jp/shop/" class="topicpath_home_">ホーム</a>&gt;<a href="./menu.aspx">マイページ</a>&gt;<a href="/shop/customer/bookmark.aspx">お気に入り</a></div>
+<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="">お気に入り</a></div>
 <h1 class="common_headline1_">お気に入り</h1>
 
 <div class="customer_status_">
@@ -107,13 +107,13 @@
 		</div>
 		<div class="spec_">
 			
-			<p><span class="price_">￥{favorite.price}
+			<p><span class="price_">￥${favorite.price}
 			</span>
 			
 			</p>
 		
-		<div class="updt_" id="updt_160777">
-		更新日: ${sessionScope.payb.deliverydate}
+		<div class="updt_" id="">
+		更新日: ${favorite.date}
 		</div>
 		</div>
 

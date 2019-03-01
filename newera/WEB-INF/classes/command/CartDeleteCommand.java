@@ -21,6 +21,7 @@ public class CartDeleteCommand extends AbstractCommand{
 		
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
+		int subtotal = 0;
 		
 		User u = (User)session.getAttribute("userBean");
 		if(u == null){
@@ -35,6 +36,12 @@ public class CartDeleteCommand extends AbstractCommand{
 		ProductDao pd = factory.getProductDao();
 		cb.deleteProduct(pid);
 		
+		for(int i = 0; i < cb.getProducts().size(); i++){
+			ProductBean pro = (ProductBean)cb.getProducts().get(i);
+			subtotal += pro.getPrice() * pro.getNum();
+		}
+		
+		cb.setSubtotal(subtotal);
 		u.setCart(cb);
 		
 		//cartdisplay.jsp‚Ö“]‘—

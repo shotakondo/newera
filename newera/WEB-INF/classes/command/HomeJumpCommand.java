@@ -23,8 +23,6 @@ public class HomeJumpCommand extends AbstractCommand{
 		
 		session.setAttribute("userBean", u);
 		
-		System.out.println("HomeJumpCommand u.getId() : "+u.getId() +"nullじゃない");
-		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		

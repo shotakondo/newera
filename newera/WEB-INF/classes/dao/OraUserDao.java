@@ -33,7 +33,7 @@ public class OraUserDao implements UserDao{
 			
 			cn = OracleConnectionManager.getInstance().getConnection();
 			
-			String sql = "insert into user_table(user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday) values (user_seq.nextval ,? ,?  ,? ,? ,? ,? ,? ,? ,?)";
+			String sql = "insert into user_table(user_id, user_firstname, user_lastname, user_email, user_pass, user_tel, user_postcode, user_address, user_sex, user_birthday) values (user_sequence.nextval ,? ,?  ,? ,? ,? ,? ,? ,? ,?)";
 
 			
 			st = cn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class OraUserDao implements UserDao{
 		return b;
 	}
 	
-	public List getUser(String id){
+	public User getUser(String email, User u){
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		ArrayList ar = new ArrayList();
@@ -145,14 +145,14 @@ public class OraUserDao implements UserDao{
 			Connection cn = null;
 			cn = OracleConnectionManager.getInstance().getConnection();
 			
-			String sql = "SELECT user_id,user_firstName,user_lastName,user_email,user_pass,user_tel,user_postcode,user_address,user_sex,user_birthday from user_table where user_id='" + id + "'";
+			String sql = "SELECT user_id,user_firstName,user_lastName,user_email,user_pass,user_tel,user_postcode,user_address,user_sex,user_birthday from user_table where user_email='" + email + "'";
 			
 			st = cn.prepareStatement(sql);
 			
 			rs = st.executeQuery();
 			
 			while(rs.next()){
-				User  u = new User();
+				
 				
 				u.setId(rs.getString(1));
 				u.setFirstName(rs.getString(2));
@@ -164,8 +164,7 @@ public class OraUserDao implements UserDao{
 				u.setAddress(rs.getString(8));
 				u.setSex(rs.getString(9));
 				u.setBirthday(rs.getString(10));
-				
-				ar.add(u);
+
 			}
 		}catch(SQLException e){
 			OracleConnectionManager.getInstance().rollback();
@@ -180,7 +179,7 @@ public class OraUserDao implements UserDao{
 				e.printStackTrace();
 			throw new ResourceAccessException(e.getMessage(), e);
 			}
-		return ar;
+		return u;
 		}
 	}
 	public boolean DeleteUser(String id){
@@ -453,7 +452,6 @@ public class OraUserDao implements UserDao{
 			}catch(SQLException e){
 				
 				e.printStackTrace();
-				b = false;
 			}
 			finally{
 				try{

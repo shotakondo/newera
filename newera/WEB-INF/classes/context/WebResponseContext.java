@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 public class WebResponseContext implements ResponseContext{
 	private Object result;
 	private String target;
+	private Object err;
 	
 	private HttpServletResponse _response;
 	
@@ -12,6 +13,9 @@ public class WebResponseContext implements ResponseContext{
 	
 	public void setTarget(String transferInfo){
 		target = "/WEB-INF/jsp/" + transferInfo + ".jsp";
+	}
+	public void sendRedirect(String err){
+		err = "login?err=1";
 	}
 	public String getTarget(){
 		return target;

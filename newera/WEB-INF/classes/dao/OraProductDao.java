@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beans.ProductBean;
+import beans.PathBean;
 import exp.ResourceAccessException;
 
 public class OraProductDao implements ProductDao{
@@ -57,6 +58,7 @@ public class OraProductDao implements ProductDao{
 		ResultSet rs = null;
 		
 		ProductBean pb = new ProductBean();
+		PathBean pab = new PathBean();
 		ArrayList al = new ArrayList();
 		
 		try{
@@ -72,17 +74,22 @@ public class OraProductDao implements ProductDao{
 			
 			rs.next();
 			
-			
 			pb.setPid(rs.getString(1));
 			pb.setName(rs.getString(2));
 			pb.setPrice(rs.getInt(3));
 			pb.setPath(rs.getString(4));
 			
-			al.add(rs.getString(4));
-			if(rs.next()){
-				al.add(rs.getString(4));
-			}
+			pab.setPath(rs.getString(4));
+			al.add(pab);
 			
+			while(rs.next()){
+				PathBean pahb = new PathBean();
+				pahb.setPath(rs.getString(4));
+				al.add(pahb);
+			}
+			for(int i = 0; i < al.size(); i++){
+				System.out.println(al.get(i));
+			}
 			pb.setPaths(al);
 			
 		//getConnection, prepareStatement, executeQuery‚Å—áŠO”­¶‚Ìê‡

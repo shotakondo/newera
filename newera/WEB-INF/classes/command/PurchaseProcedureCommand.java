@@ -21,9 +21,18 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		HttpSession session = req.getSession();
+		
+		int subtotal = 0;
+		
 		User u = (User)session.getAttribute("userBean");
-		if(u == null){
+	
+		String id = u.getId();
+		
+		if(id == null){
 			u = new User();
+			System.out.println("CardAddCommand idがnullだった=ログインしていないので例外投げました");
+			throw new exp.cartaddException("ログインしてください。", new RuntimeException());
+			
 		}
 		
 		CartBean cb = u.getCart();
@@ -32,6 +41,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		}
 		
 		String[] numliststring = req.getParameterValues("num");
+		String submit = req.getParameter("submit");
 		int[] numlistint = new int[numliststring.length];
 		
 		for(int i = 0; i < numliststring.length; i++){
@@ -39,9 +49,8 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		}
 		
 		Boolean judge = false;
-		System.out.println("はじめ");
 		cb.alterProductsNum(numlistint);
-		System.out.println("終わり");
+		
 		//トランザクションを開始する
 		OracleConnectionManager.getInstance().beginTransaction();
 		
@@ -78,6 +87,12 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 			}
 		}
 		
+		for(int i = 0; i < cb.getProducts().size(); i++){
+			ProductBean pro = (ProductBean)cb.getProducts().get(i);
+			subtotal += pro.getPrice() * pro.getNum();
+		}
+		
+		cb.setSubtotal(subtotal);
 		u.setCart(cb);
 		
 		//トランザクションを終了する
@@ -86,12 +101,16 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		//コネクションを切断する
 		OracleConnectionManager.getInstance().closeConnection();
 		
-		if(judge == true){
-			//cartdisplay.jspへ転送
+		if("recalculate".equals(submit)){
 			resc.setTarget("cartdisplay");
 		}else{
-			//purchaseprocedure.jspへ転送
-			resc.setTarget("purchaseprocedure");
+			if(judge == true){
+				//cartdisplay.jspへ転送
+				resc.setTarget("cartdisplay");
+			}else if(judge == false){
+				//purchaseprocedure.jspへ転送
+				resc.setTarget("purchaseprocedure");
+			}
 		}
 		
 		return resc;

@@ -2,7 +2,6 @@
 	pageEncoding="windows-31J"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	
-<!-- productsoperate.jsp -->
 <html>
 
 	<head><title>¤•i‘€ì‰æ–Ê</title></head>

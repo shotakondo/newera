@@ -7,7 +7,7 @@
 	
 	
 
-<!-- agree -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">

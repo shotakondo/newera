@@ -20,7 +20,12 @@ public class FavoriteAddCommand extends AbstractCommand{
 		
 		User u = (User)session.getAttribute("userBean");
 		String id = u.getId();
-		
+		if(id == null){
+			u = new User();
+			System.out.println("FavoriteAddCommand idがnullだった=ログインしていないので例外投げました");
+			throw new exp.favoriteaddException("ログインしてください。", new RuntimeException());
+			
+		}
 		String[] pids = reqc.getParameter("pid");
 		String pid = pids[0];
 		

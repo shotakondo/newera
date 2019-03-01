@@ -4,7 +4,7 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア | ${cart.product.name}</title>
-<!-- purchaseprodure.jsp -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -56,18 +56,18 @@
 				<div id="head_main">
 	<div class="clearfix header_inner_">
 		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
-
 		<div class="info">
 			<div class="search">
 				<form method="post" action="productssearch">
 			<input type="hidden" name="" >
 			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
-			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
 		</form>
+            
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
-			<p class="btn_cart"><a href="cartadd?pid=${data.pid}">カート<span id="jscart_count_">0</span></a></p>
+			<p class="btn_favorite"><a href="favoriteadd?pid=${data.pid}">お気に入り</a></p>
+			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
 </div>
@@ -198,65 +198,8 @@
 </div>
 
 
-<script src="/lib/jquery.magnific-popup.custom.js"></script>
+
 <link rel="stylesheet" type="text/css" href="/lib/jquery.magnific-popup.css">
-
-<script type="text/javascript">
-jQuery(document).ready(function() {
-	
-	// 利用可能なクーポン一覧を表示
-	jQuery('.open_available_coupon').magnificPopup({
-		type: 'ajax',
-		showCloseBtn: false,
-		ajax: {
-			settings: { cache: false },
-			tError: '表示できないページです。'
-		},
-		callbacks: {
-			parseAjax: function(mfpResponse) {
-				var existAvailableCoupon = jQuery(mfpResponse.data).wrap('<p>').parent().find('#available_coupon');
-				if(!existAvailableCoupon[0]) {
-					jQuery.magnificPopup.close();
-					alert("セッションがタイムアウトしました。\r\n最初からやり直してください。");
-					location.reload();
-				}
-			}
-		}
-	});
-	
-	// クーポン選択
-	jQuery(document).on('click', '#available_coupon .select_coupon_', function(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		
-		var coupon = jQuery(this).data('coupon');
-		if (!coupon) return;
-		
-		jQuery('input[name=coupon]').val(coupon).css('color', '#000');
-		jQuery.magnificPopup.close();
-	});
-	
-	// ページャー
-	jQuery(document).on('click', '#available_coupon .navipage_ a', function(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		
-		var href = jQuery(this).attr('href');
-		if (!href) return;
-		
-		var magnificPopup = jQuery.magnificPopup.instance;
-		magnificPopup.open({ items :{ src: href, type: 'ajax' } });
-	});
-	
-	// 閉じる(×)ボタン
-	jQuery(document).on('click', '#available_coupon .close_button_', function() {
-		jQuery.magnificPopup.close();
-	});
-});
-</script>
-
-
-
 
 <div class="method_box_" id="method_promotion">
     <h3>キャンペーン適用</h3>
@@ -265,10 +208,7 @@ jQuery(document).ready(function() {
       
     </div>
 </div>
-
-
-
-
+    
 <div class=" method_box_" id="method_pay">
   <h3>お支払い方法</h3>
   <div class="method_box_content_">
@@ -301,85 +241,6 @@ jQuery(document).ready(function() {
 
 </li>
 </ul>
-
-
-<div id="AmazonPayButton" class="amazon_pay_button_method_" style="display: none;"><img class=" amazonpay-button-inner-image" style="cursor: pointer; max-height: 45px;" alt="AmazonPay" id="OffAmazonPaymentsWidgets0" src="https://d1oct1bdmx33tz.cloudfront.net/default/jp/live/lwa/gold/medium/PwA.png"></div>
-
-<script type="text/javascript">
-	var authRequest;
-	OffAmazonPayments.Button("AmazonPayButton", "A38UMG07NMRVI7", {
-		type: "PwA",
-		color: "Gold",
-		size: "medium",
-		authorization: function() {
-			loginOptions = {scope: "profile payments:widget payments:shipping_address", popup: true };
-				authRequest = amazon.Login.authorize (loginOptions, "https://store.neweracap.jp/shop/order/method.aspx?" + jQuery('[name=frmMethod]').serialize() + "&posY=" + getScrollPosition());
-			},
-		onError: function(error) {
-			if (error.getErrorCode() != "BuyerSessionExpired") {
-				alert('Amazonとの通信中にエラーが発生しました。お手数ですが買い物かごからやり直し、他の支払方法をご選択ください。');
-			}
-		}
-	});
-</script>
-<script type="text/javascript">
-	function changeMethodAmazonPayment() {
-		if (jQuery('[name=method]:checked').val() == "F") {
-			var is_amazon_login = false;
-			if (!is_amazon_login) {
-				jQuery('#AmazonPayButton').show();
-				jQuery('#checkerr_amazon_method').show();
-				jQuery('[name=submit]').hide();
-			} else {
-				jQuery('#AmazonPayButton').hide();
-				jQuery('#checkerr_amazon_method').hide();
-				jQuery('[name=submit]').show();
-			}
-		}else{
-			jQuery('#AmazonPayButton').hide();
-			jQuery('#checkerr_amazon_method').hide();
-			jQuery('[name=submit]').show();
-		}
-	}
-	function changeMethodContents() {
-		if (0 < jQuery('#method_amazon_label').size()) {
-			jQuery('#method_radio').hide()
-			jQuery('#AmazonPayButton').hide();
-			jQuery('[name=submit]').show();
-		}
-	}
-	jQuery(document).ready(function() {
-		setScrollPosition();
-		changeMethodAmazonPayment();
-		changeMethodContents();
-		jQuery('[name=method]').on("click", function() { changeMethodAmazonPayment(); });
-	});
-	function getScrollPosition() {
-		var pos = document.documentElement.scrollTop || document.body.scrollTop;
-		return pos;
-	}
-	function setScrollPosition() {
-		var prm = getUrlParam(); 
-		var pos = prm["posY"];
-		if (pos != '' ) {
-			window.scroll(0, pos);
-		}
-	}
-	function getUrlParam(){ 
-		var vars = [], param; 
-		if(param = location.search){ 
-			var parray = param.replace('?','').split('&'); 
-			for(var i=0; i<parray.length; i++){ 
-				var n = parray[i].split('='); 
-				vars[n[0]] = n[1]; 
-			} 
-		} else { 
-			return false; 
-		} 
-		return vars; 
-	}
-</script>
-
   </div>
 </div>
 
@@ -396,8 +257,7 @@ jQuery(document).ready(function() {
 
 
 <div class="submit_">
-
-  <input type="image" name="submit" src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/ordernext.gif" alt="次へ" class="button_">
+  <input type="image" name="checkAddress" src="img/ordernext.gif" alt="次へ" class="button_" onclick="checkAddress(this)" />
 
   <div class="back_ button_"><a href="javascript:history.go(-1);">カート画面に戻る</a></div>
 </div>

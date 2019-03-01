@@ -5,6 +5,7 @@ package beans;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //ProductBeanƒNƒ‰ƒX
 public class ProductBean implements Serializable{
@@ -12,9 +13,9 @@ public class ProductBean implements Serializable{
 	private String pid;
 	private String name;
 	private int price;
-	private ArrayList paths = new ArrayList();
 	private String path;
 	private int num;
+	private List paths;
 	
 	public ProductBean(){}
 	
@@ -36,12 +37,6 @@ public class ProductBean implements Serializable{
 	public void setPrice(int price){
 		this.price = price;
 	}
-	public ArrayList getPaths(){
-		return paths;
-	}
-	public void setPaths(ArrayList paths){
-		this.paths = paths;
-	}
 	public int getNum(){
 		return num;
 	}
@@ -53,5 +48,11 @@ public class ProductBean implements Serializable{
 	}
 	public void setPath(String path){
 		this.path = path;
+	}
+	public List getPaths(){
+		return paths;
+	}
+	public void setPaths(List paths){
+		this.paths = paths;
 	}
 }

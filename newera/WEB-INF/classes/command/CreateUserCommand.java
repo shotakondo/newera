@@ -6,6 +6,7 @@ import java.util.List;
 import context.*;
 import beans.User;
 import exp.*;
+import dao.*;
 
 public class CreateUserCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
@@ -50,16 +51,15 @@ public class CreateUserCommand extends AbstractCommand{
 		
 		String[] birthdays = reqc.getParameter("birthday");
 		String birthday = birthdays[0];
-		
-		
-		
-		User u = new User();
+
 	
 		// u.setId(id);
 		// System.out.println("setid : " + id);
 		
+		User u = (User) reqc.getSessionAttribute("userBean");
 		
 		
+		System.out.println("setfname : " +firstName);
 		u.setFirstName(firstName);
 		System.out.println("setfname : " +firstName);
 		u.setLastName(lastName);
@@ -92,6 +92,8 @@ public class CreateUserCommand extends AbstractCommand{
 			System.out.println("CreateUserCommand if ‚É“ü‚Á‚½");
 			resc.setTarget("registerafter");
 			
+			u = userdao.getUser(u.getEmail(), u);
+			reqc.setSessionAttribute("userBean", u);
 		}else{
 			
 			resc.setTarget("register");

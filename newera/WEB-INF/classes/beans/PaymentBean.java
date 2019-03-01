@@ -13,6 +13,9 @@ public class PaymentBean implements Serializable{
 	private String campaigncode;
 	private String method;
 	private String wrapping;
+	private int option;
+	private int postage;
+	private int total;
 	
 	public PaymentBean(){}
 	
@@ -51,5 +54,23 @@ public class PaymentBean implements Serializable{
 	}
 	public void setWrapping(String wrapping){
 		this.wrapping = wrapping;
+	}
+	public int getOption(){
+		return option;
+	}
+	public void setOption(int option){
+		this.option = option;
+	}
+	public int getPostage(){
+		return postage;
+	}
+	public void setPostage(int postage){
+		this.postage = postage;
+	}
+	public int getTotal(){
+		return total;
+	}
+	public void setTotal(int total){
+		this.total = total;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.RequestDispatcher;
 
 import beans.*;
 
@@ -11,6 +12,7 @@ public class WebRequestContext implements RequestContext{
 	private Map _parameters;
 	private Map _id;
 	private HttpServletRequest _request;
+	private RequestDispatcher dispatcher;
 	//private HttpSession session;
 	public WebRequestContext(){}
 	
@@ -27,6 +29,9 @@ public class WebRequestContext implements RequestContext{
 	}
 	public Object getRequest(){
 		return _request;
+	}
+	public Object getParameter(){
+	return dispatcher;
 	}
 	
 	public HttpSession getSession(){

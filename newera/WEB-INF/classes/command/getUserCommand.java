@@ -12,7 +12,9 @@ public class getUserCommand extends AbstractCommand{
 		
 		OracleConnectionManager.getInstance().beginTransaction();
 		
-		User u = new User();
+		User u = (User)reqc.getSessionAttribute("userBean");
+		
+		
 		
 		try{
 			
@@ -34,13 +36,13 @@ public class getUserCommand extends AbstractCommand{
 		AbstractDaoFactory factory=AbstractDaoFactory.getFactory();
 		UserDao dao=factory.getUserDao();
 		
-		List l=dao.getUser(id);
+		u =dao.getUser(u.getEmail(), u);
 		
-		System.out.println("getUserCommand‚ÌList‚Ìl : "+ l);
+		System.out.println("getUserCommand‚ÌList‚Ìl : "+ u);
 		
-		resc.setResult(l);
+		resc.setResult(u);
 
-		resc.setTarget("view");
+		resc.setTarget("edituser");
 		return resc;
 
 	}

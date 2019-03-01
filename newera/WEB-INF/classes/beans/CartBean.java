@@ -8,6 +8,7 @@ import java.util.List;
 public class CartBean implements Serializable{
 	
 	private ArrayList _products =new ArrayList();
+	private int subtotal;
 	
 	public CartBean(){}
 	
@@ -63,11 +64,17 @@ public class CartBean implements Serializable{
 	}
 	
 	public void setProduct(ArrayList products){
-		_products=products;
+		this._products=products;
 	}
 	
 	public ArrayList getProducts(){
 		return _products;
+	}
+	public void setSubtotal(int subtotal){
+		this.subtotal = subtotal;
+	}
+	public int getSubtotal(){
+		return subtotal;
 	}
 	
 }

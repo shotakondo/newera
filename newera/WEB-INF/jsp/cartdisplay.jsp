@@ -4,7 +4,7 @@
 <html lang="ja"><head>
 	
 	<title>ニューエラ/New Era公式オンラインストア | ${cart.product.name}</title>
-<!-- cartdispay.jsp -->
+
 <meta http-equiv="content-style-type" content="text/css">
 
 <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
@@ -61,11 +61,12 @@
 				<form method="post" action="productssearch">
 			<input type="hidden" name="" >
 			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
-			<div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
+			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
 		</form>
+            
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
@@ -77,20 +78,16 @@
 <div class="order_flow_"><center><img src="img/order_step1.png" alt="STEP1 買い物かご"></div></center>
 
 <form method="POST" action="purchaseprocedure" name="form">
-
-
-
-
-
-
 <input type="image" src="img/spacer.gif" name="update" alt="再計算" class="calc_" tabindex="1">
 <input type="hidden" name="refresh" value="true">
-<table class="formlist_ cartlist_" style="width:1100px; height: 215px">
+<table class="formlist_ cartlist_">
 <tbody><tr class="">
-	<th class="title_cartlist" style="background-color:black;color: azure" colspan="2" >アイテム名 / 商品番号</th>
-	<th class="qty_cartlist" style="background-color:black;color: azure">数量</th>
-	<th class="money_cartlist" style="background-color:black;color: azure">金額</th>
-	<th class style="background-color:black;color: azure"></th>
+	<tr class="title_cartlist">
+	<th class="name_cartlist" colspan="2">アイテム名 / 商品番号</th>
+	<th class="qty_cartlist">数量</th>
+	<th class="money_cartlist">金額</th>
+	<th class=""></th>
+</tr>
 </tr>
 <c:forEach var="product" items="${sessionScope.userBean.cart.products}">
 <tr>
@@ -110,7 +107,7 @@
 		
 		<p class="price_">￥${product.price}</p>
 	</td>
-    <script>function cong(){
+    <!--<script>function cong(){
 var t = document.getElementById("${product.num}").value;
 document.getElementById("${product.num}").value=parseInt(t)+1;
 }
@@ -120,7 +117,7 @@ if(parseInt(t) > 1){
 document.getElementById("${product.num}").value=parseInt(t)-1;
 }
 }
-</script>
+</script>-->
 	<td class="qty_">
 		<img src="" onclick="cong()">
 		<input type="text" name="num" value="${product.num}" size="1" maxlength="2" tabindex="10" id="${product.num}">
@@ -139,18 +136,27 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 
 <tr class="total_line_">
 <td colspan="3" class="total_">小計(税込)</td>
-<td class="money_"><span class="price_">￥${product.price}</span>
+<td class="money_"><span class="price_">￥${sessionScope.userBean.cart.subtotal}</span>
 </td>
-<td class="button_"><input type="image" name="update" src="img/recount.gif" alt="再計算" tabindex="1"></td>
+<td class="button_"><button type="submit" name="submit" value="recalculate" style="border-radius: 10;background-color: black;color:white" alt="再計算" tabindex="1">再計算</button></td>
 </tr>
 
 </tbody></table>
-<table border="0"><tr>
-        
-<td><a href="javascript:history.go(-1);" style=""><img src="img/cart_back.gif" alt="戻る（お買い物を続ける）" style=""></a></td>
-        <td><input type="image" name="submit" src="img/cart_next.gif" alt="次へ（購入手続きへ）" tabindex="1"></td></tr>
-</table>
 
+<div class="cart_submit_" style="margin-top: 20px">
+
+<div class="back_"><a href="javascript:history.go(-1);" style=""><img src="img/cart_back.gif" alt="戻る（お買い物を続ける）"></a></div>
+
+
+<div class="next_">
+<div class="order_btn_">
+<input type="image" name="submit" src="img/cart_next.gif" alt="次へ（購入手続きへ）" tabindex="1">
+<p class="note_">※お届け先は１箇所になります。</p>
+</div>
+
+</div>
+
+</div>
 
 </div>
 </form>

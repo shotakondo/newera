@@ -6,7 +6,7 @@
 	<title>ニューエラ/New Era公式オンラインストア |会員登録</title>
 	
 	
-<!-- email.jsp -->
+	
 
 
 <meta http-equiv="content-style-type" content="text/css">
@@ -59,18 +59,19 @@
 			
 				<div id="head_main">
 	<div class="clearfix header_inner_">
-		<p id="logo"><a href=""><img src="img/logo.svg" alt="NEWERA"></a></p>
-
+		<p id="logo"><a href="home"><img src="img/logo.svg" alt="NEWERA"></a></p>
 		<div class="info">
 			<div class="search">
-				<form name="frmSearch" method="get" action="">
-					<input type="hidden" value="x" name="search">
-					<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="keyword" autocomplete="off" placeholder="キーワードを入力"><div class="np-keyword-suggest" style="display: none; left: 677px; top: 50px;"></div><div class="np-item-suggest" style="display: none; left: 677px; top: 50px;"></div></p>
-					<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png" onclick=""></p>
-				</form>
+				<form method="post" action="productssearch">
+			<input type="hidden" name="" >
+			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
+			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
+		</form>
+            
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
-			<p class="btn_cart"><a href="">カート<span id="jscart_count_">0</span></a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
+			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
 </div>
@@ -105,7 +106,7 @@
 </tbody></table>
 
 <div class="submit_">
-<a href="start"><img src="img/back.gif" alt="戻る"></a>
+<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
 <input type="image" name="confirm" src="img/send.gif" alt="送信">
 </form>
 

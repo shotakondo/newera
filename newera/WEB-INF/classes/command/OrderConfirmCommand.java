@@ -27,6 +27,16 @@ public class OrderConfirmCommand extends AbstractCommand{
 		String method = reqc.getParameter("method")[0];
 		String wrapping = reqc.getParameter("wrapping")[0];
 		
+		int option = 0;
+		int postage = 540;
+		int total = 0;
+		
+		if(wrapping.equals("1")){
+			option = 324;
+		}
+		
+		total = option + postage + u.getCart().getSubtotal();
+		
 		PaymentBean  payb = new PaymentBean();
 		payb.setDeliverydate(dd);
 		payb.setDeliverytime(dt);
@@ -34,6 +44,9 @@ public class OrderConfirmCommand extends AbstractCommand{
 		payb.setCampaigncode(cac);
 		payb.setMethod(method);
 		payb.setWrapping(wrapping);
+		payb.setOption(option);
+		payb.setPostage(postage);
+		payb.setTotal(total);
 		
 		session.setAttribute("payb", payb);
 		

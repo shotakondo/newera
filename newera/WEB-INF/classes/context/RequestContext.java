@@ -5,6 +5,7 @@ public interface RequestContext{
 	public String[] getParameter(String key);
 	public Object getRequest();
 	public Object getSession();
+	public Object getParameter();
 	//public Object getAttribute();
 	//public Object getRequestDispatcher(String b);
 	public Object getSessionAttribute(String a);
