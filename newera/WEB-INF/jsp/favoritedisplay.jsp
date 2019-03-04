@@ -127,7 +127,7 @@
 </div>
 
 <div class="submit_">
-<a href="javascript:history.go(-1);"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/back.gif" alt="–ß‚é"></a>
+<a href="jumpmypage"><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/back.gif" alt="–ß‚é"></a>
 </div>
 <input type="hidden" id="bookmark_count" value="1">
 </form>

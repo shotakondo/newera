@@ -115,13 +115,13 @@
 
 <div class="style">
   <dl class="navistyle_">
-    <dt>ï\é¶êÿë÷ÅF</dt>
+    
     <dd>
       <ul>
         <li>
 
 
-<span class=""><img src="img/list_style1.png" alt="4óÒ"></span><span class="navistyle_now_"></span>
+<span class=""></span><span class="navistyle_now_"></span>
 
 </li>
 
