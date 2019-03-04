@@ -66,7 +66,7 @@
 		</form>
             
 			</div>
-			<p class="btn_favorite"><a href="favoriteadd?pid=${data.pid}">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
@@ -114,9 +114,9 @@
   <table class="formlist_ destgoodslist_">
   <tbody><tr>
     <th class="method_goodsname_" colspan="2">商品名</th>
-    <th class="method_qty_">ラッピング</th>
+    <th class="method_qty_">値段</th>
     <th class="method_qty_">数量</th>
-    <th class="method_sales_detail_append_">備考</th>
+    <th class="method_qty_">ラッピング</th>
   </tr>
   <c:forEach var="product" items="${sessionScope.userBean.cart.products}">
   <tr>
@@ -165,16 +165,16 @@
   
   
     <dl><dt>配送希望時間：</dt><dd>
-        <input name="deliverytime" type="radio" id="time_spec_00" value="00" checked="">
-        <label for="time_spec_00">希望なし</label>
-        <input name="deliverytime" type="radio" id="time_spec_01" value="01"><label for="time_spec_01">8:00-12:00（午前中）</label>
-        <input name="deliverytime" type="radio" id="time_spec_12" value="12"><label for="time_spec_12">12:00-14:00</label>
-        <input name="deliverytime" type="radio" id="time_spec_14" value="14"><label for="time_spec_14">14:00-16:00</label>
-        <input name="deliverytime" type="radio" id="time_spec_16" value="16">
-        <label for="time_spec_16">16:00-18:00</label>
-        <input name="deliverytime" type="radio" id="time_spec_18" value="18"><label for="time_spec_18">18:00-20:00</label>
-        <input name="deliverytime" type="radio" id="time_spec_19" value="19">
-        <label for="time_spec_19">19:00-21:00（沖縄県は20:00-21:00)</label></dd></dl>
+        <input name="deliverytime" type="radio" id="" value="希望なし" checked="">
+        <label for="">希望なし</label>
+        <input name="deliverytime" type="radio" id="" value="8:00-12:00（午前中）"><label for="">8:00-12:00（午前中）</label>
+        <input name="deliverytime" type="radio" id="" value="12:00-14:00"><label for="">12:00-14:00</label>
+        <input name="deliverytime" type="radio" id="" value="14:00-16:00"><label for="">14:00-16:00</label>
+        <input name="deliverytime" type="radio" id="" value="16:00-18:00">
+        <label for="">16:00-18:00</label>
+        <input name="deliverytime" type="radio" id="" value="18:00-20:00"><label for="">18:00-20:00</label>
+        <input name="deliverytime" type="radio" id="" value="19:00-21:00（沖縄県は20:00-21:00)">
+        <label for="">19:00-21:00（沖縄県は20:00-21:00)</label></dd></dl>
   
   
 
@@ -190,17 +190,41 @@
     <div class="method_box_content_">
       クーポンコード : <input type="text" name="couponcode" value="" size="30" maxlength="20">
       
-      <a class="open_available_coupon" href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
+      <a class="open_available_coupon" href=""><img src="img/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
       
       
       
     </div>
 </div>
 
+<script src="js/jquery.magnific-popup.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.magnific-popup.css">
 
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	
+	// 利用可能なクーポン一覧を表示
+	jQuery('.open_available_coupon').magnificPopup({
+		type: 'ajax',
+		showCloseBtn: false,
+		ajax: {
+			settings: { cache: false },
+			tError: '表示できないページです。'
+		},
+		callbacks: {
+			parseAjax: function(mfpResponse) {
+				var existAvailableCoupon = jQuery(mfpResponse.data).wrap('<p>').parent().find('#available_coupon');
+				if(!existAvailableCoupon[0]) {
+					jQuery.magnificPopup.close();
+					alert("セッションがタイムアウトしました。\r\n最初からやり直してください。");
+					location.reload();
+				}
+			}
+		}
+	});
 
-<link rel="stylesheet" type="text/css" href="/lib/jquery.magnific-popup.css">
-
+});
+</script>
 <div class="method_box_" id="method_promotion">
     <h3>キャンペーン適用</h3>
     <div class="method_box_content_">
@@ -214,28 +238,28 @@
   <div class="method_box_content_">
   <ul id="method_radio"><li>
   <label for="method_r2">
-    <input type="radio" id="method_r2" name="method" value="代金引換">
+    <input type="radio" id="method_r2" name="method" value="代金引換" checked="">
     代金引換
   </label>
 
 </li>
 <li>
   <label for="method_r7">
-    <input type="radio" id="method_r7" name="method" value="クレジットカード">
+    <input type="radio" id="method_r7" name="method" value="クレジットカード" checked="">
     クレジットカード
   </label>
 
 </li>
 <li>
   <label for="method_rF">
-    <input type="radio" id="method_rF" name="method" value="Amazon Pay">
+    <input type="radio" id="method_rF" name="method" value="Amazon Pay" checked="">
     Amazon Pay
   </label>
 
 </li>
 <li>
   <label for="method_rI">
-    <input type="radio" id="method_rI" name="method" value="Paidy翌月払い(コンビニ/銀行)">
+    <input type="radio" id="method_rI" name="method" value="Paidy翌月払い(コンビニ/銀行)" checked="">
     Paidy翌月払い(コンビニ/銀行)
   </label>
 
@@ -248,7 +272,7 @@
 <div class="method_box_" id="method_wrapping">
   <h3>ラッピング</h3>
   <div class="method_box_content_">
-  <input name="wrapping" type="radio" id="wrapping_0" value="0" checked=""><label for="wrapping_0">希望なし</label><br><input name="wrapping" type="radio" id="wrapping_1" value="1"><label for="wrapping_1">希望する</label>
+  <input name="wrapping" type="radio" id="" value="希望なし" checked=""><label for="">希望なし</label><br><input name="wrapping" type="radio" id="" value="希望する"><label for="">希望する</label>
   <label>（有料：￥324）</label>
 
   </div>

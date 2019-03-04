@@ -42,7 +42,7 @@
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links">
 	<c:if test="${sessionScope.userBean.id == null}">
-			 <li class="link_mypage"><a href="jumplogin">ログイン/新規会員登録</a></li>
+			 <li class="link_login"><a href="jumplogin">ログイン/新規会員登録</a></li>
 		</c:if>
 		
 		<c:if test="${sessionScope.userBean.id != null}">
@@ -97,7 +97,7 @@
 	<td class="name_">
 		<div class="name_">
 		
-		<div class="name_"><a href="" title="${product.name}">${product.name}</a><p>（57.7 - 61.5cm）</p></div>
+		<div class="name_"><a href="" title="${product.name}">${product.name}</a></div>
 		
 		
 <div class=""></div>
@@ -145,13 +145,13 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 
 <div class="cart_submit_" style="margin-top: 20px">
 
-<div class="back_"><a href="javascript:history.go(-1);" style=""><img src="img/cart_back.gif" alt="戻る（お買い物を続ける）"></a></div>
+<div class="back_"><a href="home" style=""><img src="img/cart_back.gif" alt="戻る（お買い物を続ける）"></a></div>
 
 
 <div class="next_">
 <div class="order_btn_">
 <input type="image" name="submit" src="img/cart_next.gif" alt="次へ（購入手続きへ）" tabindex="1">
-<p class="note_">※お届け先は１箇所になります。</p>
+<!--<p class="note_">※お届け先は１箇所になります。</p>-->
 </div>
 
 </div>
@@ -162,9 +162,9 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 </form>
 
 <p style="font-size:1.3em;margin: 50px">
-◆ご注文の前に、ご利用規約・ご利用ガイドをお読みください。<br>
-◆ご購入手続きに進む前にご希望の商品・サイズをもう一度ご確認ください。<br>
-　ご注文確定後のキャンセルやご注文内容の変更は承っておりません。<br>
+
+◆ご購入手続きに進む前にご希望の商品をもう一度ご確認ください。<br>
+◆ご注文確定後のキャンセルやご注文内容の変更は承っておりません。<br>
 ◆カートに入れただけでは在庫は確保されませんのでご注意ください。</p>
 
 </div>

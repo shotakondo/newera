@@ -60,7 +60,7 @@
 			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
 		</form>
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
@@ -69,7 +69,7 @@
 	</div>
 	<% User u = (User)session.getAttribute("userBean"); %>
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="homejump" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="">購入履歴</a></div>
+<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="">購入履歴</a></div>
 <h1 class="common_headline1_">購入履歴一覧</h1>
 
 
@@ -92,17 +92,17 @@
     <c:forEach var="orders" items="${data}">
 <tr>
 	<td class="order_dt_">${orders.date}</td>
-	<td class="order_id_"><a href="">${orders.oid}</a></td>
+	<td class="order_id_"><a href="cartdisplay">${orders.oid}</a></td>
 	
 	<td class="order_detail_"><ul>
 <c:forEach var="products" items="${orders.products}">
 <li><div class="name_"><div class="name1_">${products.name}</div>
-<div class="name2_">（56.8 - 60.6cm）</div>
+
 </div></li>
 </c:forEach>
 </ul>
 
-<p class="order_again_"><a href="cartdisplay">この注文内容で再度購入する</a></p>
+<p class="order_again_">
 </td>
 	<td class="total_">￥${orders.total}</td>
 	<td class="method_">${orders.method}</td>
@@ -116,24 +116,22 @@
 </div>
 
 </div>
-		
-	<div id="footer">
-			
-					
+<div id="footer">
+
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
+
 <div id="foot_main"><div class="footer_inner_">
-	
-	<dl class="follow"><!--
-		--><dt>FOLLOW US</dt><!--
-		--><dd><!--
-			--><ul><!--
-				--><li><a href="https://www.facebook.com/newerajapan" target="_blank"><img src="img/foot_sns_fb.png" alt="facebook"></a></li><!--
-				--><li><a href="https://twitter.com/newera_japan" target="_blank"><img src="img/foot_sns_tw.png" alt="twitter"></a></li><!--
-				--><li><a href="http://www.neweracap.jp/news/line/" target="_blank"><img src="img/foot_sns_gplus.png" alt="Google Plus"></a></li><!--
-				--><li><a href="https://www.instagram.com/newerajapan/" target="_blank"><img src="img/foot_sns_instagram.png" alt="Instagram"></a></li><!--
-			--></ul><!--
-		--></dd><!--
-	--></dl>
+	<dl class="follow">
+		<dt>FOLLOW US</dt>
+		<dd>
+			<ul>
+				<li><a href="https://www.facebook.com/newerajapan" target="_blank"><img src="img/foot_sns_fb.png" alt="facebook"></a></li>
+				<li><a href="https://twitter.com/newera_japan" target="_blank"><img src="img/foot_sns_tw.png" alt="twitter"></a></li>
+				<li><a href="http://www.neweracap.jp/news/line/" target="_blank"><img src="img/foot_sns_gplus.png" alt="Google Plus"></a></li>
+				<li><a href="https://www.instagram.com/newerajapan/" target="_blank"><img src="img/foot_sns_instagram.png" alt="Instagram"></a></li>
+			</ul>
+		</dd>
+	</dl>
 </div></div>
 <div id="foot_btm"><div class="footer_inner_">
 	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>

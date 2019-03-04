@@ -79,13 +79,8 @@
 <div id="contents">
 <ul id="bread-crumb-list" class="wrap clearfix">
 <li itemscope="" itemtype="">
-  <a href="home" itemprop="url" class="topicpath_home_">
-    <span itemprop="title">トップ</span>
-  </a>
-</li>
-<li itemscope="" itemtype="" itemprop="child">
-　&gt;　<a href="" itemprop=""><span itemprop="title"><strong>キャップ</strong></span></a>
-</li>
+
+
 
 </ul>
 
@@ -120,13 +115,13 @@
 
 <div class="style">
   <dl class="navistyle_">
-    <dt>表示切替：</dt>
+    
     <dd>
       <ul>
         <li>
 
 
-<span class=""><img src="img/list_style1.png" alt="4列"></span><span class="navistyle_now_"></span>
+<span class=""></span><span class="navistyle_now_"></span>
 
 </li>
 
@@ -170,10 +165,10 @@
 </table>
     
   </div>
-  <div class="pager clearfix top_"><p class="navipage_sum_">120件</p><div class="navipage_forward_">
+  <!--<div class="pager clearfix top_"><p class="navipage_sum_">120件</p><div class="navipage_forward_">
 <span class="#header">1</span>
 
-</div></div>
+</div></div>-->
 </div>
 
 

@@ -54,7 +54,7 @@ public class PasswordReplaceCommand extends AbstractCommand{
 			reqc.setSessionAttribute("userBean",ub);
 			System.out.println("sessionAttribute Request");
 
-			resc.setTarget("jumplogin");
+			resc.setTarget("login");
 		}else{
 			System.out.println("PasswordReplaceCommand daoのPasswordReplaceでfalseが帰ったのでcatchに入って例外投げました");
 			throw new exp.asdfException("パスワードが変更できませんでした。", new RuntimeException());

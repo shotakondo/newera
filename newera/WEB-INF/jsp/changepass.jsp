@@ -80,7 +80,7 @@
 <div id="contents">
 
 <div class="customer_ col1_">
-<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="home">マイページ</a>&gt;<a href="passchange">パスワードの変更</a></div>
+<div class="navitopicpath_"><a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;<a href="passchange">パスワードの変更</a></div>
 <h1 class="common_headline1_">パスワードの変更</h1>
 
 <div class="customer_status_">
