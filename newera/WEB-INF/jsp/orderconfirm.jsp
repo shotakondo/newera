@@ -64,7 +64,7 @@
 			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
 		</form>
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
@@ -96,8 +96,7 @@
 <tr>
 <td class="goods_"><img class="img_" src="<c:url value='${product.path}' />"></td>
 <td class="name_">${product.name}
-<div class="name2_">（56.8 - 60.6cm）</div>
-(12031699-OSFA)</td>
+</td>
 <td class="qty_">&nbsp;${product.num}</td>
 <td class="amt_">&nbsp;${product.price}</td>
 </tr>
@@ -203,7 +202,7 @@
 <tr>
 <td class="method_img_"><img class="img_" src="<c:url value='${product.path}' />"></td>
 <td class="dest_goodsname_">${product.name}
-<div class="name2_">（56.8 - 60.6cm）</div>
+
 </td>
 <td class="dest_qty_">${product.num}</td>
 <td class="dest_comment_"><div style="white-space: pre-wrap;"></div></td>
@@ -222,7 +221,7 @@
 
 	<div class="wrapping_">
 		<h2 class="common_headline2_">ラッピング</h2>
-		希望なし
+		${sessionScope.payb.wrapping}
 	</div>
 
 

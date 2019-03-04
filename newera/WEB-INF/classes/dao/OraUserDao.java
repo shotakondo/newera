@@ -280,45 +280,53 @@ public class OraUserDao implements UserDao{
     }
   }
 
-
-	public List editUser(User u){
+	public User editUser(String email, User u){
 		PreparedStatement st = null;
-		System.out.println("editUser“ü‚è‚Ü‚µ‚½");
-		Connection cn = OracleConnectionManager.getInstance().getConnection();
-		ArrayList array = new ArrayList();
+		ResultSet rs = null;
+		ArrayList ar = new ArrayList();
+		System.out.println("getUser“ü‚è‚Ü‚µ‚½");
+		
 		try{
+			Connection cn = null;
+			cn = OracleConnectionManager.getInstance().getConnection();
 			
-			String sql = "UPDATE user_table SET user_firstname = ?, user_lastname = ?, user_email = ?, user_tel = ?, user_postcode = ?, user_address = ?, user_sex = ?, user_birthday = ? where user_id = '"+ u.getId() + "'";
+			String sql = "UPDATE user_table SET user_firstname = ?, user_lastname = ?, user_email = ?, user_tel = ?, user_postcode = ?, user_address = ?, user_sex = ?, user_birthday = ? where user_email='" + email + "'";
 			
 			st = cn.prepareStatement(sql);
+			
+			rs = st.executeQuery();
+			
+			while(rs.next()){
+				
+				
+				u.setId(rs.getString(1));
+				u.setFirstName(rs.getString(2));
+				u.setLastName(rs.getString(3));
+				u.setEmail(rs.getString(4));
+				u.setPass(rs.getString(5));
+				u.setTel(rs.getString(6));
+				u.setPostcode(rs.getString(7));
+				u.setAddress(rs.getString(8));
+				u.setSex(rs.getString(9));
+				u.setBirthday(rs.getString(10));
 
-			st.setString(1,u.getFirstName());
-			st.setString(2,u.getLastName());
-			st.setString(3,u.getEmail());
-			st.setString(4,u.getTel());
-			st.setString(5,u.getPostcode());
-			st.setString(6,u.getAddress());
-			st.setString(7,u.getSex());
-			st.setString(8,u.getBirthday());
-			array.add(u);
-			st.executeUpdate();
-
-		}catch(SQLException e){
-		
-			try{
-				cn.rollback();
-			}catch(SQLException e2){
-				throw new ResourceAccessException(e2.getMessage(), e2);
 			}
+		}catch(SQLException e){
+			OracleConnectionManager.getInstance().rollback();
+			e.printStackTrace();
 			throw new ResourceAccessException(e.getMessage(), e);
+		}finally{
+			try{
+				if(st!=null){
+					st.close();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+			throw new ResourceAccessException(e.getMessage(), e);
+			}
+		return u;
 		}
-		return array;
 	}
-	
-	
-	
-	
-	
 	
 	public boolean PasswordReplace(User u){
 		

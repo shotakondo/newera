@@ -79,7 +79,7 @@
 <div id="contents">
 <div class="customer_ col1_">
 <div class="navitopicpath_">
-<a href="jumpmypage" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;
+<a href="home" class="topicpath_home_">ホーム</a>&gt;<a href="jumpmypage">マイページ</a>&gt;
 
 <a href="">メールアドレス変更</a>
 

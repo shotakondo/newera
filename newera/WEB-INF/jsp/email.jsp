@@ -52,7 +52,7 @@
 				 <li class="link_mypage"><a href="jumpmypage">マイページ</a></li>
 				 <li class="link_logout"><a href="logout">ログアウト</a></li>
 		</c:if>
-		<li class="link_login"><a href="">ログイン／新規会員登録</a></li>
+
 	</ul>
 </div></div>
 

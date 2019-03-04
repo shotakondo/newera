@@ -94,25 +94,25 @@ function check_passsubmit_addnew(){
 
 		if(a.oldpass.value=='')
    {
-      alert('パスワード未入力です。');
+      alert('パスワードが未入力です。');
                 
       return false;
    }
    		else if(a.pass.value=='')
    {
-      alert('新しいパスワード未入力です。');
+      alert('新しいパスワードが未入力です。');
                  
       return false;
    }
    		else if(a.newpass.value=='')
    {
-      alert('確認新しいパスワード未入力です。');
+      alert('新しいパスワード(確認)が未入力です。');
                  
       return false;
    }
    else if(a.pass.value != a.newpass.value)
    {
-      alert('確認パスワード合ってないよー');         
+      alert('新しいパスワードと新しいパスワード(確認)が正しくありません。');         
       return false;
    }
 

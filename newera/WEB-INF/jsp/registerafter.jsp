@@ -92,7 +92,7 @@ setTimeout("jumpPage()",mnt*1000)
 
 <div class="message_">
 会員登録が完了しました。
-ご登録頂いたメールアドレスに会員登録完了のメールをお送りいたします。<br>
+<br>
 <a href="jumpmypage"><img src="img/mypage.gif" alt="マイページ"></a>
 </div>
 

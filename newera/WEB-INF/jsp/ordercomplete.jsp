@@ -61,7 +61,7 @@
 			<input type="hidden" name="" >
 			<p class="keyword"><input type="text" value="" size="8" tabindex="1" id="topkeyword" class="keyword_" name="productword" placeholder="商品名のキーワード入力">
 			<div class="np-keyword-suggest" style="display: none;"></div><div class="np-item-suggest" style="display: none;"></div></p>
-			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="//d3iuyfi32mtj8g.cloudfront.net/img/usr/common/go.png"></p>
+			<p class="btn"><input type="submit" tabindex="1" name="image" id="topsearch_btn" value="検索" src="img/go.png"></p>
 		</form>
             
 			</div>
@@ -82,19 +82,14 @@
 </h1>
 <br><br>
 <div class="top_comment_">
-<center>
-<p>
-ご注文情報をお送りしますので、ご確認ください。<br>
-発送手続き完了後、お知らせメールを再度配信いたしますので、発送完了までもうしばらくお待ちください。
-</p>
-</center>
+
 </div>
 <br><br>
 <table class="formdetail_ order_"></table>
 <div class="rules_comment_"></div>
 
 <div class="submit_">
-<a href="jumplogin"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
+<a href="home"><img src="img/ordered.gif" alt="ホームへ戻る"></a>
 </div>
 </div>
 	<div id="footer">
