@@ -104,7 +104,7 @@
       </div>
        </div>
     <div class="mymenu_item_">
-    <div class="img_"><a href="jumphistory"><img src="img/mypage_icon_hsty.png" alt="w“ü—š—ð"></a></div>
+    <div class="img_"><a href="historyorder"><img src="img/mypage_icon_hsty.png" alt="w“ü—š—ð"></a></div>
     <div class="desc_">
       <h2 id="mymenu_history"> <a href="historyorder">w“ü—š—ð</a> </h2>
       <p>Œ»Ý‚Ì‚²’•¶‚Ìó‹µ‚Æ¡‚Ü‚Å‚Ì‚²’•¶‚Ì—š—ð‚Å‚·B</p>

@@ -22,6 +22,7 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script>
+    
 <link rel="SHORTCUT ICON" href="https://store.neweracap.jp/favicon.ico">
 
 <script type="text/javascript" src="js/sna.js"></script>

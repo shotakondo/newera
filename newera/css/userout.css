@@ -203,8 +203,8 @@
 				transition: ease .3s;
 			}
 
-			#head_main .btn_favorite a:before { width: 24px; height: 22px; background-image: url(../img/usr/common/head_icon_favorite.png); }
-			#head_main .btn_cart a:before { width: 28px; height: 22px; background-image: url(../img/usr/common/head_icon_cart.png); }
+			#head_main .btn_favorite a:before { width: 24px; height: 22px; background-image: url(../img/head_icon_favorite.png); }
+			#head_main .btn_cart a:before { width: 28px; height: 22px; background-image: url(../img/head_icon_cart.png); }
 
 			#head_main .btn_favorite a:hover:before,
 			#head_main .btn_cart a:hover:before { opacity: .5; }
@@ -317,8 +317,8 @@
 .fix_header #head_main .btn_cart { width: 28px; }
 .fix_header #head_main .btn_favorite a,
 .fix_header #head_main .btn_cart a { text-indent: 100%; white-space: nowrap; }
-.fix_header #head_main .btn_favorite a { background-image: url(../img/usr/common/head_icon_favorite_white.png); }
-.fix_header #head_main .btn_cart a { background-image: url(../img/usr/common/head_icon_cart_white.png); }
+.fix_header #head_main .btn_favorite a { background-image: url(../img/head_icon_favorite_white.png); }
+.fix_header #head_main .btn_cart a { background-image: url(../img/head_icon_cart_white.png); }
 .fix_header #head_main .btn_favorite a:before,
 .fix_header #head_main .btn_cart a:before { display: none; }
 .fix_header #head_item_links { top: 56px; }

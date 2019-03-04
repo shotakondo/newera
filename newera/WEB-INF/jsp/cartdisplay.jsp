@@ -119,9 +119,9 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 }
 </script>-->
 	<td class="qty_">
-		<img src="" onclick="cong()">
-		<input type="text" name="num" value="${product.num}" size="1" maxlength="2" tabindex="10" id="${product.num}">
-		<img src="" onclick="tru()">
+		
+		<input type="number" name="num" value="${product.num}" size="100" maxlength="2" tabindex="10" id="${product.num}">
+		
 		
 	</td>
 	<td class="money_">

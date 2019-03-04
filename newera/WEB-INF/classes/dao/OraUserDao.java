@@ -182,6 +182,41 @@ public class OraUserDao implements UserDao{
 		return u;
 		}
 	}
+	public String getUserId(String email){
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		String id = null;
+		try{
+			Connection cn = null;
+			cn = OracleConnectionManager.getInstance().getConnection();
+			
+			String sql = "SELECT user_id from user_table where user_email='" + email + "'";
+			
+			st = cn.prepareStatement(sql);
+			
+			rs = st.executeQuery();
+			
+			rs.next();
+			
+			
+			id = rs.getString(1);
+			
+		}catch(SQLException e){
+			OracleConnectionManager.getInstance().rollback();
+			e.printStackTrace();
+			throw new ResourceAccessException(e.getMessage(), e);
+		}finally{
+			try{
+				if(st!=null){
+					st.close();
+				}
+			}catch(SQLException e){
+				e.printStackTrace();
+			throw new ResourceAccessException(e.getMessage(), e);
+			}
+		return id;
+		}
+	}
 	public boolean DeleteUser(String id){
 		PreparedStatement st = null;
 		boolean b = false;
@@ -231,8 +266,8 @@ public class OraUserDao implements UserDao{
 			 while(rs.next()){
 			 	System.out.println("rs.next()Ç…ì¸Ç¡ÇΩ");
 			 	//User u = new User();
-			 	u.setId(rs.getString(1));
-			 	System.out.println("userÇÃgetId-CheckEmail()Ç≈Ç∑ÅB"+u.getId());
+			 	//u.setId(rs.getString(1));
+			 	//System.out.println("userÇÃgetId-CheckEmail()Ç≈Ç∑ÅB"+u.getId());
 			 	
 			 	
 			 	if(rs.getString(2).equals(u.getEmail()) && rs.getString(3).equals(u.getTel())){

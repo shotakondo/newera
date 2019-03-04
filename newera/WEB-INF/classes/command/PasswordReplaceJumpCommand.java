@@ -15,17 +15,15 @@ public class PasswordReplaceJumpCommand extends AbstractCommand{
 		
 		String val = vals[0];
 		
-		u.setId(val);
-		System.out.println("PasswordReplaceJumpCommand setId : "+u.getId());
+		//u.setId(val);
+		//System.out.println("PasswordReplaceJumpCommand setId : "+u.getId());
 		
 		
 		reqc.setSessionAttribute("userBean",u);
-		User ub = (User) reqc.getSessionAttribute("userBean");
-		System.out.println("パスワードリマインダー"+(User) reqc.getSessionAttribute("userBean"));
 		
 		
 		
-		resc.setTarget("newemail");
+		resc.setTarget("newpass");
 		return resc;
 	}
 }

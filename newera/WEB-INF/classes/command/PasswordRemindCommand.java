@@ -32,19 +32,16 @@ public class PasswordRemindCommand extends AbstractCommand{
 		
 		String[] tels = reqc.getParameter("tel");
 		String tel = tels[0];
-		User u = new User();
-		u.getId();
+		User u = (User) reqc.getSessionAttribute("userBean");
 		u.setEmail(email);
 		u.setTel(tel);
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		UserDao ud = factory.getUserDao();
 		
 		boolean b = ud.checkEmail(u);
-		System.out.println("u.getId()"+u.getId());
+		
 		reqc.setSessionAttribute("userBean",u);
-		User ub = (User) reqc.getSessionAttribute("userBean");
-		System.out.println("パスワードリマインダー"+(User) reqc.getSessionAttribute("userBean"));
-		String id = ub.getId();
+		String id = ud.getUserId(u.getEmail());
 		
 			
 		if(b == true){
@@ -136,9 +133,11 @@ public class PasswordRemindCommand extends AbstractCommand{
         } catch (MessagingException e) {
             // smtpサーバへの接続失敗
            e.printStackTrace();
+        	
            
         }
     }
+
 }
 
 

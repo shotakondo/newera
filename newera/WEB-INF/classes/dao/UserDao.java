@@ -13,6 +13,7 @@ public interface UserDao{
 	
 	public boolean checkEmail(User u);
 	public User getUser(String email, User u);
+	public String getUserId(String email);
 	public User editUser(String email, User u);
 	
 	public boolean PasswordReplace(User u);

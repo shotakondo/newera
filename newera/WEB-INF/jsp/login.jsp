@@ -111,15 +111,6 @@
              </form>
              <div class="askpass_"><a href="jumpremind">パスワードをお忘れの方はこちら</a></div>
            </div>
-
-
-            <hr>
-              
-
-            
-             
-
-
         </div>
     </div>
 
@@ -129,7 +120,7 @@
         <hr class="title_ bottom_">
         <div class="login_col_inner">
           <div class="login_col_section">
-            <div class="form_text_">初めてご利用のお客様は、こちらから会員登録を行って下さい。<br>メールアドレスとパスワードを登録しておくと便利にお買い物ができるようになります。<br>2回目以降のお買い物時に住所やご連絡先の入力が不要です。<br>会員限定SALEやクーポンがご利用いただけます。<br>メールニュースでお得な情報をお届けします。</div>
+            <div class="form_text_">初めてご利用のお客様は、こちらから会員登録を行って下さい。<br>メールアドレスとパスワードを登録しておくと便利にお買い物ができるようになります。<br>お買い物時に住所やご連絡先の入力が不要です。<br><br><br></div>
 
             <form method="post" action="jumpagree">
 

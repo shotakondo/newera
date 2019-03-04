@@ -157,20 +157,14 @@
 		
 	
 	</td>
-	<td class="cart_" id="">
-		
+	
+        <td class="option_buttons_ clearfix">
+			<li class="btn_favorite"><a href="favoriteadd?pid=${data.pid}">お気に入り追加</a></li>
+			</td>
+    <td class="cart_" id="" style="padding-left: 20px"><a href="cartadd?pid=${data.pid}"><img src="img/prd_detail_cart_in.png"</a>
+		<!--
 		<input id="" type="image" class="btn_add_cart_" src="img/prd_detail_cart_in.png" alt="">
-		<div class="add_cart" href="cartadd?pid=${data.pid}">
-			<dl>
-				<dt>カートに追加されました。</dt>
-				<dd>
-					<ul>
-						
-						<li class="btn_cart"><a href="cartadd?pid=${data.pid}">カートに進む</a></li>
-					</ul>
-				</dd>
-			</dl>
-		<a class="close" href="">CLOSE</a><a class="close" href="#">CLOSE</a></div>
+		<div class="add_cart" href="cartadd?pid=${data.pid}"></div>-->
 		
 	</td>
 </tr>
@@ -191,9 +185,9 @@
 		</form>
 
 			
-		<ul class="option_buttons_ clearfix">
+		<!--<td class="option_buttons_ clearfix">
 			<li class="btn_favorite"><a href="favoriteadd?pid=${data.pid}">お気に入り追加</a></li>
-			</ul>
+			</td>-->
 			
 	</div>
 	<div class="left_box box">

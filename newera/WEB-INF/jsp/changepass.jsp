@@ -1,5 +1,3 @@
-<%@ page import="beans.User" %>
-<%@ page import="context.*" %>
 <%@ page language="java" contentType="text/html;charset=windows-31J"
 	pageEncoding="windows-31J"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -76,7 +74,7 @@
 </div>
 
 	</div>
-	<% User u = (User)session.getAttribute("userBean"); %>
+	
 <div id="contents">
 
 <div class="customer_ col1_">
@@ -84,7 +82,7 @@
 <h1 class="common_headline1_">パスワードの変更</h1>
 
 <div class="customer_status_">
-<div class="loginname_"><%= u.getFirstName() %><%= u.getLastName() %> 様</div>
+<div class="loginname_">${sessionScope.userBean.getFirstName()} ${sessionScope.userBean.getLastName()} 様</div>
 
 </div>
 
@@ -126,7 +124,7 @@ function check_passsubmit_addnew(){
 <table class="formdetail_ passchange_">
 <tbody><tr>
 <th><img class="must_" >メールアドレス</th>
-<td><%= u.getEmail() %></td>
+<td>${sessionScope.userBean.getEmail()}</td>
 
 </tr>
 <tr>
@@ -140,7 +138,7 @@ function check_passsubmit_addnew(){
 <th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード</th>
 <td>
 <input type="password" name="pass" id="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
-<br><span class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</span>
+<br>
 
 </td>
 </tr>
