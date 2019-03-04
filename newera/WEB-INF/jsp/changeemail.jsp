@@ -122,7 +122,7 @@ function check_emailsubmit_addnew()
       return true;   
 }
 </script>
-<form method="post" name="check" action="emailchange" onsubmit="return check_emailsubmit_addnew();">
+<form method="post" id="submit" name="check" action="emailchange" onsubmit="return check_emailsubmit_addnew();">
 <table class="formdetail_ mailchange_">
 <tbody><tr>
 <th><img class="must_" src="img/check.gif" alt="必須">メールアドレス</th>
@@ -140,7 +140,7 @@ function check_emailsubmit_addnew()
 <tr>
 <th><img class="must_" src="img/check.gif" alt="必須">新しいメールアドレス</th>
 <td>
-<input type="text" name="email" id="email" value="" size="40" maxlength="100" tabindex="1"><br />
+<input type="text" name="email" id="email" value="" size="40" maxlength="100"><br />
 <span id="erremail"></span>
 <p class="small_">（半角@を含むアドレスを100文字以内で入力してください）</p>
 <p class="small_">※「.@ (@の前にドット)」、「.. (ドット2つ)」を含むメールアドレスはご利用いただけません</p>
@@ -158,10 +158,63 @@ function check_emailsubmit_addnew()
 </tbody></table>
 <div class="submit_">
 <a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
-<input type="image" name="submit" src="img/change.gif" alt="変更する" tabindex="1">
+<input type="image" name="submit" id="submit" value="1" src="img/change.gif" alt="変更する" tabindex="1">
 </div>
 </form>
-
+<script>
+  var inputs = document.forms['check'].getElementsByTagName('input');
+  var run_onchange = false;
+  function valid(){
+   var errors = false;
+   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+   for(var i=0; i<inputs.length; i++){
+    var value = inputs[i].value;
+    var id = inputs[i].getAttribute('id');
+    var span = document.createElement('span');
+    var p = inputs[i].parentNode;
+    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+    if(value == ''){
+     span.innerHTML ='';
+    }else{
+     if(id == 'email'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var email =value;
+     }
+     //if(id == 'confirm_email' && value != email){span.innerHTML ='確認Eメールできません';}
+     if(id == 'pass'){
+      if(value.length <6){span.innerHTML ='6文字以上入力してください';}
+      var pass =value;
+     }
+    }
+    if(span.innerHTML != ''){
+     inputs[i].parentNode.appendChild(span);
+     errors = true;
+     run_onchange = true;
+     inputs[i].style.border = '1px solid red';
+     inputs[i].style.background = 'white';
+     
+    }
+   }// end for
+  
+   if(errors == false)
+   return !errors;
+  }// end valid()
+  var check = document.getElementById('submit');
+  check.onclick = function(){
+   return valid();
+  }
+   for(var i=0; i<inputs.length; i++){
+    var id = inputs[i].getAttribute('id');
+    inputs[i].onchange = function(){
+     if(run_onchange == true){
+      this.style.border = '1px solid #999';
+      this.style.background = '#fff';
+    
+      valid();
+     }
+    }
+   }
+   </script>
 
 </div>
 

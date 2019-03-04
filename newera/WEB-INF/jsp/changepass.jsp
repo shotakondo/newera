@@ -92,25 +92,25 @@ function check_passsubmit_addnew(){
 
 		if(a.oldpass.value=='')
    {
-      alert('パスワードが未入力です。');
+      alert('パスワード未入力です。');
                 
       return false;
    }
    		else if(a.pass.value=='')
    {
-      alert('新しいパスワードが未入力です。');
+      alert('新しいパスワード未入力です。');
                  
       return false;
    }
    		else if(a.newpass.value=='')
    {
-      alert('新しいパスワード(確認)が未入力です。');
+      alert('確認新しいパスワード未入力です。');
                  
       return false;
    }
    else if(a.pass.value != a.newpass.value)
    {
-      alert('新しいパスワードと新しいパスワード(確認)が正しくありません。');         
+      alert('確認パスワード合ってないよー');         
       return false;
    }
 
@@ -120,7 +120,7 @@ function check_passsubmit_addnew(){
 
 </script>
 
-<form method="post" name="check" action="passchange"  onsubmit="return check_passsubmit_addnew()">
+<form method="post" id="submit" name="check" action="passchange"  onsubmit="return check_passsubmit_addnew()">
 <table class="formdetail_ passchange_">
 <tbody><tr>
 <th><img class="must_" >メールアドレス</th>
@@ -138,6 +138,7 @@ function check_passsubmit_addnew(){
 <th><img class="must_" src="img/check.gif" alt="必須">新しいパスワード</th>
 <td>
 <input type="password" name="pass" id="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
+<br><span class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</span>
 <br>
 
 </td>
@@ -153,10 +154,63 @@ function check_passsubmit_addnew(){
 </tbody></table>
 <div class="submit_">
 <a href="javascript:history.go(-1);"><img src="img/back.gif" alt="戻る"></a>
-<input type="image" name="submit" src="img/change.gif" alt="変更する" tabindex="1">
+<input type="image" name="submit" id="submit" value="1" src="img/change.gif" alt="変更する" tabindex="1">
 </div>
 </form>
-
+<script>
+  var inputs = document.forms['check'].getElementsByTagName('input');
+  var run_onchange = false;
+  function valid(){
+   var errors = false;
+   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+   for(var i=0; i<inputs.length; i++){
+    var value = inputs[i].value;
+    var id = inputs[i].getAttribute('id');
+    var span = document.createElement('span');
+    var p = inputs[i].parentNode;
+    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+    if(value == ''){
+     span.innerHTML ='';
+    }else{
+     if(id == 'email'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var email =value;
+     }
+     //if(id == 'confirm_email' && value != email){span.innerHTML ='確認Eメールできません';}
+     if(id == 'pass'){
+      if(value.length <6){span.innerHTML ='6文字以上入力してください';}
+      var pass =value;
+     }
+    }
+    if(span.innerHTML != ''){
+     inputs[i].parentNode.appendChild(span);
+     errors = true;
+     run_onchange = true;
+     inputs[i].style.border = '1px solid red';
+     inputs[i].style.background = 'white';
+     
+    }
+   }// end for
+  
+   if(errors == false)
+   return !errors;
+  }// end valid()
+  var check = document.getElementById('submit');
+  check.onclick = function(){
+   return valid();
+  }
+   for(var i=0; i<inputs.length; i++){
+    var id = inputs[i].getAttribute('id');
+    inputs[i].onchange = function(){
+     if(run_onchange == true){
+      this.style.border = '1px solid #999';
+      this.style.background = '#fff';
+    
+      valid();
+     }
+    }
+   }
+   </script>
 
 </div>
 </div>

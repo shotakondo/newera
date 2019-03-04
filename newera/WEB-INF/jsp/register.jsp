@@ -18,7 +18,7 @@
 <script language="JavaScript" type="text/javascript" src="js/common.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/search_suggest.js"></script>
 <script language="JavaScript" type="text/javascript" src="js/setting.js"></script>
-<script language="JavaScript" type="text/javascript" src="js/check.js"></script>
+
 
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
 
@@ -78,77 +78,7 @@
 
 <div class="customer_ col1_">
 <h1 class="common_headline1_"><strong><img src="img/members1.png" alt="MEMBERS"></strong><span>新規会員登録</span></h1>
-<form id="frmCustomer" name="createuser" method="post" action="create" novalidate="" onsubmit="return check_shinkisubmit_addnew()">
-
-
-<script>var inputs = document.forms['register'].getElementsByTagName('input');
-  var run_onchange = false;
-  function valid(){
-   var errors = false;
-   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
-   for(var i=0; i<inputs.length; i++){
-    var value = inputs[i].value;
-    var id = inputs[i].getAttribute('id');
-   
-    
-    var span = document.createElement('span');
-    
-    var p = inputs[i].parentNode;
-    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
-   
-    
-    if(value == ''){
-     span.innerHTML ='Thong tin duoc iu cau';
-    }else{
-    
-     if(id == 'email'){
-      if(reg_mail.test(value) == false){ span.innerHTML ='Email khong hop le (（例）: abc@gmail.com)';}
-      var email =value;
-     }
-     if(id == 'confirm_email' && value != email){span.innerHTML ='Email nhap lai chua dung';}
-     // Kiem tra password
-     if(id == 'password'){
-      if(value.length <6){span.innerHTML ='Password phai tu 6 ki tu';}
-      var pass =value;
-     }
-    
-     if(id == 'confirm_pass' && value != pass){span.innerHTML ='Password nhap lai chua dung';}
-    
-     if(id == 'phone' && isNaN(value) == true){span.innerHTML ='So dien thoai la kieu so';}
-    }
-   
-    
-    if(span.innerHTML != ''){
-     inputs[i].parentNode.appendChild(span);
-     errors = true;
-     run_onchange = true;
-     inputs[i].style.border = '1px solid #c6807b';
-     inputs[i].style.background = '#fffcf9';
-    }
-   }// end for
-  
-   if(errors == false){alert('??ng k? th?nh c?ng');}
-   return !errors;
-  }// end valid()
- 
-  // Ch?y h?m ki?m tra valid()
-  var register = document.getElementById('submit');
-  register.onclick = function(){
-   return valid();
-  }
- 
-  
-   for(var i=0; i<inputs.length; i++){
-    var id = inputs[i].getAttribute('id');
-    inputs[i].onchange = function(){
-     if(run_onchange == true){
-      this.style.border = '1px solid #999';
-      this.style.background = '#fff';
-      valid();
-     }
-    }
-   }
-</script>
+<form id="submit" name="check" method="post" action="create" novalidate="" onsubmit="return check_shinkisubmit_addnew()">
 
 <p class="message_">会員情報登録を行います。<img src="img/check.gif" alt="必須">マークの箇所は、必ず入力してください。</p>
 
@@ -193,7 +123,7 @@
 		<th><img class="must_" src="img/check.gif" alt="必須">郵便番号</th>
 		<td>
 			<span class="efo checktype_mail is_required">
-				<input value="" size="40" type="text" name="postcode" maxlength="100" id="mail" onblur="ecUtil.strConvert(this, false);" title="(例)111-2222	" placeholder="(例)111-2222	" class="classrequired">
+				<input value="" size="40" type="text" name="postcode" maxlength="100" id="postcode" onblur="ecUtil.strConvert(this, false);" title="(例)111-2222	" placeholder="(例)111-2222	" class="classrequired">
 			</span>
 		</td>
 	</tr>
@@ -252,6 +182,7 @@
 		<td>
 			<span class="efo is_required checktype_pwd">
 				<input value="" size="40" type="password" name="pass" maxlength="20" id="pass" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
+				<div class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</div>
 			</span>
 		
 		</td>
@@ -261,6 +192,7 @@
 		<td>
 			<span class="efo is_required checktype_pwd">
 				<input value="" size="40" type="password" name="pass1" maxlength="20" id="pass1" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
+				<div class="small_">（念のためにもう一度入力してください。）</div>
 			</span>
 		</td>
 	</tr>
@@ -271,11 +203,139 @@
 
 <a href="home"><img src="img/back.gif" alt="戻る"></a>
 
-<input type="image" name="confirm" src="img/confirm.gif" alt="確認">
+<input type="image" id="submit" src="img/confirm.gif" value="1" alt="確認">
 <input type="hidden" name="agree.x" value="162">
 </div>
 </form>
+  <script>
+  var inputs = document.forms['check'].getElementsByTagName('input');
+  var run_onchange = false;
+  function valid(){
+   var errors = false;
+   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+   for(var i=0; i<inputs.length; i++){
+    var value = inputs[i].value;
+    var id = inputs[i].getAttribute('id');
+    var span = document.createElement('span');
+    var p = inputs[i].parentNode;
+    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+    if(value == ''){
+     span.innerHTML ='';
+    }else{
+     if(id == 'email'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var email =value;
+     }
+     //if(id == 'confirm_email' && value != email){span.innerHTML ='確認Eメールできません';}
+     if(id == 'pass'){
+      if(value.length <6){span.innerHTML ='6文字以上入力してください';}
+      var pass =value;
+     }
+     
+     /*if(id == 'confirm_pass' && value != pass){span.innerHTML ='確認パスワードできません';}*/
+          if(id == 'tel' && isNaN(value) == true){span.innerHTML ='半額数字で入力してください';}
+          if(id == 'postcode' && isNaN(value) == true){span.innerHTML ='半額数字で入力してください';}
+    }
+    if(span.innerHTML != ''){
+     inputs[i].parentNode.appendChild(span);
+     errors = true;
+     run_onchange = true;
+     inputs[i].style.border = '1px solid red';
+     inputs[i].style.background = 'white';
+     
+    }
+   }// end for
+  
+   if(errors == false)
+   return !errors;
+  }// end valid()
+  var check = document.getElementById('submit');
+  check.onclick = function(){
+   return valid();
+  }
+   for(var i=0; i<inputs.length; i++){
+    var id = inputs[i].getAttribute('id');
+    inputs[i].onchange = function(){
+     if(run_onchange == true){
+      this.style.border = '1px solid #999';
+      this.style.background = '#fff';
+    
+      valid();
+     }
+    }
+   }
+   function check_shinkisubmit_addnew()
+{
+   var c = window.document.check;         
 
+   if(c.firstname.value=='')
+   {
+      alert('姓未入力です。');
+      document.forms['check'].firstname.focus();           
+      return false;
+   }
+    else if(c.lastname.value=='')
+   {
+      alert('名未入力です。');
+      document.forms['check'].lastname.focus();           
+      return false;
+   }
+     else if(c.email.value=='')
+   {
+      alert('イメール未入力です。');
+      document.forms['check'].email.focus();           
+      return false;
+   }
+	else if(c.email1.value=='')
+   {
+      alert('確認イメール未入力です。');
+      document.forms['check'].email1.focus();           
+      return false;
+   }
+   else if(c.email.value != c.email1.value)
+   {
+      alert('確認イメールできないです。');           
+      return false;
+   }
+   else if(c.postcode.value=='')
+   {
+      alert('郵便番号未入力です。');
+      document.forms['check'].postcode.focus();           
+      return false;
+   }
+   else if(c.address.value=='')
+   {
+      alert('住所未入力です。');
+      document.forms['check'].address.focus();           
+      return false;
+   }
+      else if(c.tel.value=='')
+   {
+      alert('電話番号未入力です。');
+      document.forms['check'].tel.focus();           
+      return false;
+   }
+    else if(c.pass.value=='')
+   {
+      alert('パスワード未入力です。');
+      document.forms['check'].pass.focus();           
+      return false;
+   }
+      else if(c.pass1.value=='')
+   {
+      alert('確認パスワード未入力です。');
+      document.forms['check'].pass1.focus();           
+      return false;
+   }
+   else if(c.pass.value != c.pass1.value)
+   {
+      alert('確認パスワード合ってないよー');         
+      return false;
+   }
+   else                       
+      return true;   
+}
+   </script>
 </div>
 </div>
 

@@ -44,6 +44,7 @@ div.contents_:after { clear: both; }
 div.mainframe_ {
 	float: right;
 	width: 950px;
+	padding-right:8%;
 }
 
 /* 左メニュー */

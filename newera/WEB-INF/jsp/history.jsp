@@ -92,7 +92,7 @@
     <c:forEach var="orders" items="${data}">
 <tr>
 	<td class="order_dt_">${orders.date}</td>
-	<td class="order_id_"><a href="http://172.19.2.6:8080/newera/jumppassreplace?orders_oid">${orders.oid}</a></td>
+	<td class="order_id_">${orders.oid}</td>
 	
 	<td class="order_detail_"><ul>
 <c:forEach var="products" items="${orders.products}">

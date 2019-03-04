@@ -1,30 +1,30 @@
 /*--------------------新規登録---------------------*/
 function check_shinkisubmit_addnew()
 {
-   var c = window.document.createuser;         
+   var c = window.document.check;         
 
    if(c.firstname.value=='')
    {
       alert('姓未入力です。');
-      document.forms['createuser'].firstname.focus();           
+      document.forms['check'].firstname.focus();           
       return false;
    }
     else if(c.lastname.value=='')
    {
       alert('名未入力です。');
-      document.forms['createuser'].lastname.focus();           
+      document.forms['check'].lastname.focus();           
       return false;
    }
      else if(c.email.value=='')
    {
       alert('イメール未入力です。');
-      document.forms['createuser'].email.focus();           
+      document.forms['check'].email.focus();           
       return false;
    }
 	else if(c.email1.value=='')
    {
       alert('確認イメール未入力です。');
-      document.forms['createuser'].email1.focus();           
+      document.forms['check'].email1.focus();           
       return false;
    }
    else if(c.email.value != c.email1.value)
@@ -35,31 +35,31 @@ function check_shinkisubmit_addnew()
    else if(c.postcode.value=='')
    {
       alert('郵便番号未入力です。');
-      document.forms['createuser'].postcode.focus();           
+      document.forms['check'].postcode.focus();           
       return false;
    }
    else if(c.address.value=='')
    {
       alert('住所未入力です。');
-      document.forms['createuser'].address.focus();           
+      document.forms['check'].address.focus();           
       return false;
    }
       else if(c.tel.value=='')
    {
       alert('電話番号未入力です。');
-      document.forms['createuser'].tel.focus();           
+      document.forms['check'].tel.focus();           
       return false;
    }
     else if(c.pass.value=='')
    {
       alert('パスワード未入力です。');
-      document.forms['createuser'].pass.focus();           
+      document.forms['check'].pass.focus();           
       return false;
    }
       else if(c.pass1.value=='')
    {
       alert('確認パスワード未入力です。');
-      document.forms['createuser'].pass1.focus();           
+      document.forms['check'].pass1.focus();           
       return false;
    }
    else if(c.pass.value != c.pass1.value)

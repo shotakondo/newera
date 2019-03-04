@@ -79,12 +79,13 @@
              <img class="icon_" src="img/icon_login_customer.png" alt="会員のお客様"><span>会員のお客様</span>
            
            </h2>
+           
            <hr class="title_ bottom_">
            <div class="login_col_inner">
              <div class="login_col_section">
                <div class="form_text_">メールアドレスとパスワードを入力してログインしてください。</div>
              </div>
-             <form method="post" action="login" name="register">
+             <form method="post" action="login" name="check" id="submit">
              <table class="loginform_">
              <tbody><tr>
              <th class="uid_">メールアドレス：</th>
@@ -92,7 +93,7 @@
 	
                <input class="login_uid_mail_" type="text" name="email" value="" id="email" size="30" maxlength="100" tabindex="1" autocomplete="off"></td>
 
-             </tr>
+             </tr><br>
              <tr>
              <th class="pwd_">パスワード：</th>
              <td><input class="login_pwd_" type="password" name="pass" value="" id="pass" size="30" maxlength="20" tabindex="1" autocomplete="off"></td>
@@ -106,9 +107,65 @@
              
 
              </tbody></table>
-             <div class="inputimage_"><input type="image" name="order" src="img/login.gif" alt="ログインする" tabindex="3"></div>
-             <input name="crsirefo_hidden" type="hidden" value="a033f27dbc93b900a6594c2bea9bfee45721664f5220514b3e25100f64ce9433">
+             <div class="inputimage_"><input type="image" id="submit" src="img/login.gif" value="1" alt="ログインする" tabindex="3"></div>
+             
              </form>
+               
+                <script>
+                var inputs = document.forms['check'].getElementsByTagName('input');
+  var run_onchange = false;
+  function valid(){
+   var errors = false;
+   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+   for(var i=0; i<inputs.length; i++){
+    var value = inputs[i].value;
+    var id = inputs[i].getAttribute('id');
+    var span = document.createElement('span');
+    var p = inputs[i].parentNode;
+    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+    if(value == ''){
+     span.innerHTML ='';
+    }else{
+     if(id == 'email'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var email =value;
+     }
+
+     if(id == 'pass'){
+      if(value.length <6){span.innerHTML ='6文字以上入力してください';}
+      var pass =value;
+     }
+
+    }
+    if(span.innerHTML != ''){
+     inputs[i].parentNode.appendChild(span);
+     errors = true;
+     run_onchange = true;
+     inputs[i].style.border = '1px solid red';
+     inputs[i].style.background = 'white';
+    inputs[i].style.margin = '0 60 0 0';
+        
+    }
+   }
+  
+   if(errors == false)
+   return !errors;
+  }
+  var check = document.getElementById('submit');
+  check.onclick = function(){
+   return valid();
+  }
+   for(var i=0; i<inputs.length; i++){
+    var id = inputs[i].getAttribute('id');
+    inputs[i].onchange = function(){
+     if(run_onchange == true){
+      this.style.border = '1px solid #999';
+      this.style.background = '#fff';
+         this.style.color = 'red';
+      valid();
+     }
+    }
+   }</script>
              <div class="askpass_"><a href="jumpremind">パスワードをお忘れの方はこちら</a></div>
            </div>
         </div>
@@ -124,7 +181,7 @@
 
             <form method="post" action="jumpagree">
 
-              <div class="inputimage_"><input type="image" name="Order" src="img/member_quickentry.gif" alt="新規会員登録" tabindex="3"></div>
+              <div class="inputimage_"><input type="image" src="img/member_quickentry.gif" alt="新規会員登録" tabindex="3"></div>
 
             </form>
 
