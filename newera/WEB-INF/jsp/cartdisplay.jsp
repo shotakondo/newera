@@ -42,7 +42,7 @@
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links">
 	<c:if test="${sessionScope.userBean.id == null}">
-			 <li class="link_mypage"><a href="jumplogin">ログイン/新規会員登録</a></li>
+			 <li class="link_login"><a href="jumplogin">ログイン/新規会員登録</a></li>
 		</c:if>
 		
 		<c:if test="${sessionScope.userBean.id != null}">
@@ -161,7 +161,7 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 </div>
 </form>
 
-<p style="font-size:1.3em;margin: 50px">
+<p style="font-size:1.3em;margin-left: 50px">
 ◆ご注文の前に、ご利用規約・ご利用ガイドをお読みください。<br>
 ◆ご購入手続きに進む前にご希望の商品・サイズをもう一度ご確認ください。<br>
 　ご注文確定後のキャンセルやご注文内容の変更は承っておりません。<br>

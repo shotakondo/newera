@@ -80,7 +80,75 @@
 <h1 class="common_headline1_"><strong><img src="img/members1.png" alt="MEMBERS"></strong><span>新規会員登録</span></h1>
 <form id="frmCustomer" name="createuser" method="post" action="create" novalidate="" onsubmit="return check_shinkisubmit_addnew()">
 
-
+<script>
+<script>var inputs = document.forms['register'].getElementsByTagName('input');
+  var run_onchange = false;
+  function valid(){
+   var errors = false;
+   var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
+   for(var i=0; i<inputs.length; i++){
+    var value = inputs[i].value;
+    var id = inputs[i].getAttribute('id');
+   
+    
+    var span = document.createElement('span');
+    
+    var p = inputs[i].parentNode;
+    if(p.lastChild.nodeName == 'SPAN') {p.removeChild(p.lastChild);}
+   
+    
+    if(value == ''){
+     span.innerHTML ='Thong tin duoc iu cau';
+    }else{
+    
+     if(id == 'email'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='Email khong hop le (（例）: abc@gmail.com)';}
+      var email =value;
+     }
+     if(id == 'confirm_email' && value != email){span.innerHTML ='Email nhap lai chua dung';}
+     // Kiem tra password
+     if(id == 'password'){
+      if(value.length <6){span.innerHTML ='Password phai tu 6 ki tu';}
+      var pass =value;
+     }
+    
+     if(id == 'confirm_pass' && value != pass){span.innerHTML ='Password nhap lai chua dung';}
+    
+     if(id == 'phone' && isNaN(value) == true){span.innerHTML ='So dien thoai la kieu so';}
+    }
+   
+    
+    if(span.innerHTML != ''){
+     inputs[i].parentNode.appendChild(span);
+     errors = true;
+     run_onchange = true;
+     inputs[i].style.border = '1px solid #c6807b';
+     inputs[i].style.background = '#fffcf9';
+    }
+   }// end for
+  
+   if(errors == false){alert('??ng k? th?nh c?ng');}
+   return !errors;
+  }// end valid()
+ 
+  // Ch?y h?m ki?m tra valid()
+  var register = document.getElementById('submit');
+  register.onclick = function(){
+   return valid();
+  }
+ 
+  
+   for(var i=0; i<inputs.length; i++){
+    var id = inputs[i].getAttribute('id');
+    inputs[i].onchange = function(){
+     if(run_onchange == true){
+      this.style.border = '1px solid #999';
+      this.style.background = '#fff';
+      valid();
+     }
+    }
+   }
+</script>
 
 <p class="message_">会員情報登録を行います。<img src="img/check.gif" alt="必須">マークの箇所は、必ず入力してください。</p>
 
@@ -144,7 +212,7 @@
 		<th><img class="must_" src="img/check.gif" alt="必須">連絡先電話番号</th>
 		<td>
 		<span class="efo checktype_tel  is_required">
-			<input value="" size="20" type="text" name="tel" id="tel" maxlength="13" onblur="ecUtil.strConvert(this, false); " placeholder="(例)09012345678	" class="classrequired classerror" title="(例)09012345678	">
+			<input value="" size="20" type="text" name="tel" id="tel" maxlength="13" onblur="ecUtil.strConvert(this, false); " placeholder="(例)090-1234-5678	" class="classrequired classerror" title="(例)090-1234-5678	">
 		</span><img id="isErrorIcon_tel" src="img/input_error.gif" alt="入力内容に誤りがあります。">
 		
 		

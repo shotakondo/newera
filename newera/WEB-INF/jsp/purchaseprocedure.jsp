@@ -190,17 +190,41 @@
     <div class="method_box_content_">
       クーポンコード : <input type="text" name="couponcode" value="" size="30" maxlength="20">
       
-      <a class="open_available_coupon" href=""><img src="//d3iuyfi32mtj8g.cloudfront.net/img/sys/button/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
+      <a class="open_available_coupon" href=""><img src="img/open_coupon.gif" alt="利用可能なクーポンを表示"></a>
       
       
       
     </div>
 </div>
 
+<script src="js/jquery.magnific-popup.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.magnific-popup.css">
 
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	
+	// 利用可能なクーポン一覧を表示
+	jQuery('.open_available_coupon').magnificPopup({
+		type: 'ajax',
+		showCloseBtn: false,
+		ajax: {
+			settings: { cache: false },
+			tError: '表示できないページです。'
+		},
+		callbacks: {
+			parseAjax: function(mfpResponse) {
+				var existAvailableCoupon = jQuery(mfpResponse.data).wrap('<p>').parent().find('#available_coupon');
+				if(!existAvailableCoupon[0]) {
+					jQuery.magnificPopup.close();
+					alert("セッションがタイムアウトしました。\r\n最初からやり直してください。");
+					location.reload();
+				}
+			}
+		}
+	});
 
-<link rel="stylesheet" type="text/css" href="/lib/jquery.magnific-popup.css">
-
+});
+</script>
 <div class="method_box_" id="method_promotion">
     <h3>キャンペーン適用</h3>
     <div class="method_box_content_">
@@ -214,28 +238,28 @@
   <div class="method_box_content_">
   <ul id="method_radio"><li>
   <label for="method_r2">
-    <input type="radio" id="method_r2" name="method" value="代金引換">
+    <input type="radio" id="method_r2" name="method" value="代金引換" checked="">
     代金引換
   </label>
 
 </li>
 <li>
   <label for="method_r7">
-    <input type="radio" id="method_r7" name="method" value="クレジットカード">
+    <input type="radio" id="method_r7" name="method" value="クレジットカード" checked="">
     クレジットカード
   </label>
 
 </li>
 <li>
   <label for="method_rF">
-    <input type="radio" id="method_rF" name="method" value="Amazon Pay">
+    <input type="radio" id="method_rF" name="method" value="Amazon Pay" checked="">
     Amazon Pay
   </label>
 
 </li>
 <li>
   <label for="method_rI">
-    <input type="radio" id="method_rI" name="method" value="Paidy翌月払い(コンビニ/銀行)">
+    <input type="radio" id="method_rI" name="method" value="Paidy翌月払い(コンビニ/銀行)" checked="">
     Paidy翌月払い(コンビニ/銀行)
   </label>
 

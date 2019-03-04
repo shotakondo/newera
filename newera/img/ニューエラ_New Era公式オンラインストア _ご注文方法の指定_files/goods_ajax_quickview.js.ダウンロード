@@ -1,0 +1,64 @@
+﻿var errContents = '<div class="QuickView_Frame_ quick_view_">詳細情報はありません</div>';
+var timerQuickView = null;
+jQuery(document).ready(function() {
+    jQuery('img[data-ref-goods]').parents('.img_').hover(function() {
+        var target = this;
+        timerQuickView = setTimeout(function() {
+            addQuickView(target);
+        }, 200);
+    }, function() {
+        clearTimeout(timerQuickView);
+        timerQuickView = null;
+        removeQuickView(this);
+    });
+});
+
+function addQuickView(elm) {
+    jQuery.ajax({
+        type: 'GET',
+        url: EC_WWW_ROOT + '/shop/goods/quickviewajax.aspx',
+        data: {
+            'goods': jQuery(elm).find('img[data-ref-goods]').attr('data-ref-goods')
+        },
+        cache: false,
+        success: function(data) {
+            doAddQuickView(elm, data);
+        },
+        error: function() {
+            doAddQuickView(elm, errContents);
+        }
+    });
+}
+
+function doAddQuickView(elm, data) {
+    if (timerQuickView == null) {
+        return;
+    }
+    jQuery(elm).append(data);
+    var topQuickView = jQuery(elm).offset().top - 10;
+    var leftQuickView = jQuery(elm).offset().left - jQuery(elm).find('.quick_view_').width();
+    jQuery(elm).find('.quick_view_').css({
+        'top': topQuickView,
+        'left': leftQuickView
+    });
+    jQuery(elm).find('.quick_view_').queue([]).fadeIn('fast');
+    if (1 < jQuery(document).find('.quick_view_').length) {
+        jQuery(document).find('.quick_view_').each(function(key, value) {
+            if (jQuery(value).position().top == topQuickView && jQuery(value).position().left == leftQuickView) {
+                jQuery(elm).find('.quick_view_').nextAll().remove('div.QuickView_Frame_.quick_view_');
+                return false;
+            } else {
+                jQuery(value).remove();
+            }
+        });
+    }
+}
+
+function removeQuickView(elm) {
+    var quickView = jQuery(elm).find('.quick_view_');
+    if (quickView) {
+        quickView.queue([]).fadeOut('fast', function() {
+            quickView.remove();
+        });
+    }
+}

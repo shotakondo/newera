@@ -79,13 +79,8 @@
 <div id="contents">
 <ul id="bread-crumb-list" class="wrap clearfix">
 <li itemscope="" itemtype="">
-  <a href="home" itemprop="url" class="topicpath_home_">
-    <span itemprop="title">トップ</span>
-  </a>
-</li>
-<li itemscope="" itemtype="" itemprop="child">
-　&gt;　<a href="" itemprop=""><span itemprop="title"><strong>キャップ</strong></span></a>
-</li>
+
+
 
 </ul>
 
@@ -170,10 +165,10 @@
 </table>
     
   </div>
-  <div class="pager clearfix top_"><p class="navipage_sum_">120件</p><div class="navipage_forward_">
+  <!--<div class="pager clearfix top_"><p class="navipage_sum_">120件</p><div class="navipage_forward_">
 <span class="#header">1</span>
 
-</div></div>
+</div></div>-->
 </div>
 
 

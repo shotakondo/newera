@@ -90,28 +90,8 @@
 </center>
 </div>
 <br><br>
-<table class="formdetail_ order_">
-<tbody><tr>
-<th>オーダーＩＤ</th>
-
-<td class="order_id_"><a href="">${date}</a></td>
-
-</tr>
-
-
-
-
-
-
-
-</tbody></table>
+<table class="formdetail_ order_"></table>
 <div class="rules_comment_"></div>
-
-
-
-
-
-
 
 <div class="submit_">
 <a href="jumplogin"><img src="img/ordered.gif" alt="ホームへ戻る"></a>

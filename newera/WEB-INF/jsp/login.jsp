@@ -145,22 +145,27 @@
     </div>
 
 </div>
-<script type="text/javascript" language="JavaScript">
-<!--//
-jQuery("#login_uid").ready(function(){
-    jQuery("#login_uid").focus();
-});
-//-->
-</script>
-</div>
 
-		
-	<div id="footer">
+</div>
+<div id="footer">
 
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
 
+<div id="foot_main"><div class="footer_inner_">
+	<dl class="follow">
+		<dt>FOLLOW US</dt>
+		<dd>
+			<ul>
+				<li><a href="https://www.facebook.com/newerajapan" target="_blank"><img src="img/foot_sns_fb.png" alt="facebook"></a></li>
+				<li><a href="https://twitter.com/newera_japan" target="_blank"><img src="img/foot_sns_tw.png" alt="twitter"></a></li>
+				<li><a href="http://www.neweracap.jp/news/line/" target="_blank"><img src="img/foot_sns_gplus.png" alt="Google Plus"></a></li>
+				<li><a href="https://www.instagram.com/newerajapan/" target="_blank"><img src="img/foot_sns_instagram.png" alt="Instagram"></a></li>
+			</ul>
+		</dd>
+	</dl>
+</div></div>
 <div id="foot_btm"><div class="footer_inner_">
-	<p id="copyright">COPYRIGHT© New Era Japan GK. ALL RIGHTS RESERVED.</p>
+	<p id="copyright">COPYRIGHT☆ New Era Japan GK. ALL RIGHTS RESERVED.</p>
 </div></div>
 			
 	</div>
