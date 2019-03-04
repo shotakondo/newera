@@ -44,7 +44,6 @@ else{
 
 </script>
 <link rel="SHORTCUT ICON" href="img/favicon.ico">
- etm meta 
 <meta property="etm:device" content="desktop">
 <meta property="etm:page_type" content="">
 <meta property="etm:cart_item" content="[]">
@@ -119,7 +118,6 @@ else{
 <th>新しいパスワード</th>
 <td>
 <input type="password" name="pass" value="" size="20" maxlength="20" id="npwd1" tabindex="1" autocomplete="off">
-（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）
 
 </td>
 </tr>

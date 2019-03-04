@@ -84,7 +84,7 @@
 <h1 class="common_headline1_">‘Ş‰ï</h1>
 
 <div class="customer_status_">
-<div class="loginname_">‚s‚‚‹‚™‚ ‚`‚‚ˆ —l</div>
+<div class="loginname_">${sessionScope.userBean.getLastName()}${sessionScope.userBean.getFirstName()} —l</div>
 
 </div>
 <% User u = (User)session.getAttribute("userBean"); %>

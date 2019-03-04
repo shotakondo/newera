@@ -43,8 +43,8 @@ public class WebRequestContext implements RequestContext{
 		System.out.println("JSESSIONID="+_request.getSession().getId());
 		Object beanObject = (User) session.getAttribute(a);
 		System.out.println("getSessionAttribute USER="+beanObject);
-		User ub = (User) beanObject;
-		System.out.println("USER.getId()="+ub.getId());
+		//User ub = (User) beanObject;
+		//System.out.println("USER.getId()="+ub.getId());
 		return beanObject;
 	}
 	public void sessionInvalidate(){

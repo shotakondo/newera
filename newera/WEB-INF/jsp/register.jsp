@@ -252,10 +252,7 @@
 		<td>
 			<span class="efo is_required checktype_pwd">
 				<input value="" size="40" type="password" name="pass" maxlength="20" id="pass" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
-			</span><img id="isErrorIcon_pwd" src="img/input_ok.gif" alt="入力内容に問題有りません。">
-		
-		<div class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</div>
-		<div id="pwd_count_msg" style="color: rgb(102, 102, 255);">あと11文字入力可能です。</div>
+			</span>
 		
 		</td>
 	</tr>
@@ -264,7 +261,7 @@
 		<td>
 			<span class="efo is_required checktype_pwd">
 				<input value="" size="40" type="password" name="pass1" maxlength="20" id="pass1" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
-			</span><img id="isErrorIcon_pwd" src="img/input_ok.gif" alt="入力内容に問題有りません。">
+			</span>
 		</td>
 	</tr>
 </tbody></table>

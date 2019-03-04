@@ -41,6 +41,9 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 		}
 		
 		String[] numliststring = req.getParameterValues("num");
+		if(numliststring == null){
+			resc.setTarget("cartdisplay");
+		}else{
 		String submit = req.getParameter("submit");
 		int[] numlistint = new int[numliststring.length];
 		
@@ -112,7 +115,7 @@ public class PurchaseProcedureCommand extends AbstractCommand{
 				resc.setTarget("purchaseprocedure");
 			}
 		}
-		
+		}
 		return resc;
 	}
 }

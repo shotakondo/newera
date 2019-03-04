@@ -43,7 +43,7 @@
 			<div id="head_top"><div class="header_inner_">
 	<h1 id="tagline">ニューエラ公式オンラインストア</h1>
 	<ul class="links"><!--
-		--><li class="link_login"><a href="">ログイン／新規会員登録</a></li><!--
+		--><li class="link_login"><a href="jumplogin">ログイン／新規会員登録</a></li><!--
 	--></ul>
 </div></div>
 
@@ -60,7 +60,7 @@
 			<input name="image" type="submit" value="検索" tabindex="1" src="img/go.png"  >
 		</form>
 			</div>
-			<p class="btn_favorite"><a href="">お気に入り</a></p>
+			<p class="btn_favorite"><a href="favoritedisplay">お気に入り</a></p>
 			<p class="btn_cart"><a href="cartdisplay">カート</a></p>
 		</div>
 	</div>
