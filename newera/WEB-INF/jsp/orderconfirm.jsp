@@ -241,7 +241,7 @@
   
 
   <div class="back_ button_">
-  <a href="">ご注文方法の指定に戻る</a>
+  <a href="javascript:history.go(-1);">ご注文方法の指定に戻る</a>
   </div>
 </div>
 </form>
