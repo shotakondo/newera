@@ -180,6 +180,10 @@ function check_emailsubmit_addnew()
       if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
       var email =value;
      }
+     if(id == 'newemail'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var newemail =value;
+     }
      //if(id == 'confirm_email' && value != email){span.innerHTML ='確認Eメールできません';}
      if(id == 'pass'){
       if(value.length <6){span.innerHTML ='6文字以上入力してください';}

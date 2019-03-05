@@ -182,7 +182,7 @@
 		<td>
 			<span class="efo is_required checktype_pwd">
 				<input value="" size="40" type="password" name="pass" maxlength="20" id="pass" autocomplete="off" onblur="countPWDLength(6,20);" onkeyup="countPWDLength(6,20);" class="" aria-autocomplete="list">
-				<div class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）</div>
+				<div class="small_">（半角英数字記号 6文字以上,20文字以内で入力してください。）</div>
 			</span>
 		
 		</td>
@@ -225,6 +225,10 @@
      if(id == 'email'){
       if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
       var email =value;
+      }
+      if(id == 'email1'){
+      if(reg_mail.test(value) == false){ span.innerHTML ='無効なEメール ((例): sample@sample.jp)';}
+      var email1 =value;
      }
      //if(id == 'confirm_email' && value != email){span.innerHTML ='確認Eメールできません';}
      if(id == 'pass'){
@@ -233,8 +237,8 @@
      }
      
      /*if(id == 'confirm_pass' && value != pass){span.innerHTML ='確認パスワードできません';}*/
-          if(id == 'tel' && isNaN(value) == true){span.innerHTML ='半額数字で入力してください';}
-          if(id == 'postcode' && isNaN(value) == true){span.innerHTML ='半額数字で入力してください';}
+          
+          
     }
     if(span.innerHTML != ''){
      inputs[i].parentNode.appendChild(span);

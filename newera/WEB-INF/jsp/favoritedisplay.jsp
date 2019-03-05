@@ -82,7 +82,7 @@
 </div>
 
 <form method="post" action="">
-<input name="crsirefo_hidden" type="hidden" value="06701335fbce7687e808ca3216d5ade622a4aace605758ae78e22c8ef402eae5">
+<input name="crsirefo_hidden" type="hidden" value="">
 </form>
 
 <script type="text/javascript" src="/js/customer_bookmark.js"></script>
@@ -92,7 +92,7 @@
 
 <div class="bookmark_frame_">
   <c:forEach var="favorite" items="${data}">
-<div class="bookmark_item_" id="bookmark_160777">
+<div class="bookmark_item_" id="">
 		<div class="cartgoods_"><input type="checkbox" name="cart_goods" value="12031698-OSFA"></div>
 		<div class="img_">
 			
@@ -119,7 +119,7 @@
 
 		</div>
 		<div class="del_">
-		<a href="favoritedelete?pid=${favorite.pid}" name="" onclick="alert('‚¨‹C‚É“ü‚è‚É“o˜^‚³‚ê‚½¤•i‚Í‚ ‚è‚Ü‚¹‚ñB');">
+		<a href="favoritedelete?pid=${favorite.pid}" name="" >
 		<img src="img/delete_s.gif" alt="íœ"></a>
 		</div>
 </div>
