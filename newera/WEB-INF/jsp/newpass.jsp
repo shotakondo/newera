@@ -117,15 +117,15 @@ else{
 <tr>
 <th>新しいパスワード</th>
 <td>
-<input type="password" name="pass" value="" size="20" maxlength="20" id="pass" tabindex="1" autocomplete="off">
-（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。）
+<input type="password" name="pass" value="" size="20" maxlength="20" id="pass" tabindex="1" autocomplete="off"><br>
+（半角英数字記号 6文字以上,20文字以内で入力してください。IDと同様のパスワードは入力できません。<br>
 </td>
 </tr>
 <tr>
 <th>新しいパスワード（確認）</th>
 <td>
-<input type="password" name="pass1" value="" size="20" maxlength="20" id="" tabindex="1" autocomplete="off" onpaste="alert('確認のためもう一度入力してください');return false">
-（確認のためもう一度入力してください）
+<input type="password" name="pass1" value="" size="20" maxlength="20" id="pass1" onpaste="alert('確認のためもう一度入力してください');return false"><br>
+（確認のためもう一度入力してください）<br>
 
 </td>
 </tr>
@@ -158,6 +158,7 @@ else{
       if(value.length <6){span.innerHTML ='6文字以上入力してください';}
       var pass =value;
       if(id == 'pass1' && value != pass){span.innerHTML ='確認パスワードもう一度入力してください';}
+      
      }
     }
     if(span.innerHTML != ''){
@@ -166,7 +167,7 @@ else{
      run_onchange = true;
      inputs[i].style.border = '1px solid red';
      inputs[i].style.background = 'white';
-     
+     inputs[i].style.margin = '0 60 0 0';
     }
    }// end for
   

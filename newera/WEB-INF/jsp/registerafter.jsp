@@ -115,11 +115,10 @@ setTimeout("jumpPage()",mnt*1000)
 
 		
 	<div id="footer">
-			
-					
+
 <p id="pagetop" style="position: fixed; bottom: 20px; display: none; opacity: 1;"><a href="#header">PAGE TOP</a></p>
+
 <div id="foot_main"><div class="footer_inner_">
-	
 	<dl class="follow">
 		<dt>FOLLOW US</dt>
 		<dd>
@@ -139,7 +138,4 @@ setTimeout("jumpPage()",mnt*1000)
 	</div>
 </div>
 
-
-
-
-<div class="selection_bubble_root" style="display: none;"></div></body></html>
+</body></html>

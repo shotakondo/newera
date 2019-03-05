@@ -32,6 +32,10 @@ public class CartDeleteCommand extends AbstractCommand{
 		if(cb == null){
 			cb = new CartBean();
 		}
+		//トランザクションを開始する
+		OracleConnectionManager.getInstance().beginTransaction();
+		
+		//インテグレーションレイヤの処理を呼び出す
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 		ProductDao pd = factory.getProductDao();
 		cb.deleteProduct(pid);
@@ -44,6 +48,11 @@ public class CartDeleteCommand extends AbstractCommand{
 		cb.setSubtotal(subtotal);
 		u.setCart(cb);
 		
+		//トランザクションを終了する
+		OracleConnectionManager.getInstance().commit();
+		
+		//コネクションを切断する
+		OracleConnectionManager.getInstance().closeConnection();
 		//cartdisplay.jspへ転送
 		resc.setTarget("cartdisplay");
 		

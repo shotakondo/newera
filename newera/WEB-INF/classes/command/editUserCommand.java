@@ -33,10 +33,19 @@ public class editUserCommand extends AbstractCommand{
 		String id = u.getId();
 		System.out.println("editUserCommandでgetSessionAttributeした後のu.getId() : "+id);
 		
+		//トランザクションを開始する
+		OracleConnectionManager.getInstance().beginTransaction();
+		
+		//インテグレーションレイヤの処理を呼び出す
 		AbstractDaoFactory factory=AbstractDaoFactory.getFactory();
 		UserDao dao=factory.getUserDao();
 		
 		u =dao.editUser(u.getEmail(), u);
+		//トランザクションを終了する
+		OracleConnectionManager.getInstance().commit();
+		
+		//コネクションを切断する
+		OracleConnectionManager.getInstance().closeConnection();
 		
 		System.out.println("getUserCommandのListのl : "+ u);
 		

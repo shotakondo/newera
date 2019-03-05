@@ -157,7 +157,7 @@
 		<th><img class="must_" src="img/check.gif" alt="必須">性別</th>
 		<td>
 			<span class="efo ">
-				<select name="sex"><option value="男性" selected="">男性</option><option value="女性">女性</option>
+				<select name="sex"><option value="0" selected="">男性</option><option value="1">女性</option>
 			</span>
 		
 		</td>
@@ -203,7 +203,7 @@
 
 <a href="home"><img src="img/back.gif" alt="戻る"></a>
 
-<input type="image" id="submit" src="img/confirm.gif" value="1" alt="確認">
+<input type="image" id="submit" src="img/enter.gif" value="1" alt="確認">
 <input type="hidden" name="agree.x" value="162">
 </div>
 </form>

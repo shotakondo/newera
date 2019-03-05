@@ -60,7 +60,7 @@ div.freepage_ .box_ {margin-bottom: 20px;width: 100%;overflow: hidden;}
 #newitem .list_newitem_item .wrapper_text {position: absolute;top: 50%;left: 0;width: 90%;max-height: 100%;padding: 0 5%;text-align: center;overflow: auto;-webkit-transform: translateY(-50%);transform: translateY(-50%);}
 #newitem .list_newitem_item .text {font-size: 1.6rem;font-weight: bold;}
 #newitem .btn_more {display: none;margin-top: 0;}
-#newitem .btn_more a::after {width: 10px;height: 6px;margin-top: 5px;background: url("../img/usr/arrow_down1.png") no-repeat center;}
+#newitem .btn_more a::after {width: 10px;height: 6px;margin-top: 5px;background: url("../img/arrow_down1.png") no-repeat center;}
 #newitem .btn_more a:hover::after {background-image: url("../img/usr/arrow_down3.png");}
 /* ----ローンチカレンダー---- */
 #launchcalendar {padding-bottom: 90px;}

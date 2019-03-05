@@ -106,7 +106,7 @@
 </tbody></table>
 
 <div class="submit_">
-<a href="javascript:history.go(-1);"><img src="img/back.gif" alt="–ß‚é"></a>
+<a href="jumplogin"><img src="img/back.gif" alt="–ß‚é"></a>
 <input type="image" name="confirm" src="img/send.gif" alt="‘—M">
 </form>
 

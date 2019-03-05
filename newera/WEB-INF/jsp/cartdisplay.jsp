@@ -125,7 +125,7 @@ document.getElementById("${product.num}").value=parseInt(t)-1;
 		
 	</td>
 	<td class="money_">
-		<span class="price_">Åè${product.price}</span>
+		<span class="price_">Åè<script>var x; x = ${product.price} * ${product.num}; document.write(x);</script></span>
 	</td>
 	<td class="button_">
 		<a href="cartdelete?pid=${product.pid}" ><img src="img/delete_s.gif" name="" alt="çÌèú"></a>

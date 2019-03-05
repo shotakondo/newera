@@ -179,4 +179,36 @@ public class OraOrderDao implements OrderDao{
 		}
 		return orders;
 	}
+	
+	public void deleteOrders(String uid){
+		
+		Connection cn = OracleConnectionManager.getInstance().getConnection();
+		PreparedStatement st = null;
+		
+		try{
+			//insert文
+			String sql = "delete from order_table where order_user_id = '"+uid+"'";
+			
+			//PreparedStatementインターフェイスを実装するクラスの
+			//インスタンスを取得する
+			st = cn.prepareStatement(sql);
+			
+			//SQLの実行
+			st.executeUpdate();
+			
+		//getConnection, prepareStatement, executeQueryで例外発生の場合
+		}catch(SQLException e){
+			//ロールバックする
+			try{
+				cn.rollback();
+			}catch(SQLException e2){
+				//独自例外にラップして送出する
+				throw new ResourceAccessException(e2.getMessage(), e2);
+			}
+			
+			//独自例外にラップして送出する
+			throw new ResourceAccessException(e.getMessage(), e);
+			
+		}
+	}
 }

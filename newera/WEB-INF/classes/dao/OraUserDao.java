@@ -224,10 +224,9 @@ public class OraUserDao implements UserDao{
 			Connection cn = null;
 			cn = OracleConnectionManager.getInstance().getConnection();
 			
-			String sql = "DELETE from user_table where user_id=?";
+			String sql = "DELETE from user_table where user_id='"+id+"'";
 			System.out.println(sql);
 			st = cn.prepareStatement(sql);
-			st.setString(1,id);
 			st.executeUpdate();
 			cn.commit();
 			b = true;
@@ -329,23 +328,18 @@ public class OraUserDao implements UserDao{
 			
 			st = cn.prepareStatement(sql);
 			
-			rs = st.executeQuery();
+			st.setString(1,u.getFirstName());
+			st.setString(2,u.getLastName());
+			st.setString(3,u.getEmail());
+			st.setString(4,u.getTel());
+			st.setString(5,u.getPostcode());
+			st.setString(6,u.getAddress());
+			st.setString(7,u.getSex());
+			st.setString(8,u.getBirthday());
 			
-			while(rs.next()){
-				
-				
-				u.setId(rs.getString(1));
-				u.setFirstName(rs.getString(2));
-				u.setLastName(rs.getString(3));
-				u.setEmail(rs.getString(4));
-				u.setPass(rs.getString(5));
-				u.setTel(rs.getString(6));
-				u.setPostcode(rs.getString(7));
-				u.setAddress(rs.getString(8));
-				u.setSex(rs.getString(9));
-				u.setBirthday(rs.getString(10));
+			
+			st.executeUpdate();
 
-			}
 		}catch(SQLException e){
 			OracleConnectionManager.getInstance().rollback();
 			e.printStackTrace();

@@ -220,13 +220,11 @@
 </textarea>
 </form>
 
-<form action="jumpcreate" method="post">
 <div class="submit_">
 <a href="home"><img src="img/noagree.gif" alt="“¯ˆÓ‚µ‚È‚¢"></a>
-<input type="image" name="" src="img/agree.gif" alt="“¯ˆÓ‚·‚é" tabindex="1">
+<a href="jumpcreate"><img src="img/agree.gif" alt="“¯ˆÓ‚·‚é" tabindex="1"></a>
 
 </div>
-</form>
 
 </div>
 

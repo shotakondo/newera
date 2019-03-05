@@ -35,7 +35,14 @@ public class PasswordRemindCommand extends AbstractCommand{
 		User u = (User) reqc.getSessionAttribute("userBean");
 		u.setEmail(email);
 		u.setTel(tel);
-		AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
+		
+		
+		//トランザクションを開始する
+		OracleConnectionManager.getInstance().beginTransaction();
+		
+		//インテグレーションレイヤの処理を呼び出す
+		AbstractDaoFactory factory=AbstractDaoFactory.getFactory();
+		
 		UserDao ud = factory.getUserDao();
 		
 		boolean b = ud.checkEmail(u);
@@ -43,6 +50,11 @@ public class PasswordRemindCommand extends AbstractCommand{
 		reqc.setSessionAttribute("userBean",u);
 		String id = ud.getUserId(u.getEmail());
 		
+		//トランザクションを終了する
+		OracleConnectionManager.getInstance().commit();
+		
+		//コネクションを切断する
+		OracleConnectionManager.getInstance().closeConnection();
 			
 		if(b == true){
 
@@ -103,17 +115,17 @@ public class PasswordRemindCommand extends AbstractCommand{
 
         try {
             final Address addrFrom = new InternetAddress(
-                    "nitorytest@gmail.com", "nitorytestのパスワードリマインダー", ENCODE);//送信者情報
+                    "nitorytest@gmail.com", "neweraのパスワードリマインダー", ENCODE);//送信者情報
             message.setFrom(addrFrom);
 
             final Address addrTo = new InternetAddress(mailaddress,
-                    "おかだめゆきさま。この部分はこっちで好きに表示できる", ENCODE);//宛先情報
+                    "", ENCODE);//宛先情報
             message.addRecipient(Message.RecipientType.TO, addrTo);
 
             // メールのSubject
             message.setSubject("パスワード変更手続きのご案内", ENCODE);
-
-			message.setText("http://172.19.2.6:8080/newera/jumppassreplace?user_id="+id, ENCODE);
+			
+			message.setText("こちらのurlからパスワード変更してください \n http://172.19.2.6:8080/newera/jumppassreplace?user_id="+id, ENCODE);
         	//message.setText("http://192.168.1.4:8080/newera/jumppassreplace?user_id="+id, ENCODE);
             // その他の付加情報。
             message.addHeader("X-Mailerメーラー", "blancoMail 0.1エンジン？");

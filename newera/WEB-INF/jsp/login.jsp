@@ -161,7 +161,7 @@
      if(run_onchange == true){
       this.style.border = '1px solid #999';
       this.style.background = '#fff';
-         this.style.color = 'red';
+       
       valid();
      }
     }

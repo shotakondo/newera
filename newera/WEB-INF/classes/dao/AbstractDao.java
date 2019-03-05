@@ -21,6 +21,7 @@ public abstract class AbstractDao implements ProductDao, UserDao, CartDao, Favor
 	public abstract List getFavorites(String uid);
 	public abstract void setFavorite(String uid, String pid);
 	public abstract void deleteFavorite(String uid, String pid);
+	public abstract void deleteFavorites(String uid);
 	public abstract void alterFavorite(String uid, String pid);
 	
 	public abstract int getStock(String pid);
@@ -30,7 +31,9 @@ public abstract class AbstractDao implements ProductDao, UserDao, CartDao, Favor
 	public abstract String getSequence();
 	public abstract void setOrder(String sq, String uid, String method, int total);
 	public abstract List getOrders(String id);
+	public abstract void deleteOrders(String uid);
 	
 	public abstract void setDetail(String sq, ProductBean pb);
+	public abstract void deleteDetail(String oid);
 	
 }
